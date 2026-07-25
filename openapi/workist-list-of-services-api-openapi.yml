@@ -1,0 +1,963 @@
+openapi: 3.0.3
+info:
+  title: Workist Integrations & Developer Delivery Notes List Of Services API
+  version: v1
+  description: With this API you can access different resources of the Workist platform (e.g. processed documents, masterdata imports)
+  termsOfService: https://www.workist.com/terms-of-use
+  contact:
+    email: info@workist.com
+servers:
+- url: /v1/
+- url: /api/v1/
+tags:
+- name: List Of Services
+paths:
+  /list-of-services:
+    get:
+      operationId: list_of_services_list
+      description: 'To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. '
+      summary: Get all processing records for this document type
+      parameters:
+      - in: query
+        name: channel
+        schema:
+          type: string
+        description: Id of a processing channel
+      - in: query
+        name: assistance_needed
+        schema:
+          type: boolean
+        description: Filter by assistance needed records
+      - in: query
+        name: finished
+        schema:
+          type: boolean
+        description: Filter by finished records
+      - in: query
+        name: imported
+        schema:
+          type: boolean
+        description: Filter records marked as [SUCCEEDED]
+      - in: query
+        name: import_failed
+        schema:
+          type: boolean
+        description: Filter records marked as [FAILED]
+      - in: query
+        name: created_by
+        schema:
+          type: string
+        description: Email address or id of a user.
+      - in: query
+        name: assisted_by
+        schema:
+          type: string
+        description: Email address or id of a user.
+      - in: query
+        name: date_from
+        schema:
+          type: string
+          format: date-time
+        description: 'Beginning of a date range (based on created_at) in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`'
+      - in: query
+        name: date_to
+        schema:
+          type: string
+          format: date-time
+        description: 'End of a date range (based on created_at) in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`'
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: show_unfinished_data
+        schema:
+          type: boolean
+        description: 'By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.
+
+
+          Default: `False`'
+      tags:
+      - List Of Services
+      security:
+      - BearerAuthentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedListOfServicesProcessingRecordList'
+          description: ''
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+    post:
+      operationId: list_of_services_create
+      description: 'To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. '
+      summary: Add a new processing record for this document type
+      parameters:
+      - in: query
+        name: show_unfinished_data
+        schema:
+          type: boolean
+        description: 'By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.
+
+
+          Default: `False`'
+      tags:
+      - List Of Services
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDocumentRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreateDocumentRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CreateDocumentRequest'
+        required: true
+      security:
+      - BearerAuthentication: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOfServicesProcessingRecord'
+          description: ''
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+  /list-of-services/{id}:
+    get:
+      operationId: list_of_services_retrieve
+      description: 'To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. '
+      summary: Get a specific processing record for this document type
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this list of services processing record.
+        required: true
+      - in: query
+        name: show_unfinished_data
+        schema:
+          type: boolean
+        description: 'By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.
+
+
+          Default: `False`'
+      tags:
+      - List Of Services
+      security:
+      - BearerAuthentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOfServicesProcessingRecord'
+          description: ''
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+    delete:
+      operationId: list_of_services_destroy
+      description: 'To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. '
+      summary: Delete a processing record of this document type
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this list of services processing record.
+        required: true
+      tags:
+      - List Of Services
+      security:
+      - BearerAuthentication: []
+      responses:
+        '204':
+          description: No response body
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+  /list-of-services/{id}/assign_user:
+    put:
+      operationId: list_of_services_assign_user_update
+      description: The user will be stored in the field `assigned_to`.
+      summary: Assign a user to a specific processing record of this document type
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this list of services processing record.
+        required: true
+      - in: query
+        name: show_unfinished_data
+        schema:
+          type: boolean
+        description: 'By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.
+
+
+          Default: `False`'
+      tags:
+      - List Of Services
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssignUserRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AssignUserRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AssignUserRequest'
+        required: true
+      security:
+      - BearerAuthentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOfServicesProcessingRecord'
+          description: ''
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+  /list-of-services/{id}/generate-x94:
+    post:
+      operationId: list_of_services_generate_x94_create
+      description: Generate a new list of services
+      summary: Generate a new list of services
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this list of services processing record.
+        required: true
+      tags:
+      - List Of Services
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateX94ListOfServicesRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/GenerateX94ListOfServicesRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/GenerateX94ListOfServicesRequest'
+        required: true
+      security:
+      - BearerAuthentication: []
+      responses:
+        '200':
+          description: x94 GAEB XML file
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+  /list-of-services/{id}/mark_imported:
+    put:
+      operationId: list_of_services_mark_imported_update
+      description: The external data will be stored in the fields `external_reference`, `external_status` and `external_message`.
+      summary: Mark a processing record of this document type as imported
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this list of services processing record.
+        required: true
+      - in: query
+        name: show_unfinished_data
+        schema:
+          type: boolean
+        description: 'By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.
+
+
+          Default: `False`'
+      tags:
+      - List Of Services
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarkImportedRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MarkImportedRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MarkImportedRequest'
+      security:
+      - BearerAuthentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOfServicesProcessingRecord'
+          description: ''
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+  /list-of-services/{id}/meta:
+    patch:
+      operationId: list_of_services_meta_partial_update
+      summary: Update the meta information of a processing record of this document type
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this list of services processing record.
+        required: true
+      - in: query
+        name: show_unfinished_data
+        schema:
+          type: boolean
+        description: 'By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.
+
+
+          Default: `False`'
+      tags:
+      - List Of Services
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedMetaRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedMetaRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedMetaRequest'
+      security:
+      - BearerAuthentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOfServicesProcessingRecord'
+          description: ''
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+components:
+  schemas:
+    GenerateX94ListOfServicesRequest:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/X94ListOfServicesArticleItemRequest'
+        supplier_info:
+          allOf:
+          - $ref: '#/components/schemas/X94ListOfServicesSupplierInfoRequest'
+          description: 'DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten'
+      required:
+      - items
+      - supplier_info
+    MarkImportedRequest:
+      type: object
+      properties:
+        status:
+          enum:
+          - PENDING
+          - SUCCEEDED
+          - FAILED
+          type: string
+          default: SUCCEEDED
+          description: 'Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).
+
+
+            * `PENDING` - Pending
+
+            * `SUCCEEDED` - Succeeded
+
+            * `FAILED` - Failed'
+        external_reference:
+          type: string
+          minLength: 1
+          default: ''
+          description: Id that represents this record in the target system
+        external_status:
+          type: string
+          minLength: 1
+          default: ''
+          description: Status of the record in the target system
+        external_message:
+          type: string
+          minLength: 1
+          default: ''
+          description: E.g. error message
+    ListOfServicesPosition:
+      type: object
+      properties:
+        source_id:
+          type: string
+          nullable: true
+        sort_index:
+          type: string
+          nullable: true
+        position_number:
+          type: string
+          nullable: true
+        position_source:
+          type: string
+          nullable: true
+        article_sets:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListOfServicesArticleSet'
+          nullable: true
+    ListOfServicesProcessingRecord:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        channel:
+          type: string
+          nullable: true
+          readOnly: true
+        status:
+          type: string
+        sender:
+          type: string
+          nullable: true
+        subject:
+          type: string
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          allOf:
+          - $ref: '#/components/schemas/User'
+          readOnly: true
+        assigned_to:
+          allOf:
+          - $ref: '#/components/schemas/User'
+          readOnly: true
+        assisted_by:
+          allOf:
+          - $ref: '#/components/schemas/User'
+          readOnly: true
+        assisted_at:
+          type: string
+          format: date-time
+          nullable: true
+        delivered_at:
+          type: string
+          format: date-time
+          readOnly: true
+        finished_at:
+          type: string
+          format: date-time
+          nullable: true
+        imported_at:
+          type: string
+          format: date-time
+          readOnly: true
+        email_file_url:
+          type: string
+          nullable: true
+          readOnly: true
+        input_file_url:
+          type: string
+          nullable: true
+          readOnly: true
+        classified_files:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: string
+          readOnly: true
+        additional_file_urls:
+          type: array
+          items:
+            type: string
+          nullable: true
+          description: Rarely used in customisations
+          readOnly: true
+        workbench_url:
+          type: string
+          format: uri
+          readOnly: true
+        external_reference:
+          type: string
+          nullable: true
+          readOnly: true
+        external_status:
+          type: string
+          nullable: true
+          readOnly: true
+        external_message:
+          type: string
+          nullable: true
+          readOnly: true
+        data:
+          allOf:
+          - $ref: '#/components/schemas/ListOfServices'
+          readOnly: true
+      required:
+      - additional_file_urls
+      - assigned_to
+      - assisted_by
+      - channel
+      - classified_files
+      - created_at
+      - created_by
+      - data
+      - delivered_at
+      - email_file_url
+      - external_message
+      - external_reference
+      - external_status
+      - id
+      - imported_at
+      - input_file_url
+      - status
+      - updated_at
+      - workbench_url
+    PatchedMetaRequest:
+      type: object
+      properties:
+        sender:
+          type: string
+          minLength: 1
+          default: ''
+          description: Sender of the document (e.g. sender of the original email)
+        subject:
+          type: string
+          minLength: 1
+          default: ''
+          description: Subject of the document (e.g. subject of the original email)
+    X94ListOfServicesSupplierInfoRequest:
+      type: object
+      properties:
+        id_no:
+          type: string
+          minLength: 1
+          description: 'DE: Lieferanten-Nummer; EN: Supplier number'
+        address:
+          allOf:
+          - $ref: '#/components/schemas/X94ListOfServicesAddressRequest'
+          description: 'DE: Informationen zur Adresse des Lieferanten; EN: Informationen zur Adresse des Lieferanten'
+        tax_no:
+          type: string
+          minLength: 1
+          description: 'DE: Steuernummer; EN: Tax number'
+        reg_no:
+          type: string
+          minLength: 1
+          description: 'DE: Unternehmens / Ortsregistrierungsnummer WEEE Registrierungsnummer; EN: Company / local registration number WEEE registration number'
+    CreateDocumentRequest:
+      type: object
+      properties:
+        channel:
+          type: string
+          format: uuid
+          description: Id of a processing channel
+        file:
+          type: string
+          format: binary
+          description: File to be processed
+        user:
+          type: string
+          minLength: 1
+          description: Email address or id of a user.
+      required:
+      - channel
+      - file
+    ContactPerson:
+      type: object
+      properties:
+        number:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        phone:
+          type: string
+          nullable: true
+    ListOfServicesArticleSet:
+      type: object
+      properties:
+        articles:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListOfServicesArticle'
+          nullable: true
+        is_default:
+          type: boolean
+          default: true
+    ListOfServicesArticle:
+      type: object
+      properties:
+        article_number:
+          type: string
+          nullable: true
+        article_number_2:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        unit:
+          type: string
+          nullable: true
+        quantity:
+          type: string
+          nullable: true
+        comments:
+          type: string
+          nullable: true
+    AssignUserRequest:
+      type: object
+      properties:
+        user:
+          type: string
+          minLength: 1
+          description: Email address or id of a user.
+      required:
+      - user
+    X94ListOfServicesAddressRequest:
+      type: object
+      properties:
+        name1:
+          type: string
+          minLength: 1
+          description: 'DE: Name1; EN: Name1'
+        street:
+          type: string
+          minLength: 1
+          description: 'DE: Straße; EN: Street'
+        p_code:
+          type: string
+          minLength: 1
+          description: 'DE: PLZ; EN: Postal code'
+        city:
+          type: string
+          minLength: 1
+          description: 'DE: Ort; EN: City'
+        country:
+          type: string
+          minLength: 1
+          description: 'DE: Land; EN: Country'
+    Address:
+      type: object
+      properties:
+        number:
+          type: string
+          nullable: true
+        number2:
+          type: string
+          nullable: true
+        number3:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        misc:
+          type: string
+          nullable: true
+        company_name:
+          type: string
+          nullable: true
+        company_name2:
+          type: string
+          nullable: true
+        company_name3:
+          type: string
+          nullable: true
+        company_name4:
+          type: string
+          nullable: true
+        street_and_nr:
+          type: string
+          nullable: true
+        street_name:
+          type: string
+          nullable: true
+        street_number:
+          type: string
+          nullable: true
+        postal_code:
+          type: string
+          nullable: true
+        city:
+          type: string
+          nullable: true
+        country_subdivision:
+          type: string
+          nullable: true
+        country:
+          type: string
+          nullable: true
+        phone:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+    ListOfServices:
+      type: object
+      properties:
+        customer:
+          allOf:
+          - $ref: '#/components/schemas/Customer'
+          nullable: true
+        customer_contact:
+          allOf:
+          - $ref: '#/components/schemas/ContactPerson'
+          nullable: true
+        delivery_address:
+          allOf:
+          - $ref: '#/components/schemas/Address'
+          nullable: true
+        submission_date:
+          type: string
+          nullable: true
+        project_number:
+          type: string
+          nullable: true
+        contractor:
+          type: string
+          nullable: true
+        construction_site:
+          type: string
+          nullable: true
+        object_number:
+          type: string
+          nullable: true
+        project_name:
+          type: string
+          nullable: true
+        comment:
+          type: string
+          nullable: true
+        tender_source:
+          type: string
+          nullable: true
+        positions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListOfServicesPosition'
+          nullable: true
+    X94ListOfServicesArticleItemRequest:
+      type: object
+      properties:
+        source_id:
+          type: string
+          minLength: 1
+          description: The gaeb ID of the article
+        article_number:
+          type: string
+          minLength: 1
+          description: Artikelnummer des Lieferanten
+        article_characteristics:
+          type: string
+          minLength: 1
+          default: normal
+          description: 'DE: PosKennZ, normal = Normalposition, alternate = Alternativposition, provis = Bedarfsposition; EN: PosType, normal = Normalposition, alternate = Alternativposition, provis = Bedarfsposition'
+        quantity:
+          type: integer
+          description: 'DE: ArtMenge, Anfrage-, Angebots- oder Bestellmenge (je nach Datenaustauschphase); EN: ArtMenge, Ordering quantity (depending on data exchange phase)'
+        unit:
+          type: string
+          minLength: 1
+          description: 'DE: Mengeneinheit; EN: Unit of measure'
+          maxLength: 4
+        vat:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          description: 'DE: VAT, Umsatzsteuer (in %); EN: VAT, Value-added tax (in %)'
+        net_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          description: 'DE: PrNetto, Nettopreis (Einkaufspreis des Kunden); EN: PrNetto, Net price (customer purchase price)'
+        price_basis:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          description: 'DE: PrBasis, Preis bezieht sich auf ''n'' Einheiten (BME); EN: PrBasis, Price is based on ''n'' units (BME)'
+        offer_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          description: 'DE: PrBrutto, Angebotspreis (Brutto-, Listenpreis); EN: PrBrutto, Offer price (gross-, list price)'
+        price_basis_unit:
+          type: string
+          minLength: 1
+          description: 'DE: AME, Abrechnungs-Mengeneinheit in Bezug auf PrBasis; EN: AME, Billing unit in relation to PrBasis'
+        ean:
+          type: string
+          minLength: 1
+          description: 'DE: EAN/GTIN-Nummer der Position; EN: EAN/GTIN number of the position'
+        article_description:
+          type: string
+          minLength: 1
+          description: 'DE: Langtext; EN: Long text'
+      required:
+      - source_id
+    User:
+      type: object
+      properties:
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+      required:
+      - email
+    PaginatedListOfServicesProcessingRecordList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListOfServicesProcessingRecord'
+        total_count:
+          type: integer
+          example: 123
+    Customer:
+      type: object
+      properties:
+        number:
+          type: string
+          nullable: true
+        number2:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        street_and_nr:
+          type: string
+          nullable: true
+        postal_code:
+          type: string
+          nullable: true
+        city:
+          type: string
+          nullable: true
+        country:
+          type: string
+          nullable: true
+        customer_type:
+          type: string
+          nullable: true
+        iln:
+          type: string
+          nullable: true
+        contact_person:
+          type: string
+          nullable: true
+  securitySchemes:
+    BearerAuthentication:
+      type: http
+      scheme: bearer
+externalDocs:
+  url: https://workist.notion.site/How-to-Use-the-Master-Data-API-4fb9f1279ae8421088495e20b846b179
+  description: Master data implementation guide (includes code examples)

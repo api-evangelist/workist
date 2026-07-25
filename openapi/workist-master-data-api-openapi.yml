@@ -1,0 +1,1401 @@
+openapi: 3.0.3
+info:
+  title: Workist Integrations & Developer Delivery Notes Master Data API
+  version: v1
+  description: With this API you can access different resources of the Workist platform (e.g. processed documents, masterdata imports)
+  termsOfService: https://www.workist.com/terms-of-use
+  contact:
+    email: info@workist.com
+servers:
+- url: /v1/
+- url: /api/v1/
+tags:
+- name: Master Data
+paths:
+  /master-data/addresses/imports:
+    post:
+      operationId: addresses_imports_create
+      description: "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept additional batches of data, which are appended to the import. After all batches of data have been transferred, batched imports need to be started explicitly. "
+      summary: Create a new master data import
+      tags:
+      - Master Data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddressMasterDataImportRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AddressMasterDataImportRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AddressMasterDataImportRequest'
+        required: true
+      responses:
+        '202':
+          headers:
+            Location:
+              schema:
+                type: string
+              description: URL to get the import status
+              required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcceptedResponse'
+          description: The import run was created successfully. The status of the import can be checked by calling the import details endpoint with the returned import id.
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+      security:
+      - BearerAuthentication: []
+  /master-data/articles/imports:
+    post:
+      operationId: articles_imports_create
+      description: "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept additional batches of data, which are appended to the import. After all batches of data have been transferred, batched imports need to be started explicitly. "
+      summary: Create a new master data import
+      tags:
+      - Master Data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArticleMasterDataImportRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ArticleMasterDataImportRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ArticleMasterDataImportRequest'
+        required: true
+      responses:
+        '202':
+          headers:
+            Location:
+              schema:
+                type: string
+              description: URL to get the import status
+              required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcceptedResponse'
+          description: The import run was created successfully. The status of the import can be checked by calling the import details endpoint with the returned import id.
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+      security:
+      - BearerAuthentication: []
+  /master-data/clients/imports:
+    post:
+      operationId: clients_imports_create
+      description: "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept additional batches of data, which are appended to the import. After all batches of data have been transferred, batched imports need to be started explicitly. "
+      summary: Create a new master data import
+      tags:
+      - Master Data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientMasterDataImportRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClientMasterDataImportRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClientMasterDataImportRequest'
+        required: true
+      responses:
+        '202':
+          headers:
+            Location:
+              schema:
+                type: string
+              description: URL to get the import status
+              required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcceptedResponse'
+          description: The import run was created successfully. The status of the import can be checked by calling the import details endpoint with the returned import id.
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+      security:
+      - BearerAuthentication: []
+  /master-data/contacts/imports:
+    post:
+      operationId: contacts_imports_create
+      description: "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept additional batches of data, which are appended to the import. After all batches of data have been transferred, batched imports need to be started explicitly. "
+      summary: Create a new master data import
+      tags:
+      - Master Data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactMasterDataImportRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ContactMasterDataImportRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ContactMasterDataImportRequest'
+        required: true
+      responses:
+        '202':
+          headers:
+            Location:
+              schema:
+                type: string
+              description: URL to get the import status
+              required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcceptedResponse'
+          description: The import run was created successfully. The status of the import can be checked by calling the import details endpoint with the returned import id.
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+      security:
+      - BearerAuthentication: []
+  /master-data/conversion-factors/imports:
+    post:
+      operationId: conversion_factors_imports_create
+      description: "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept additional batches of data, which are appended to the import. After all batches of data have been transferred, batched imports need to be started explicitly. "
+      summary: Create a new master data import
+      tags:
+      - Master Data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversionFactorMasterDataImportRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ConversionFactorMasterDataImportRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ConversionFactorMasterDataImportRequest'
+        required: true
+      responses:
+        '202':
+          headers:
+            Location:
+              schema:
+                type: string
+              description: URL to get the import status
+              required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcceptedResponse'
+          description: The import run was created successfully. The status of the import can be checked by calling the import details endpoint with the returned import id.
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+      security:
+      - BearerAuthentication: []
+  /master-data/framework-contracts/imports:
+    post:
+      operationId: framework_contracts_imports_create
+      description: "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept additional batches of data, which are appended to the import. After all batches of data have been transferred, batched imports need to be started explicitly. "
+      summary: Create a new master data import
+      tags:
+      - Master Data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FrameworkContractMasterDataImportRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FrameworkContractMasterDataImportRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FrameworkContractMasterDataImportRequest'
+        required: true
+      responses:
+        '202':
+          headers:
+            Location:
+              schema:
+                type: string
+              description: URL to get the import status
+              required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcceptedResponse'
+          description: The import run was created successfully. The status of the import can be checked by calling the import details endpoint with the returned import id.
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+      security:
+      - BearerAuthentication: []
+  /master-data/imports:
+    get:
+      operationId: imports_list
+      description: Returns all your master data import runs.
+      summary: Get all master data import runs
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - Master Data
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDataImportRunList'
+          description: Success
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+      security:
+      - BearerAuthentication: []
+    post:
+      operationId: imports_create
+      description: "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept additional batches of data, which are appended to the import. After all batches of data have been transferred, batched imports need to be started explicitly. "
+      summary: Create a new master data import
+      tags:
+      - Master Data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImportRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ImportRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ImportRequest'
+        required: true
+      responses:
+        '202':
+          headers:
+            Location:
+              schema:
+                type: string
+              description: URL to get the import status
+              required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcceptedResponse'
+          description: The import run was created successfully. The status of the import can be checked by calling the import details endpoint with the returned import id.
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+      security:
+      - BearerAuthentication: []
+  /master-data/imports/{id}:
+    get:
+      operationId: imports_retrieve
+      description: Returns the details of a specific master data import run.
+      summary: Get a specific master data import run
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this data import run.
+        required: true
+      tags:
+      - Master Data
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataImportRun'
+          description: Success
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+      security:
+      - BearerAuthentication: []
+  /master-data/imports/{id}/data:
+    post:
+      operationId: imports_data_create
+      description: Only for batched imports. Associates a batch of data (given as a `file`, `file_url` or JSON `data`) with the import. In case you are using the `file` or `file_url` parameters, each batch file needs to provide a similar header row containing the column names. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. You can call this endpoint as often as needed to transfer all your data in batches, each batch will be appended to the import. When all data has been transferred, you need to start the import explicitly. Once the import has started processing, all data will be made available for download as a single CSV file (`input_file_url` and `input_file_num_rows` of the returned `DataImportRun`) - regardless of the format it was originally provided in. For a pretty overview of all imports and their status, you can check the master data imports in the Workbench (channel settings).
+      summary: Append a batch of data to a batched import
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this data import run.
+        required: true
+      tags:
+      - Master Data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DataRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DataRequest'
+      responses:
+        '202':
+          headers:
+            Location:
+              schema:
+                type: string
+              description: URL to get the import status
+              required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcceptedResponse'
+          description: The data was successfully appended to the import. The status of the import can be checked by calling the import details endpoint with the returned import id.
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+      security:
+      - BearerAuthentication: []
+  /master-data/imports/{id}/start:
+    post:
+      operationId: imports_start_create
+      description: Only for batched imports. Starts the import and ingest all associated data. Note that you cannot POST any more batches of data to an import run once it has been started. If you have a single `file`, `file_url` or a small amount  of `data` that can be imported in a single request, prefer using a non-batched import instead.
+      summary: Start the batched import & ingest all associated data
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this data import run.
+        required: true
+      tags:
+      - Master Data
+      responses:
+        '202':
+          headers:
+            Location:
+              schema:
+                type: string
+              description: URL to get the import status
+              required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcceptedResponse'
+          description: The import was started successfully
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+      security:
+      - BearerAuthentication: []
+  /master-data/offer-matching/imports:
+    post:
+      operationId: offer_matching_imports_create
+      description: "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept additional batches of data, which are appended to the import. After all batches of data have been transferred, batched imports need to be started explicitly. "
+      summary: Create a new master data import
+      tags:
+      - Master Data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OfferMatchingMasterDataImportRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/OfferMatchingMasterDataImportRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/OfferMatchingMasterDataImportRequest'
+        required: true
+      responses:
+        '202':
+          headers:
+            Location:
+              schema:
+                type: string
+              description: URL to get the import status
+              required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcceptedResponse'
+          description: The import run was created successfully. The status of the import can be checked by calling the import details endpoint with the returned import id.
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+      security:
+      - BearerAuthentication: []
+  /master-data/order-matching/imports:
+    post:
+      operationId: order_matching_imports_create
+      description: "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept additional batches of data, which are appended to the import. After all batches of data have been transferred, batched imports need to be started explicitly. "
+      summary: Create a new master data import
+      tags:
+      - Master Data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderMatchingMasterDataImportRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/OrderMatchingMasterDataImportRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/OrderMatchingMasterDataImportRequest'
+        required: true
+      responses:
+        '202':
+          headers:
+            Location:
+              schema:
+                type: string
+              description: URL to get the import status
+              required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcceptedResponse'
+          description: The import run was created successfully. The status of the import can be checked by calling the import details endpoint with the returned import id.
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+        '401':
+          description: Unauthorized, no valid token provided.
+        '404':
+          description: The requested resource doesn't exist.
+        '500':
+          description: Something went wrong on Workist's end.
+      security:
+      - BearerAuthentication: []
+components:
+  schemas:
+    AcceptedResponse:
+      type: object
+      properties:
+        import_id:
+          type: string
+          format: uuid
+          description: Id of a master data import run
+      required:
+      - import_id
+    PaginatedDataImportRunList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataImportRun'
+        total_count:
+          type: integer
+          example: 123
+    DataImportRun:
+      type: object
+      properties:
+        import_id:
+          type: string
+          format: uuid
+        customer_id:
+          type: string
+          format: uuid
+        lookup_type:
+          enum:
+          - ARTICLE_LOOKUP
+          - CLIENT_LOOKUP
+          - CONTACT_LOOKUP
+          - ADDRESS_LOOKUP
+          - CONVERSION_FACTOR_LOOKUP
+          - FRAMEWORK_CONTRACT_LOOKUP
+          - ORDER_MATCHING_LOOKUP
+          - OFFER_MATCHING_LOOKUP
+          - CLIENT_MAPPING_LOOKUP
+          - CONTACT_MAPPING_LOOKUP
+          - ARTICLE_MAPPING_LOOKUP
+          - VAT_ID_CHECK_MAPPING_LOOKUP
+          - ADDRESS_MAPPING_LOOKUP
+          - null
+          type: string
+          description: '* `ARTICLE_LOOKUP` - ARTICLE_LOOKUP
+
+            * `CLIENT_LOOKUP` - CLIENT_LOOKUP
+
+            * `CONTACT_LOOKUP` - CONTACT_LOOKUP
+
+            * `ADDRESS_LOOKUP` - ADDRESS_LOOKUP
+
+            * `CONVERSION_FACTOR_LOOKUP` - CONVERSION_FACTOR_LOOKUP
+
+            * `FRAMEWORK_CONTRACT_LOOKUP` - FRAMEWORK_CONTRACT_LOOKUP
+
+            * `ORDER_MATCHING_LOOKUP` - ORDER_MATCHING_LOOKUP
+
+            * `OFFER_MATCHING_LOOKUP` - OFFER_MATCHING_LOOKUP
+
+            * `CLIENT_MAPPING_LOOKUP` - CLIENT_MAPPING_LOOKUP
+
+            * `CONTACT_MAPPING_LOOKUP` - CONTACT_MAPPING_LOOKUP
+
+            * `ARTICLE_MAPPING_LOOKUP` - ARTICLE_MAPPING_LOOKUP
+
+            * `VAT_ID_CHECK_MAPPING_LOOKUP` - VAT_ID_CHECK_MAPPING_LOOKUP
+
+            * `ADDRESS_MAPPING_LOOKUP` - ADDRESS_MAPPING_LOOKUP'
+          nullable: true
+        lookup_definition:
+          type: string
+          format: uuid
+          nullable: true
+        ingestion_file_url:
+          type: string
+          nullable: true
+        ingestion_file_num_rows:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        error_type:
+          type: string
+          nullable: true
+        error_message:
+          type: string
+          nullable: true
+        trigger:
+          type: string
+          readOnly: true
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        started_at:
+          type: string
+          format: date-time
+          nullable: true
+          title: Import started at
+        finished_at:
+          type: string
+          format: date-time
+          nullable: true
+          title: Import finished at
+        status:
+          type: string
+          readOnly: true
+      required:
+      - created_at
+      - customer_id
+      - import_id
+      - status
+      - trigger
+      - updated_at
+    ContactMasterDataImportRequest:
+      type: object
+      properties:
+        lookup_definition_id:
+          type: string
+          format: uuid
+          description: ID of a lookup definition (obtainable via Workbench)
+        batched:
+          type: boolean
+          default: false
+          description: If `true`, the import will be created in a pending status so that additional batches of data can be appended to the import. If `false` (default), the import will be started immediately.
+        file_url:
+          type: string
+          format: uri
+          minLength: 1
+          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
+        file:
+          type: string
+          format: binary
+          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContactMasterData'
+      required:
+      - lookup_definition_id
+    DataRequest:
+      type: object
+      properties:
+        file_url:
+          type: string
+          format: uri
+          minLength: 1
+          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
+        file:
+          type: string
+          format: binary
+          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
+        data:
+          type: array
+          items:
+            type: object
+            additionalProperties: {}
+            description: List of `Master Data` entities of the lookup's type (see `Schemas` for details)
+          description: If given, the data will be converted into a CSV file, temporarily stored and imported when the import run is started. The maximum allowed number of rows for a single request is 10000.
+    ConversionFactorMasterDataImportRequest:
+      type: object
+      properties:
+        lookup_definition_id:
+          type: string
+          format: uuid
+          description: ID of a lookup definition (obtainable via Workbench)
+        batched:
+          type: boolean
+          default: false
+          description: If `true`, the import will be created in a pending status so that additional batches of data can be appended to the import. If `false` (default), the import will be started immediately.
+        file_url:
+          type: string
+          format: uri
+          minLength: 1
+          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
+        file:
+          type: string
+          format: binary
+          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversionFactorMasterData'
+      required:
+      - lookup_definition_id
+    ClientMasterDataImportRequest:
+      type: object
+      properties:
+        lookup_definition_id:
+          type: string
+          format: uuid
+          description: ID of a lookup definition (obtainable via Workbench)
+        batched:
+          type: boolean
+          default: false
+          description: If `true`, the import will be created in a pending status so that additional batches of data can be appended to the import. If `false` (default), the import will be started immediately.
+        file_url:
+          type: string
+          format: uri
+          minLength: 1
+          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
+        file:
+          type: string
+          format: binary
+          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientMasterData'
+      required:
+      - lookup_definition_id
+    ArticleMasterDataImportRequest:
+      type: object
+      properties:
+        lookup_definition_id:
+          type: string
+          format: uuid
+          description: ID of a lookup definition (obtainable via Workbench)
+        batched:
+          type: boolean
+          default: false
+          description: If `true`, the import will be created in a pending status so that additional batches of data can be appended to the import. If `false` (default), the import will be started immediately.
+        file_url:
+          type: string
+          format: uri
+          minLength: 1
+          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
+        file:
+          type: string
+          format: binary
+          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArticleMasterData'
+      required:
+      - lookup_definition_id
+    FrameworkContractMasterDataImportRequest:
+      type: object
+      properties:
+        lookup_definition_id:
+          type: string
+          format: uuid
+          description: ID of a lookup definition (obtainable via Workbench)
+        batched:
+          type: boolean
+          default: false
+          description: If `true`, the import will be created in a pending status so that additional batches of data can be appended to the import. If `false` (default), the import will be started immediately.
+        file_url:
+          type: string
+          format: uri
+          minLength: 1
+          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
+        file:
+          type: string
+          format: binary
+          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/FrameworkContractMasterData'
+      required:
+      - lookup_definition_id
+    FrameworkContractMasterData:
+      type: object
+      properties:
+        partition_id:
+          type: string
+          minLength: 1
+        extra_data:
+          type: object
+          additionalProperties: {}
+        client_id:
+          type: string
+          nullable: true
+        client_name:
+          type: string
+          nullable: true
+        contract_id1:
+          type: string
+          minLength: 1
+        contract_id2:
+          type: string
+          nullable: true
+        contract_name:
+          type: string
+          nullable: true
+      required:
+      - contract_id1
+    ClientMasterData:
+      type: object
+      properties:
+        partition_id:
+          type: string
+          minLength: 1
+        extra_data:
+          type: object
+          additionalProperties: {}
+        client_id1:
+          type: string
+          minLength: 1
+        client_id2:
+          type: string
+          nullable: true
+          minLength: 1
+        client_id3:
+          type: string
+          nullable: true
+          minLength: 1
+        client_type:
+          type: string
+          nullable: true
+          minLength: 1
+        client_contact_person1:
+          type: string
+          nullable: true
+          minLength: 1
+        company_name:
+          type: string
+          nullable: true
+          minLength: 1
+        misc:
+          type: string
+          nullable: true
+          minLength: 1
+        address1:
+          type: string
+          nullable: true
+          minLength: 1
+        address2:
+          type: string
+          nullable: true
+          minLength: 1
+        street_name:
+          type: string
+          nullable: true
+          minLength: 1
+        street_number:
+          type: string
+          nullable: true
+          minLength: 1
+        zip_code:
+          type: string
+          nullable: true
+          minLength: 1
+        city:
+          type: string
+          nullable: true
+          minLength: 1
+        po_box:
+          type: string
+          nullable: true
+          minLength: 1
+        country_subdivision:
+          type: string
+          nullable: true
+          minLength: 1
+        country:
+          type: string
+          nullable: true
+          minLength: 1
+        domain:
+          type: string
+          nullable: true
+          minLength: 1
+        iln:
+          type: string
+          nullable: true
+          minLength: 1
+        vat:
+          type: string
+          nullable: true
+          minLength: 1
+        internal_note:
+          type: string
+          nullable: true
+          minLength: 1
+        iban:
+          type: string
+          nullable: true
+        swift:
+          type: string
+          nullable: true
+        account:
+          type: string
+          nullable: true
+        payment_terms_type:
+          type: string
+          nullable: true
+        payment_terms_discount:
+          type: string
+          nullable: true
+        payment_terms_due_days:
+          type: string
+          nullable: true
+        locale:
+          type: string
+          nullable: true
+          maxLength: 10
+        locale_numeric:
+          type: string
+          nullable: true
+          maxLength: 10
+      required:
+      - client_id1
+    AddressMasterDataImportRequest:
+      type: object
+      properties:
+        lookup_definition_id:
+          type: string
+          format: uuid
+          description: ID of a lookup definition (obtainable via Workbench)
+        batched:
+          type: boolean
+          default: false
+          description: If `true`, the import will be created in a pending status so that additional batches of data can be appended to the import. If `false` (default), the import will be started immediately.
+        file_url:
+          type: string
+          format: uri
+          minLength: 1
+          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
+        file:
+          type: string
+          format: binary
+          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressMasterData'
+      required:
+      - lookup_definition_id
+    ArticleMasterData:
+      type: object
+      properties:
+        partition_id:
+          type: string
+          minLength: 1
+        extra_data:
+          type: object
+          additionalProperties: {}
+        article_id1:
+          type: string
+          minLength: 1
+        article_id2:
+          type: string
+          nullable: true
+          minLength: 1
+        article_id3:
+          type: string
+          nullable: true
+          minLength: 1
+        description:
+          type: string
+          nullable: true
+          minLength: 1
+        article_status:
+          type: string
+          nullable: true
+          minLength: 1
+        gross_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,6})?$
+          nullable: true
+        order_units:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          nullable: true
+        sales_units:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          nullable: true
+        variants:
+          type: object
+          additionalProperties: {}
+        sales_organisation:
+          type: string
+          nullable: true
+          minLength: 1
+      required:
+      - article_id1
+    ImportRequest:
+      type: object
+      properties:
+        lookup_definition_id:
+          type: string
+          format: uuid
+          description: ID of a lookup definition (obtainable via Workbench)
+        batched:
+          type: boolean
+          default: false
+          description: If `true`, the import will be created in a pending status so that additional batches of data can be appended to the import. If `false` (default), the import will be started immediately.
+        file_url:
+          type: string
+          format: uri
+          minLength: 1
+          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
+        file:
+          type: string
+          format: binary
+          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
+        data:
+          type: array
+          items:
+            type: object
+            additionalProperties: {}
+            description: List of `Master Data` entities of the lookup's type (see `Schemas` for details)
+          description: If given, the data will be converted into a CSV file, temporarily stored and imported when the import run is started. The maximum allowed number of rows for a single request is 10000.
+      required:
+      - lookup_definition_id
+    ConversionFactorMasterData:
+      type: object
+      properties:
+        partition_id:
+          type: string
+          minLength: 1
+        extra_data:
+          type: object
+          additionalProperties: {}
+        source_unit:
+          type: string
+          minLength: 1
+        target_unit:
+          type: string
+          minLength: 1
+        article_id:
+          type: string
+        conversion_quotient:
+          type: number
+          format: double
+          nullable: true
+      required:
+      - source_unit
+      - target_unit
+    AddressMasterData:
+      type: object
+      properties:
+        partition_id:
+          type: string
+          minLength: 1
+        extra_data:
+          type: object
+          additionalProperties: {}
+        address_id1:
+          type: string
+          minLength: 1
+        address_id2:
+          type: string
+          nullable: true
+          minLength: 1
+        address_id3:
+          type: string
+          nullable: true
+          minLength: 1
+        contact_person:
+          type: string
+          nullable: true
+          minLength: 1
+        name:
+          type: string
+          nullable: true
+          minLength: 1
+        misc:
+          type: string
+          nullable: true
+          minLength: 1
+        address1:
+          type: string
+          nullable: true
+          minLength: 1
+        address2:
+          type: string
+          nullable: true
+          minLength: 1
+        street_name:
+          type: string
+          nullable: true
+          minLength: 1
+        street_number:
+          type: string
+          nullable: true
+          minLength: 1
+        zip_code:
+          type: string
+          nullable: true
+          minLength: 1
+        city:
+          type: string
+          nullable: true
+          minLength: 1
+        po_box:
+          type: string
+          nullable: true
+          minLength: 1
+        country_subdivision:
+          type: string
+          nullable: true
+          minLength: 1
+        country:
+          type: string
+          nullable: true
+          minLength: 1
+        phone:
+          type: string
+          nullable: true
+          minLength: 1
+      required:
+      - address_id1
+    OfferMatchingMasterDataImportRequest:
+      type: object
+      properties:
+        lookup_definition_id:
+          type: string
+          format: uuid
+          description: ID of a lookup definition (obtainable via Workbench)
+        batched:
+          type: boolean
+          default: false
+          description: If `true`, the import will be created in a pending status so that additional batches of data can be appended to the import. If `false` (default), the import will be started immediately.
+        file_url:
+          type: string
+          format: uri
+          minLength: 1
+          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
+        file:
+          type: string
+          format: binary
+          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OfferMatchingMasterData'
+      required:
+      - lookup_definition_id
+    OrderMatchingMasterDataImportRequest:
+      type: object
+      properties:
+        lookup_definition_id:
+          type: string
+          format: uuid
+          description: ID of a lookup definition (obtainable via Workbench)
+        batched:
+          type: boolean
+          default: false
+          description: If `true`, the import will be created in a pending status so that additional batches of data can be appended to the import. If `false` (default), the import will be started immediately.
+        file_url:
+          type: string
+          format: uri
+          minLength: 1
+          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
+        file:
+          type: string
+          format: binary
+          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderMatchingMasterData'
+      required:
+      - lookup_definition_id
+    OrderMatchingMasterData:
+      type: object
+      properties:
+        partition_id:
+          type: string
+          minLength: 1
+        extra_data:
+          type: object
+          additionalProperties: {}
+        order_number:
+          type: string
+          minLength: 1
+        order_date:
+          type: string
+          format: date-time
+          nullable: true
+        order_total_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          nullable: true
+        delivery_address:
+          type: string
+          nullable: true
+        receiver_number:
+          type: string
+          nullable: true
+        position_number:
+          type: string
+          nullable: true
+        article_id1:
+          type: string
+          minLength: 1
+        article_id2:
+          type: string
+          nullable: true
+        article_id3:
+          type: string
+          nullable: true
+        article_description:
+          type: string
+          nullable: true
+        article_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          nullable: true
+        quantity:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          nullable: true
+        total_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          nullable: true
+        delivery_date:
+          type: string
+          format: date-time
+          nullable: true
+        unit:
+          type: string
+          nullable: true
+        iban:
+          type: string
+          nullable: true
+        swift:
+          type: string
+          nullable: true
+        account:
+          type: string
+          nullable: true
+        payment_terms_type:
+          type: string
+          nullable: true
+        payment_terms_discount:
+          type: string
+          nullable: true
+        payment_terms_due_days:
+          type: string
+          nullable: true
+      required:
+      - article_id1
+      - order_number
+    OfferMatchingMasterData:
+      type: object
+      properties:
+        partition_id:
+          type: string
+          minLength: 1
+        extra_data:
+          type: object
+          additionalProperties: {}
+        offer_number:
+          type: string
+          minLength: 1
+        valid_from:
+          type: string
+          format: date-time
+          nullable: true
+        valid_until:
+          type: string
+          format: date-time
+          nullable: true
+        position_number:
+          type: string
+          nullable: true
+        article_id1:
+          type: string
+          minLength: 1
+        article_id2:
+          type: string
+          nullable: true
+        article_id3:
+          type: string
+          nullable: true
+        article_description:
+          type: string
+          nullable: true
+        quantity:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          nullable: true
+        unit:
+          type: string
+          nullable: true
+      required:
+      - article_id1
+      - offer_number
+    ContactMasterData:
+      type: object
+      properties:
+        partition_id:
+          type: string
+          minLength: 1
+        extra_data:
+          type: object
+          additionalProperties: {}
+        contact_id:
+          type: string
+          minLength: 1
+        first_name:
+          type: string
+          nullable: true
+          minLength: 1
+        last_name:
+          type: string
+          nullable: true
+          minLength: 1
+        phone:
+          type: string
+          nullable: true
+          minLength: 1
+        email:
+          type: string
+          nullable: true
+          minLength: 1
+      required:
+      - contact_id
+  securitySchemes:
+    BearerAuthentication:
+      type: http
+      scheme: bearer
+externalDocs:
+  url: https://workist.notion.site/How-to-Use-the-Master-Data-API-4fb9f1279ae8421088495e20b846b179
+  description: Master data implementation guide (includes code examples)
