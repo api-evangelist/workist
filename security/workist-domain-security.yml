@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.workist.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  1 20:02:15 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: docs.workist.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 27 10:52:41 2026 GMT
+  hsts: false
+- host: api.workist.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec 18 09:39:47 2026 GMT
+  hsts: false
+domains:
+- domain: workist.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject

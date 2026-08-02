@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: searched
+source: live probes of workist.com hosts (2026-07-21)
+hosts:
+- host: https://www.workist.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 301
+    note: redirects to the marketing page https://www.workist.com/llms (not an llms.txt document)
+- host: https://api.workist.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+- host: https://docs.workist.com
+  documents:
+  - path: /llms.txt
+    status: 200
+    file: ../llms/workist-llms.txt
+    note: published llms.txt (llmstxt.org format) saved verbatim in llms/

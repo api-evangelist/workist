@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://www.workist.com/en (published compliance claims: SOC 2 Type II
+  certified, GDPR compliant, EU data hosting) +
+  openapi/workist-integrations-openapi-original.yml (derived standards
+  posture).
+standards:
+- id: soc2-type2
+  conforms: true
+  evidence: workist.com homepage states "SOC 2 Type II certified" (no public trust-center portal found).
+- id: gdpr
+  conforms: true
+  evidence: workist.com homepage states GDPR compliance with EU data hosting; privacy policy at https://www.workist.com/en/privacy-policy.
+- id: oauth2
+  conforms: false
+  evidence: single http bearer securityScheme; no OAuth2 flows declared.
+- id: oidc
+  conforms: false
+  evidence: no openIdConnect scheme; /.well-known/openid-configuration returns 404.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: 4xx/5xx responses are plain HTTP statuses, no application/problem+json.
+- id: pagination
+  conforms: true
+  evidence: page-number pagination with next/previous/items/total_count envelopes on all list operations.
+- id: idempotency
+  conforms: false
+  evidence: no Idempotency-Key header or replay-safety contract in spec or docs.
+- id: json:api
+  conforms: false
+  evidence: plain JSON resource shapes, not JSON:API envelopes.
+- id: edi-as2
+  conforms: true
+  evidence: docs.workist.com data-exchange section documents AS2/EDI and SFTP as alternative document transports.

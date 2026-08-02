@@ -1,0 +1,32 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Workist Integrations & Developer API
+  version: 1.0.0
+extends: openapi/workist-integrations-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      aid: workist:workist-integrations-developer-api
+      enriched: '2026-07-21'
+      artifacts:
+        authentication: authentication/workist-authentication.yml
+        conventions: conventions/workist-conventions.yml
+        errors: errors/workist-problem-types.yml
+        lifecycle: lifecycle/workist-lifecycle.yml
+        data-model: data-model/workist-data-model.yml
+- target: $.info
+  update:
+    x-integration-pattern: >-
+      Pull-based - upload documents (POST), poll list endpoints with
+      imported=False&finished=True, import into the ERP, then PUT
+      /{resource}/{id}/mark_imported. No webhooks are published.
+- target: $.servers
+  update:
+  - url: https://api.workist.com/api/v1
+    description: Production (absolute host added; original spec declares relative /v1/ and /api/v1/)
+- target: $.components.securitySchemes.BearerAuthentication
+  update:
+    description: >-
+      Bearer token created in the Workist Workbench under Integrations >
+      API Integrations (https://wb.workist.com/customer/integrations/api-integrations).

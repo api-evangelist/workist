@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/workist-integrations-openapi-original.yml
+docs: https://docs.workist.com/en/docs/api-documentation/quickstart/
+summary:
+  types:
+  - http
+  notes: >-
+    Bearer token authentication. Tokens are created by the customer in the
+    Workist Workbench under Integrations > API Integrations
+    (https://wb.workist.com/customer/integrations/api-integrations) and sent
+    on every request as "Authorization: Bearer <token>". No OAuth flows or
+    scopes are published.
+schemes:
+- name: BearerAuthentication
+  type: http
+  scheme: bearer
+  token_source: https://wb.workist.com/customer/integrations/api-integrations
+  header: 'Authorization: Bearer <token>'
+  sources:
+  - openapi/workist-integrations-openapi-original.yml

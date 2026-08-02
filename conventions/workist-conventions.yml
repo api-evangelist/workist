@@ -1,0 +1,79 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://docs.workist.com/en/docs/api-documentation/ (quickstart + master
+  data API guides) combined with what
+  openapi/workist-integrations-openapi-original.yml declares. Cross-cutting
+  request/response semantics of the Workist Integrations & Developer API.
+description: >-
+  How the Workist Integrations & Developer API behaves across every
+  operation: bearer-token authentication, page-number pagination, filter
+  query parameters, the poll-then-mark-imported integration pattern, and
+  batched master data imports. Workist publishes no idempotency-key
+  contract, no field-expansion mechanism, and no rate-limit signaling.
+
+base_url: https://api.workist.com/api/v1
+api_style: REST over HTTPS, JSON requests and responses (Django REST Framework)
+
+authentication:
+  scheme: HTTP Bearer token created in the Workbench (API Integrations)
+  header: 'Authorization: Bearer <token>'
+  docs: https://docs.workist.com/en/docs/api-documentation/quickstart/
+  detail: authentication/workist-authentication.yml
+
+idempotency:
+  supported: false
+  notes: >-
+    No Idempotency-Key header or equivalent replay-safety contract is
+    documented in the OpenAPI or the docs. Integrators deduplicate by
+    polling with the imported/finished filters and calling
+    *_mark_imported_update exactly once per record.
+
+pagination:
+  style: page-number
+  request_params: [page]
+  response_fields: [next, previous, items, total_count]
+  notes: >-
+    List endpoints return Paginated*List envelopes with next/previous URIs,
+    an items[] array, and total_count.
+
+filtering:
+  params: [channel, assistance_needed, finished, imported, import_failed, created_by, assisted_by, date_from, date_to]
+  notes: >-
+    date_from/date_to take ISO 8601 timestamps (YYYY-MM-DDTHH:MM:SSZ) against
+    created_at. imported=False&finished=True is the canonical "ready to pull
+    into the ERP" query.
+
+integration_pattern:
+  style: pull (poll)
+  notes: >-
+    Workist pushes nothing over HTTP - the documented flow is upload (POST),
+    let WorKI process, poll the list endpoint for finished records, import
+    them into the ERP, then PUT /{id}/mark_imported. Alternative transports
+    are SFTP and AS2/EDI, configured per channel.
+
+batch_imports:
+  notes: >-
+    Master data supports a batched import flow - POST /master-data/imports
+    with batched: true, append data in chunks of up to 1000 elements via
+    POST /master-data/imports/{id}/data, then POST
+    /master-data/imports/{id}/start.
+
+field_expansion: {supported: false}
+metadata:
+  supported: true
+  notes: Processing records carry a meta object updatable via PATCH /{resource}/{id}/meta.
+request_tracing: {documented: false}
+
+versioning:
+  scheme: uri-path
+  current: v1
+  notes: Both /v1/ and /api/v1/ prefixes are served (OpenAPI servers[]).
+  detail: lifecycle/workist-lifecycle.yml
+
+error_envelope:
+  format: plain HTTP status codes (400/401/404/500) with JSON bodies; not RFC 9457
+  detail: errors/workist-problem-types.yml
+
+rate_limits:
+  documented: false

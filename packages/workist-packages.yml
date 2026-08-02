@@ -1,0 +1,12 @@
+generated: '2026-07-21'
+method: searched
+source: npm, PyPI, and github.com/workist probed 2026-07-21; docs.workist.com API documentation
+packages: []
+notes: >-
+  No first-party client libraries found. The npm package "workist" is
+  published by an unrelated third party (israelroldan) and is not a Workist
+  GmbH SDK. Nothing on PyPI. The GitHub org github.com/workist has a single
+  public repo (workist.github.io) and no SDK repos. Integration is via the
+  raw REST API (https://api.workist.com/v1/swagger/), ERP connectors
+  installed on the customer side (SAP, Microsoft Dynamics, Sage 100,
+  weclapp, proALPHA, ABAS), EDI/AS2, or SFTP.

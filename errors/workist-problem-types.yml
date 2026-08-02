@@ -1,0 +1,33 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/workist-integrations-openapi-original.yml
+format: http-status
+notes: >-
+  Derived from the 4xx/5xx responses declared across all 63 operations. The
+  spec documents plain HTTP status semantics (no application/problem+json /
+  RFC 9457 envelope and no published machine-readable error-code registry).
+problems:
+- status: 400
+  title: Bad request
+  description: The request was unacceptable, often due to missing a required parameter or an invalid value.
+  declared_on: all operations
+- status: 401
+  title: Unauthorized
+  description: Unauthorized, no valid token provided.
+  remediation: >-
+    Create or refresh a bearer token in the Workbench under Integrations >
+    API Integrations and send it as "Authorization: Bearer <token>".
+  declared_on: all operations
+- status: 404
+  title: Not found
+  description: The requested resource doesn't exist.
+  declared_on: all operations
+- status: 500
+  title: Internal server error
+  description: Something went wrong on Workist's end.
+  declared_on: all operations
+success_codes:
+  '200': synchronous reads and updates
+  '201': resource created
+  '202': accepted for asynchronous processing (document uploads, master data imports)
+  '204': deleted, no content

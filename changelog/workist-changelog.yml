@@ -1,0 +1,13 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  docs.workist.com sitemap + workist.com crawled 2026-07-21 - no public
+  dated API changelog or release-notes page was found. Recorded as an
+  honest absence.
+scheme: null
+current_version: v1
+entries: []
+notes: >-
+  Workist publishes no public API changelog. The docs site (Docusaurus) has
+  no changelog/release-notes section and the marketing blog covers product
+  announcements only.

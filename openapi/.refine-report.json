@@ -1,0 +1,28 @@
+{
+  "provider": "workist",
+  "sources": [
+    "workist-delivery-notes-api-openapi.yml",
+    "workist-invoices-api-openapi.yml",
+    "workist-list-of-services-api-openapi.yml",
+    "workist-master-data-api-openapi.yml",
+    "workist-order-confirmations-api-openapi.yml",
+    "workist-orders-api-openapi.yml",
+    "workist-property-bills-api-openapi.yml",
+    "workist-rfq-api-openapi.yml"
+  ],
+  "outputs": [
+    "workist-delivery-notes-api-openapi.yml",
+    "workist-invoices-api-openapi.yml",
+    "workist-list-of-services-api-openapi.yml",
+    "workist-master-data-api-openapi.yml",
+    "workist-order-confirmations-api-openapi.yml",
+    "workist-orders-api-openapi.yml",
+    "workist-property-bills-api-openapi.yml",
+    "workist-rfq-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

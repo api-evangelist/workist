@@ -1,22 +1,237 @@
 aid: workist
 name: Workist
-description: Workist is a company surfaced as a portfolio company of earlybird and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Workist is a Berlin-based AI document-automation company whose WorKI system
+  automates B2B order entry and inquiry handling — extracting data from emails
+  and PDFs, validating it against ERP master data, and writing structured
+  transactions back into 20+ ERP systems such as SAP S/4HANA, Microsoft
+  Dynamics 365, Oracle NetSuite, and Sage. The Workist Integrations &
+  Developer API is a bearer-token REST API for uploading documents (orders,
+  invoices, delivery notes, order confirmations, RFQs, property bills, lists
+  of services), retrieving processed results, and importing ERP master data in
+  batches.
 url: https://raw.githubusercontent.com/api-evangelist/workist/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://docs.workist.com/img/workist_icon.svg
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - earlybird
-x-tier: stub
-x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
-- Company
-apis: []
+- Documents
+- Document Processing
+- Artificial Intelligence
+- Automation
+- Orders
+- Invoices
+- ERP
+- B2B
+- Master Data
+apis:
+- aid: workist:workist-delivery-notes-api
+  name: Workist Delivery Notes API
+  description: The Delivery Notes API from Workist — 5 operation(s) for delivery notes.
+  humanURL: https://docs.workist.com/en/docs/api-documentation/
+  baseURL: https://api.workist.com/api/v1
+  tags:
+  - Delivery Notes
+  properties:
+  - type: OpenAPI
+    url: openapi/workist-delivery-notes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.workist.com/en/docs/api-documentation/
+  - type: APIReference
+    url: https://api.workist.com/v1/swagger/
+  - type: GettingStarted
+    url: https://docs.workist.com/en/docs/api-documentation/quickstart/
+- aid: workist:workist-invoices-api
+  name: Workist Invoices API
+  description: The Invoices API from Workist — 5 operation(s) for invoices.
+  humanURL: https://docs.workist.com/en/docs/api-documentation/
+  baseURL: https://api.workist.com/api/v1
+  tags:
+  - Invoices
+  properties:
+  - type: OpenAPI
+    url: openapi/workist-invoices-api-openapi.yml
+  - type: Documentation
+    url: https://docs.workist.com/en/docs/api-documentation/
+  - type: APIReference
+    url: https://api.workist.com/v1/swagger/
+  - type: GettingStarted
+    url: https://docs.workist.com/en/docs/api-documentation/quickstart/
+- aid: workist:workist-list-of-services-api
+  name: Workist List Of Services API
+  description: The List Of Services API from Workist — 6 operation(s) for list of services.
+  humanURL: https://docs.workist.com/en/docs/api-documentation/
+  baseURL: https://api.workist.com/api/v1
+  tags:
+  - List Of Services
+  properties:
+  - type: OpenAPI
+    url: openapi/workist-list-of-services-api-openapi.yml
+  - type: Documentation
+    url: https://docs.workist.com/en/docs/api-documentation/
+  - type: APIReference
+    url: https://api.workist.com/v1/swagger/
+  - type: GettingStarted
+    url: https://docs.workist.com/en/docs/api-documentation/quickstart/
+- aid: workist:workist-master-data-api
+  name: Workist Master Data API
+  description: The Master Data API from Workist — 12 operation(s) for master data.
+  humanURL: https://docs.workist.com/en/docs/api-documentation/
+  baseURL: https://api.workist.com/api/v1
+  tags:
+  - Master Data
+  properties:
+  - type: OpenAPI
+    url: openapi/workist-master-data-api-openapi.yml
+  - type: Documentation
+    url: https://docs.workist.com/en/docs/api-documentation/
+  - type: APIReference
+    url: https://api.workist.com/v1/swagger/
+  - type: GettingStarted
+    url: https://docs.workist.com/en/docs/api-documentation/quickstart/
+- aid: workist:workist-order-confirmations-api
+  name: Workist Order Confirmations API
+  description: The Order Confirmations API from Workist — 5 operation(s) for order confirmations.
+  humanURL: https://docs.workist.com/en/docs/api-documentation/
+  baseURL: https://api.workist.com/api/v1
+  tags:
+  - Order Confirmations
+  properties:
+  - type: OpenAPI
+    url: openapi/workist-order-confirmations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.workist.com/en/docs/api-documentation/
+  - type: APIReference
+    url: https://api.workist.com/v1/swagger/
+  - type: GettingStarted
+    url: https://docs.workist.com/en/docs/api-documentation/quickstart/
+- aid: workist:workist-orders-api
+  name: Workist Orders API
+  description: The Orders API from Workist — 5 operation(s) for orders.
+  humanURL: https://docs.workist.com/en/docs/api-documentation/
+  baseURL: https://api.workist.com/api/v1
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/workist-orders-api-openapi.yml
+  - type: Documentation
+    url: https://docs.workist.com/en/docs/api-documentation/
+  - type: APIReference
+    url: https://api.workist.com/v1/swagger/
+  - type: GettingStarted
+    url: https://docs.workist.com/en/docs/api-documentation/quickstart/
+- aid: workist:workist-property-bills-api
+  name: Workist Property Bills API
+  description: The Property Bills API from Workist — 5 operation(s) for property bills.
+  humanURL: https://docs.workist.com/en/docs/api-documentation/
+  baseURL: https://api.workist.com/api/v1
+  tags:
+  - Property Bills
+  properties:
+  - type: OpenAPI
+    url: openapi/workist-property-bills-api-openapi.yml
+  - type: Documentation
+    url: https://docs.workist.com/en/docs/api-documentation/
+  - type: APIReference
+    url: https://api.workist.com/v1/swagger/
+  - type: GettingStarted
+    url: https://docs.workist.com/en/docs/api-documentation/quickstart/
+- aid: workist:workist-rfq-api
+  name: Workist Rfq API
+  description: The Rfq API from Workist — 5 operation(s) for rfq.
+  humanURL: https://docs.workist.com/en/docs/api-documentation/
+  baseURL: https://api.workist.com/api/v1
+  tags:
+  - Rfq
+  properties:
+  - type: OpenAPI
+    url: openapi/workist-rfq-api-openapi.yml
+  - type: Documentation
+    url: https://docs.workist.com/en/docs/api-documentation/
+  - type: APIReference
+    url: https://api.workist.com/v1/swagger/
+  - type: GettingStarted
+    url: https://docs.workist.com/en/docs/api-documentation/quickstart/
+common:
+- type: AgenticAccess
+  url: agentic-access/workist-agentic-access.yml
+- type: DomainSecurity
+  url: security/workist-domain-security.yml
+- type: Authentication
+  url: authentication/workist-authentication.yml
+- type: LLMsTxt
+  url: llms/workist-llms.txt
+- type: WellKnown
+  url: well-known/workist-well-known.yml
+- type: MCPServer
+  url: mcp/workist-mcp.yml
+- type: Overlay
+  url: overlays/workist-integrations-overlay.yaml
+- type: Conformance
+  url: conformance/workist-conformance.yml
+- type: Compliance
+  url: https://www.workist.com/en
+- type: ErrorCatalog
+  url: errors/workist-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/workist-lifecycle.yml
+- type: Conventions
+  url: conventions/workist-conventions.yml
+- type: DataModel
+  url: data-model/workist-data-model.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Website
+  url: https://www.workist.com
+- type: DeveloperPortal
+  url: https://docs.workist.com/en/
+- type: Documentation
+  url: https://docs.workist.com/en/
+- type: APIReference
+  url: https://api.workist.com/v1/swagger/
+- type: GettingStarted
+  url: https://docs.workist.com/en/docs/api-documentation/quickstart/
+- type: Login
+  url: https://wb.workist.com/
+- type: Pricing
+  url: https://www.workist.com/en/pricing
+- type: Blog
+  url: https://www.workist.com/en/blog
+- type: Support
+  url: https://docs.workist.com/en/docs/faq/
+- type: GitHubOrganization
+  url: https://github.com/workist
+- type: StatusPage
+  url: https://status.workist.com
+- type: TermsOfService
+  url: https://www.workist.com/en/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.workist.com/en/privacy-policy
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1

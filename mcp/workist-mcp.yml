@@ -1,0 +1,59 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/workist-integrations-openapi-original.yml
+notes: >-
+  No official Workist MCP server was found (docs, npm, GitHub org, MCP
+  registries checked 2026-07-21). This is a candidate tool surface derived
+  from the OpenAPI operations - the document-processing poll/import loop and
+  the master data import flow that an MCP server for Workist would expose.
+server:
+  name: workist
+  transport: http
+  url: null
+tools:
+- name: list_orders
+  description: List order processing records, filterable by finished/imported/channel/date range
+  source_operation: openapi/workist-integrations-openapi-original.yml#orders_list
+- name: upload_order
+  description: Upload a new order document for AI extraction
+  source_operation: openapi/workist-integrations-openapi-original.yml#orders_create
+- name: get_order
+  description: Get one order processing record with extracted header and line items
+  source_operation: openapi/workist-integrations-openapi-original.yml#orders_retrieve
+- name: mark_order_imported
+  description: Mark an order as imported into the ERP (success or failure)
+  source_operation: openapi/workist-integrations-openapi-original.yml#orders_mark_imported_update
+- name: list_invoices
+  description: List invoice processing records
+  source_operation: openapi/workist-integrations-openapi-original.yml#invoices_list
+- name: upload_invoice
+  description: Upload a new invoice document for AI extraction
+  source_operation: openapi/workist-integrations-openapi-original.yml#invoices_create
+- name: get_invoice
+  description: Get one invoice processing record
+  source_operation: openapi/workist-integrations-openapi-original.yml#invoices_retrieve
+- name: mark_invoice_imported
+  description: Mark an invoice as imported into the ERP
+  source_operation: openapi/workist-integrations-openapi-original.yml#invoices_mark_imported_update
+- name: list_delivery_notes
+  description: List delivery note processing records
+  source_operation: openapi/workist-integrations-openapi-original.yml#delivery_notes_list
+- name: list_order_confirmations
+  description: List order confirmation processing records
+  source_operation: openapi/workist-integrations-openapi-original.yml#order_confirmations_list
+- name: list_rfqs
+  description: List request-for-quotation processing records
+  source_operation: openapi/workist-integrations-openapi-original.yml#rfq_list
+- name: create_master_data_import
+  description: Create a master data import run (set batched true for chunked uploads)
+  source_operation: openapi/workist-integrations-openapi-original.yml#imports_create
+- name: append_master_data_batch
+  description: Append a batch (up to 1000 elements) to a batched master data import
+  source_operation: openapi/workist-integrations-openapi-original.yml#imports_data_create
+- name: start_master_data_import
+  description: Start a batched master data import and ingest all appended data
+  source_operation: openapi/workist-integrations-openapi-original.yml#imports_start_create
+- name: get_master_data_import
+  description: Get the status of a master data import run
+  source_operation: openapi/workist-integrations-openapi-original.yml#imports_retrieve

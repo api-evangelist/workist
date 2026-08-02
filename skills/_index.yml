@@ -1,0 +1,16 @@
+generated: '2026-07-21'
+method: generated
+source: >-
+  Packaged Agent Skills generated from the Workist OpenAPI
+  (openapi/workist-integrations-openapi-original.yml) and the docs
+  quickstart/master-data guides. Every operationId is verified verbatim in
+  the spec.
+skills:
+- file: workist-process-orders.md
+  name: Process orders through Workist
+  api: openapi/workist-integrations-openapi-original.yml
+  operations: [orders_create, orders_list, orders_retrieve, orders_mark_imported_update]
+- file: workist-import-master-data.md
+  name: Import ERP master data into Workist
+  api: openapi/workist-integrations-openapi-original.yml
+  operations: [imports_create, imports_data_create, imports_start_create, imports_retrieve]

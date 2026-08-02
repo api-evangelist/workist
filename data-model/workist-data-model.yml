@@ -1,0 +1,65 @@
+generated: '2026-07-21'
+method: derived
+source: >-
+  Derived from the 62 components.schemas in
+  openapi/workist-integrations-openapi-original.yml - the ProcessingRecord
+  envelope pattern shared by the seven document types, their document/line-
+  item payloads, and the master data import families.
+notation: >-
+  relationships use has_one / has_many / belongs_to with the referencing
+  field name; direction is from the entity that owns the reference.
+
+entities:
+- {name: OrderProcessingRecord, domain: documents, description: Processing lifecycle envelope for an uploaded order.}
+- {name: Order, domain: documents, description: Extracted order payload (header fields + line items).}
+- {name: OrderLineItem, domain: documents, description: One position line of an extracted order.}
+- {name: InvoiceProcessingRecord, domain: documents, description: Processing envelope for an invoice.}
+- {name: Invoice, domain: documents, description: Extracted invoice payload.}
+- {name: InvoiceLineItem, domain: documents, description: One line of an extracted invoice.}
+- {name: DeliveryNoteProcessingRecord, domain: documents, description: Processing envelope for a delivery note.}
+- {name: DeliveryNote, domain: documents, description: Extracted delivery note payload.}
+- {name: DeliveryNoteLineItem, domain: documents, description: One line of a delivery note.}
+- {name: OrderConfirmationProcessingRecord, domain: documents, description: Processing envelope for an order confirmation.}
+- {name: OrderConfirmation, domain: documents, description: Extracted order confirmation payload.}
+- {name: OrderConfirmationLineItem, domain: documents, description: One line of an order confirmation.}
+- {name: RfqProcessingRecord, domain: documents, description: Processing envelope for a request for quotation.}
+- {name: RequestForQuotation, domain: documents, description: Extracted RFQ payload.}
+- {name: RfqLineItem, domain: documents, description: One line of an RFQ.}
+- {name: PropertyBillProcessingRecord, domain: documents, description: Processing envelope for a property bill.}
+- {name: ListOfServicesProcessingRecord, domain: documents, description: Processing envelope for a list of services (X94 generation supported).}
+- {name: ListOfServices, domain: documents, description: Extracted list-of-services payload.}
+- {name: ListOfServicesPosition, domain: documents, description: Position within a list of services.}
+- {name: Customer, domain: parties, description: Matched customer (client) on an extracted document.}
+- {name: Address, domain: parties, description: Delivery/invoice address on a document.}
+- {name: ContactPerson, domain: parties, description: Contact person matched on a document.}
+- {name: User, domain: platform, description: Workbench user (assignment + assistance).}
+- {name: DataImportRun, domain: master-data, description: One master data import run (batched or single-shot).}
+- {name: ClientMasterData, domain: master-data, description: Customer master record from the ERP.}
+- {name: AddressMasterData, domain: master-data, description: Delivery-address master record.}
+- {name: ArticleMasterData, domain: master-data, description: Article/product master record (order_units array).}
+- {name: ContactMasterData, domain: master-data, description: Contact master record.}
+- {name: ConversionFactorMasterData, domain: master-data, description: Unit conversion factors.}
+- {name: FrameworkContractMasterData, domain: master-data, description: Framework agreement records.}
+- {name: OrderMatchingMasterData, domain: master-data, description: Order matching lookup data.}
+- {name: OfferMatchingMasterData, domain: master-data, description: Offer matching lookup data.}
+
+relationships:
+- {from: OrderProcessingRecord, to: Order, kind: has_one, via: document}
+- {from: Order, to: OrderLineItem, kind: has_many, via: line_items}
+- {from: InvoiceProcessingRecord, to: Invoice, kind: has_one, via: document}
+- {from: Invoice, to: InvoiceLineItem, kind: has_many, via: line_items}
+- {from: DeliveryNoteProcessingRecord, to: DeliveryNote, kind: has_one, via: document}
+- {from: DeliveryNote, to: DeliveryNoteLineItem, kind: has_many, via: line_items}
+- {from: OrderConfirmationProcessingRecord, to: OrderConfirmation, kind: has_one, via: document}
+- {from: OrderConfirmation, to: OrderConfirmationLineItem, kind: has_many, via: line_items}
+- {from: RfqProcessingRecord, to: RequestForQuotation, kind: has_one, via: document}
+- {from: RequestForQuotation, to: RfqLineItem, kind: has_many, via: line_items}
+- {from: ListOfServicesProcessingRecord, to: ListOfServices, kind: has_one, via: document}
+- {from: ListOfServices, to: ListOfServicesPosition, kind: has_many, via: positions}
+- {from: Order, to: Customer, kind: has_one, via: customer}
+- {from: Order, to: Address, kind: has_one, via: delivery_address}
+- {from: Order, to: ContactPerson, kind: has_one, via: contact_person}
+- {from: OrderProcessingRecord, to: User, kind: belongs_to, via: assigned_user}
+- {from: DataImportRun, to: ClientMasterData, kind: has_many, via: data}
+- {from: DataImportRun, to: ArticleMasterData, kind: has_many, via: data}
+- {from: DataImportRun, to: AddressMasterData, kind: has_many, via: data}

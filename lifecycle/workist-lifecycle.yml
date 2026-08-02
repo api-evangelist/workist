@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://status.workist.com (live status page, probed 200 on 2026-07-21) +
+  openapi/workist-integrations-openapi-original.yml. No public deprecation
+  policy, Sunset-header contract, or SLA page was found on workist.com or
+  docs.workist.com.
+versioning:
+  scheme: uri-path
+  current: v1
+  notes: Served under both /v1/ and /api/v1/ prefixes per the OpenAPI servers[].
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No published deprecation policy found.
+sla:
+  url: null
+  notes: No public SLA page found; contracts are annual enterprise subscriptions.
+status_page: https://status.workist.com
+deprecated_operations: []
