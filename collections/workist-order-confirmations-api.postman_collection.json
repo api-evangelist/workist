@@ -1,0 +1,3099 @@
+{
+  "item": [
+    {
+      "id": "8cf38ad7-7583-43df-8bcb-7d428b4a2795",
+      "name": "Order Confirmations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3246e2d8-c780-40af-b715-1eb15f250652",
+          "name": "Get all processing records for this document type",
+          "request": {
+            "name": "Get all processing records for this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "order-confirmations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "channel",
+                  "value": "<string>",
+                  "description": "Id of a processing channel"
+                },
+                {
+                  "disabled": false,
+                  "key": "assistance_needed",
+                  "value": "<boolean>",
+                  "description": "Filter by assistance needed records"
+                },
+                {
+                  "disabled": false,
+                  "key": "finished",
+                  "value": "<boolean>",
+                  "description": "Filter by finished records"
+                },
+                {
+                  "disabled": false,
+                  "key": "imported",
+                  "value": "<boolean>",
+                  "description": "Filter records marked as [SUCCEEDED]"
+                },
+                {
+                  "disabled": false,
+                  "key": "import_failed",
+                  "value": "<boolean>",
+                  "description": "Filter records marked as [FAILED]"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_by",
+                  "value": "<string>",
+                  "description": "Email address or id of a user."
+                },
+                {
+                  "disabled": false,
+                  "key": "assisted_by",
+                  "value": "<string>",
+                  "description": "Email address or id of a user."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<dateTime>",
+                  "description": "Beginning of a date range (based on created_at) in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<dateTime>",
+                  "description": "End of a date range (based on created_at) in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "22f89a99-ad40-4361-b25d-7a4f208d3887",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next\": \"http://api.example.org/accounts/?page=4\",\n  \"previous\": \"http://api.example.org/accounts/?page=2\",\n  \"items\": [\n    {\n      \"additional_file_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"assigned_to\": {\n        \"email\": \"fhuLE@vJAdHTUlWNKWYMtpmNE.vil\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"assisted_by\": {\n        \"email\": \"NVd5Q6D0@wtixRQyXuDyPrzYExWVRXTm.vq\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"channel\": \"string\",\n      \"classified_files\": [\n        {\n          \"key_0\": \"string\"\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\",\n          \"key_3\": \"string\"\n        }\n      ],\n      \"created_at\": \"1988-04-07T12:43:07.884Z\",\n      \"created_by\": {\n        \"email\": \"Oc43Dac-e8YkX@cVGAxdXpdZaoCtpt.kzch\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"data\": {\n        \"supplier\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customer_type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"iln\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"contact_person\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"delivery_address\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"misc\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name4\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country_subdivision\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"delivery_date\": \"string\",\n        \"order_confirmation_date\": \"string\",\n        \"order_date\": \"string\",\n        \"order_confirmation_number\": \"string\",\n        \"document_type\": \"string\",\n        \"order_number\": \"string\",\n        \"total_amount\": \"string\",\n        \"total_amount_net\": \"string\",\n        \"info_text\": \"string\",\n        \"commission_number\": \"string\",\n        \"line_items\": [\n          {\n            \"pos\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_reference\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discount_percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discount_amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_comments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"commission_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"goods_issue_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"customer_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"customer_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"order_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"price_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"delivery_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"markings\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"converted_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"converted_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"pos\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_reference\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discount_percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discount_amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_comments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"commission_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"goods_issue_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"customer_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"customer_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"order_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"price_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"delivery_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"markings\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"converted_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"converted_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"delivered_at\": \"1988-06-24T21:44:05.428Z\",\n      \"email_file_url\": \"string\",\n      \"external_message\": \"string\",\n      \"external_reference\": \"string\",\n      \"external_status\": \"string\",\n      \"id\": \"00a95508-cf63-7d97-9aa7-ec02adf67f87\",\n      \"imported_at\": \"1987-11-14T05:03:38.184Z\",\n      \"input_file_url\": \"string\",\n      \"status\": \"string\",\n      \"updated_at\": \"2001-08-14T03:12:21.021Z\",\n      \"workbench_url\": \"https://TouCAIsjAiGZWTAs.vtxpDhr5BACGZll-rtwftvDmmqQK5lWRL-t7U-KdAuJ-8modBiu5UCVGBcCaWzA5aF\",\n      \"sender\": \"string\",\n      \"subject\": \"string\",\n      \"assisted_at\": \"1961-02-15T15:27:41.635Z\",\n      \"finished_at\": \"1959-04-25T21:30:46.766Z\"\n    },\n    {\n      \"additional_file_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"assigned_to\": {\n        \"email\": \"2uncs4FU6t@FDTR.pow\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"assisted_by\": {\n        \"email\": \"osziWsAk@rEypCPsjaPfAJBimCfMXXTPeik.spv\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"channel\": \"string\",\n      \"classified_files\": [\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\",\n          \"key_3\": \"string\"\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        }\n      ],\n      \"created_at\": \"2026-07-30T17:49:06.483Z\",\n      \"created_by\": {\n        \"email\": \"xpWw@NSx.ua\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"data\": {\n        \"supplier\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customer_type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"iln\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"contact_person\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"delivery_address\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"misc\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name4\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country_subdivision\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"delivery_date\": \"string\",\n        \"order_confirmation_date\": \"string\",\n        \"order_date\": \"string\",\n        \"order_confirmation_number\": \"string\",\n        \"document_type\": \"string\",\n        \"order_number\": \"string\",\n        \"total_amount\": \"string\",\n        \"total_amount_net\": \"string\",\n        \"info_text\": \"string\",\n        \"commission_number\": \"string\",\n        \"line_items\": [\n          {\n            \"pos\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_reference\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discount_percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discount_amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_comments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"commission_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"goods_issue_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"customer_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"customer_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"order_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"price_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"delivery_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"markings\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"converted_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"converted_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"pos\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_reference\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discount_percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discount_amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_comments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"commission_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"goods_issue_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"customer_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"customer_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"order_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"price_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"delivery_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"markings\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"converted_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"converted_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"delivered_at\": \"1990-06-18T12:19:22.130Z\",\n      \"email_file_url\": \"string\",\n      \"external_message\": \"string\",\n      \"external_reference\": \"string\",\n      \"external_status\": \"string\",\n      \"id\": \"42323aa3-cdb0-b1a1-dac0-067b5f392fb6\",\n      \"imported_at\": \"1969-09-04T10:44:25.917Z\",\n      \"input_file_url\": \"string\",\n      \"status\": \"string\",\n      \"updated_at\": \"1994-08-31T16:38:06.856Z\",\n      \"workbench_url\": \"http://eXQKhTJPcQIkEDgRObvVJQCNoRVAju.vxgbKs06vXJTyP.lNllOUisFookexPAnZQjGtJHvTJLemuIhhyXj8GvRA0r+oTnbnN1s4MlP1RD2l6BdU\",\n      \"sender\": \"string\",\n      \"subject\": \"string\",\n      \"assisted_at\": \"1981-05-25T09:23:27.393Z\",\n      \"finished_at\": \"1975-03-04T15:33:23.924Z\"\n    }\n  ],\n  \"total_count\": 123\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c148690-2df6-46b2-b62a-c2ba9b66a49f",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a073f5f9-426e-4a30-892c-ae34f49d9704",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c58670e-4230-487d-8a7d-0e735df50d12",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2913beca-4b32-41fb-8fd3-6fddfa5524ee",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7253c683-bddb-4d69-81d4-ff124d02db91",
+          "name": "Add a new processing record for this document type",
+          "request": {
+            "name": "Add a new processing record for this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "order-confirmations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "channel",
+                  "value": "<uuid>",
+                  "description": "(Required) Id of a processing channel"
+                },
+                {
+                  "disabled": false,
+                  "key": "file",
+                  "value": "<binary>",
+                  "description": "(Required) File to be processed"
+                },
+                {
+                  "disabled": false,
+                  "key": "user",
+                  "value": "<string>",
+                  "description": "Email address or id of a user."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "00b8bff5-5658-4634-a6d6-5b2f8589afb9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"6ntn@BfJIyDuswzfNhCExsxiNdHBLPD.ig\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"MTmMAMsQrLU@Bt.impq\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  ],\n  \"created_at\": \"1968-09-18T19:20:09.469Z\",\n  \"created_by\": {\n    \"email\": \"6tgmc@cmxsWXCIxJVxYiIopubEUeSCPy.ec\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"supplier\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"delivery_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"delivery_date\": \"string\",\n    \"order_confirmation_date\": \"string\",\n    \"order_date\": \"string\",\n    \"order_confirmation_number\": \"string\",\n    \"document_type\": \"string\",\n    \"order_number\": \"string\",\n    \"total_amount\": \"string\",\n    \"total_amount_net\": \"string\",\n    \"info_text\": \"string\",\n    \"commission_number\": \"string\",\n    \"line_items\": [\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      },\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      }\n    ]\n  },\n  \"delivered_at\": \"1983-09-02T03:49:08.274Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"e9a26057-0184-d453-ec18-514f39a7ad1b\",\n  \"imported_at\": \"1948-09-11T20:55:43.434Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1969-12-24T01:20:24.173Z\",\n  \"workbench_url\": \"https://kzVKFolHLndZSlZIlBrW.srE2z,X5\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1973-11-16T20:57:55.263Z\",\n  \"finished_at\": \"1990-12-01T00:00:24.006Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a907fcf2-aae4-4397-ab97-950ac4665b8f",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6eb01b76-8d89-4166-9eab-65234275ebdb",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "89e12acd-fc6b-446e-ab21-e53582f2ac1d",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4e677748-e0a7-496c-bb77-6eb30059f241",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80dbe2b3-7264-456d-b1c4-50b490f13a13",
+          "name": "Get a specific processing record for this document type",
+          "request": {
+            "name": "Get a specific processing record for this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "order-confirmations",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this order confirmation processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "45abc2c0-62f4-4b6a-82cb-88182cff0fa6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"6ntn@BfJIyDuswzfNhCExsxiNdHBLPD.ig\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"MTmMAMsQrLU@Bt.impq\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  ],\n  \"created_at\": \"1968-09-18T19:20:09.469Z\",\n  \"created_by\": {\n    \"email\": \"6tgmc@cmxsWXCIxJVxYiIopubEUeSCPy.ec\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"supplier\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"delivery_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"delivery_date\": \"string\",\n    \"order_confirmation_date\": \"string\",\n    \"order_date\": \"string\",\n    \"order_confirmation_number\": \"string\",\n    \"document_type\": \"string\",\n    \"order_number\": \"string\",\n    \"total_amount\": \"string\",\n    \"total_amount_net\": \"string\",\n    \"info_text\": \"string\",\n    \"commission_number\": \"string\",\n    \"line_items\": [\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      },\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      }\n    ]\n  },\n  \"delivered_at\": \"1983-09-02T03:49:08.274Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"e9a26057-0184-d453-ec18-514f39a7ad1b\",\n  \"imported_at\": \"1948-09-11T20:55:43.434Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1969-12-24T01:20:24.173Z\",\n  \"workbench_url\": \"https://kzVKFolHLndZSlZIlBrW.srE2z,X5\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1973-11-16T20:57:55.263Z\",\n  \"finished_at\": \"1990-12-01T00:00:24.006Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "698a4820-520e-4069-b1c8-19aaeccf2264",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2fad00a1-a346-4d18-9df1-0838d98c9c99",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1566a28e-87f2-412a-b3f2-e53ba7356543",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ec4d53cd-84d1-48e9-9369-44ee7127b06d",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7667dd50-94eb-455a-82c6-e5988cea5e0e",
+          "name": "Delete a processing record of this document type",
+          "request": {
+            "name": "Delete a processing record of this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "order-confirmations",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this order confirmation processing record."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2f8b803b-5d0d-472c-b087-18b72c6725e5",
+              "name": "No response body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7229062e-7e80-48c4-9bbb-85352d5b89d6",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9d797ccc-188f-4437-b760-38cf05ea7a0c",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c5e28870-ffb8-4de8-9308-b5b1d744b815",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "438671f8-70f9-4e5d-8f29-11e4d1814a7a",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26057b45-b1fe-42fb-ad7e-ed23cef2a650",
+          "name": "Assign a user to a specific processing record of this document type",
+          "request": {
+            "name": "Assign a user to a specific processing record of this document type",
+            "description": {
+              "content": "The user will be stored in the field `assigned_to`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "order-confirmations",
+                ":id",
+                "assign_user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this order confirmation processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "user",
+                  "value": "<string>",
+                  "description": "(Required) Email address or id of a user."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2bb246ec-72f7-4936-948a-f1f66573df11",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"6ntn@BfJIyDuswzfNhCExsxiNdHBLPD.ig\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"MTmMAMsQrLU@Bt.impq\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  ],\n  \"created_at\": \"1968-09-18T19:20:09.469Z\",\n  \"created_by\": {\n    \"email\": \"6tgmc@cmxsWXCIxJVxYiIopubEUeSCPy.ec\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"supplier\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"delivery_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"delivery_date\": \"string\",\n    \"order_confirmation_date\": \"string\",\n    \"order_date\": \"string\",\n    \"order_confirmation_number\": \"string\",\n    \"document_type\": \"string\",\n    \"order_number\": \"string\",\n    \"total_amount\": \"string\",\n    \"total_amount_net\": \"string\",\n    \"info_text\": \"string\",\n    \"commission_number\": \"string\",\n    \"line_items\": [\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      },\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      }\n    ]\n  },\n  \"delivered_at\": \"1983-09-02T03:49:08.274Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"e9a26057-0184-d453-ec18-514f39a7ad1b\",\n  \"imported_at\": \"1948-09-11T20:55:43.434Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1969-12-24T01:20:24.173Z\",\n  \"workbench_url\": \"https://kzVKFolHLndZSlZIlBrW.srE2z,X5\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1973-11-16T20:57:55.263Z\",\n  \"finished_at\": \"1990-12-01T00:00:24.006Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0621df11-1933-4fcc-9cd0-bd74f6e3638d",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c51d5d85-b86b-400c-a5a3-752b8718915c",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8791d17d-147b-448d-82f9-6110bc024fb5",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dbd14890-c337-4d8f-bf8b-b8ddd17a9380",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd3de562-ce9f-456e-a865-6198aabe7f94",
+          "name": "Mark a processing record of this document type as imported",
+          "request": {
+            "name": "Mark a processing record of this document type as imported",
+            "description": {
+              "content": "The external data will be stored in the fields `external_reference`, `external_status` and `external_message`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "order-confirmations",
+                ":id",
+                "mark_imported"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this order confirmation processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "SUCCEEDED",
+                  "description": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_reference",
+                  "value": "",
+                  "description": "Id that represents this record in the target system"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_status",
+                  "value": "",
+                  "description": "Status of the record in the target system"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_message",
+                  "value": "",
+                  "description": "E.g. error message"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cd8f1ba6-f123-435f-9c53-bb1916e02547",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"6ntn@BfJIyDuswzfNhCExsxiNdHBLPD.ig\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"MTmMAMsQrLU@Bt.impq\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  ],\n  \"created_at\": \"1968-09-18T19:20:09.469Z\",\n  \"created_by\": {\n    \"email\": \"6tgmc@cmxsWXCIxJVxYiIopubEUeSCPy.ec\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"supplier\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"delivery_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"delivery_date\": \"string\",\n    \"order_confirmation_date\": \"string\",\n    \"order_date\": \"string\",\n    \"order_confirmation_number\": \"string\",\n    \"document_type\": \"string\",\n    \"order_number\": \"string\",\n    \"total_amount\": \"string\",\n    \"total_amount_net\": \"string\",\n    \"info_text\": \"string\",\n    \"commission_number\": \"string\",\n    \"line_items\": [\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      },\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      }\n    ]\n  },\n  \"delivered_at\": \"1983-09-02T03:49:08.274Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"e9a26057-0184-d453-ec18-514f39a7ad1b\",\n  \"imported_at\": \"1948-09-11T20:55:43.434Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1969-12-24T01:20:24.173Z\",\n  \"workbench_url\": \"https://kzVKFolHLndZSlZIlBrW.srE2z,X5\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1973-11-16T20:57:55.263Z\",\n  \"finished_at\": \"1990-12-01T00:00:24.006Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "08f46cf3-087d-4550-982d-47938bfeebc6",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "da627683-d0de-4e2a-b493-f12318c7e1a0",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b90968c1-1e84-4f5f-8697-42961228aedc",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f86b52ad-dd36-4751-bf3f-899d67e3b600",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a88a7ab-11f8-4a1c-8a54-7331bc0a4443",
+          "name": "Update the meta information of a processing record of this document type",
+          "request": {
+            "name": "Update the meta information of a processing record of this document type",
+            "description": {},
+            "url": {
+              "path": [
+                "order-confirmations",
+                ":id",
+                "meta"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this order confirmation processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "sender",
+                  "value": "",
+                  "description": "Sender of the document (e.g. sender of the original email)"
+                },
+                {
+                  "disabled": false,
+                  "key": "subject",
+                  "value": "",
+                  "description": "Subject of the document (e.g. subject of the original email)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "37ed38c2-1cbd-4ff8-aea9-6fd14521db7b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"6ntn@BfJIyDuswzfNhCExsxiNdHBLPD.ig\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"MTmMAMsQrLU@Bt.impq\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  ],\n  \"created_at\": \"1968-09-18T19:20:09.469Z\",\n  \"created_by\": {\n    \"email\": \"6tgmc@cmxsWXCIxJVxYiIopubEUeSCPy.ec\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"supplier\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"delivery_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"delivery_date\": \"string\",\n    \"order_confirmation_date\": \"string\",\n    \"order_date\": \"string\",\n    \"order_confirmation_number\": \"string\",\n    \"document_type\": \"string\",\n    \"order_number\": \"string\",\n    \"total_amount\": \"string\",\n    \"total_amount_net\": \"string\",\n    \"info_text\": \"string\",\n    \"commission_number\": \"string\",\n    \"line_items\": [\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      },\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      }\n    ]\n  },\n  \"delivered_at\": \"1983-09-02T03:49:08.274Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"e9a26057-0184-d453-ec18-514f39a7ad1b\",\n  \"imported_at\": \"1948-09-11T20:55:43.434Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1969-12-24T01:20:24.173Z\",\n  \"workbench_url\": \"https://kzVKFolHLndZSlZIlBrW.srE2z,X5\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1973-11-16T20:57:55.263Z\",\n  \"finished_at\": \"1990-12-01T00:00:24.006Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be665a17-91b9-4662-b589-08c99d843adb",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4e694f4a-c4ee-4716-be88-2fc0697cbbde",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9fe227fd-cc62-43a0-a12a-fbc14fc99861",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "92e8ca43-ce43-4fe0-baf9-ba171495c551",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order-confirmations",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this order confirmation processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v1/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "12d07ff1-195f-4a32-b9d1-f1144811d312",
+    "name": "Workist Integrations & Developer Delivery Notes Order Confirmations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "With this API you can access different resources of the Workist platform (e.g. processed documents, masterdata imports)\n\nContact Support:\n Email: info@workist.com",
+      "type": "text/plain"
+    }
+  }
+}

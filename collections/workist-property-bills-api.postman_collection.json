@@ -1,0 +1,3067 @@
+{
+  "item": [
+    {
+      "id": "9b8c469c-2236-447a-8698-a611f2f5fd81",
+      "name": "Property Bills",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "81eee670-844a-422d-a209-164ff5f1358c",
+          "name": "Get all processing records for this document type",
+          "request": {
+            "name": "Get all processing records for this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "property-bills"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "channel",
+                  "value": "<string>",
+                  "description": "Id of a processing channel"
+                },
+                {
+                  "disabled": false,
+                  "key": "assistance_needed",
+                  "value": "<boolean>",
+                  "description": "Filter by assistance needed records"
+                },
+                {
+                  "disabled": false,
+                  "key": "finished",
+                  "value": "<boolean>",
+                  "description": "Filter by finished records"
+                },
+                {
+                  "disabled": false,
+                  "key": "imported",
+                  "value": "<boolean>",
+                  "description": "Filter records marked as [SUCCEEDED]"
+                },
+                {
+                  "disabled": false,
+                  "key": "import_failed",
+                  "value": "<boolean>",
+                  "description": "Filter records marked as [FAILED]"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_by",
+                  "value": "<string>",
+                  "description": "Email address or id of a user."
+                },
+                {
+                  "disabled": false,
+                  "key": "assisted_by",
+                  "value": "<string>",
+                  "description": "Email address or id of a user."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<dateTime>",
+                  "description": "Beginning of a date range (based on created_at) in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<dateTime>",
+                  "description": "End of a date range (based on created_at) in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "668bade2-1a03-4ff4-a228-785a8ec43b0a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next\": \"http://api.example.org/accounts/?page=4\",\n  \"previous\": \"http://api.example.org/accounts/?page=2\",\n  \"items\": [\n    {\n      \"additional_file_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"assigned_to\": {\n        \"email\": \"BgXL7MXuEy8X@m.oze\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"assisted_by\": {\n        \"email\": \"fGLzuohI@hKyneIqzUltArseeiuFlMPZNaGePeD.jee\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"channel\": \"string\",\n      \"classified_files\": [\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        {\n          \"key_0\": \"string\"\n        }\n      ],\n      \"created_at\": \"1955-04-14T22:42:50.599Z\",\n      \"created_by\": {\n        \"email\": \"axu3WsOBiB5@jqkgLKJBOc.rwah\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"data\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"delivered_at\": \"2019-03-22T09:40:16.795Z\",\n      \"email_file_url\": \"string\",\n      \"external_message\": \"string\",\n      \"external_reference\": \"string\",\n      \"external_status\": \"string\",\n      \"id\": \"42b1045f-ecc9-7265-7592-2030b09acfbc\",\n      \"imported_at\": \"1998-02-27T05:56:29.890Z\",\n      \"input_file_url\": \"string\",\n      \"status\": \"string\",\n      \"updated_at\": \"2005-01-02T14:03:00.205Z\",\n      \"workbench_url\": \"http://OIcb.ntrILYyAq2w2ut37YP,jEoIzln2VgO8yzOswGWada7YdL\",\n      \"sender\": \"string\",\n      \"subject\": \"string\",\n      \"assisted_at\": \"1967-05-09T07:09:44.008Z\",\n      \"finished_at\": \"2001-12-14T07:40:36.871Z\"\n    },\n    {\n      \"additional_file_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"assigned_to\": {\n        \"email\": \"yLnM@hAhWPQFPSsKJVJvAFwQWfLogYrPSxwk.qkq\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"assisted_by\": {\n        \"email\": \"ZvlG-tRbw@AcMndRBiwdDkYtUwVoRdWK.oj\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"channel\": \"string\",\n      \"classified_files\": [\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\",\n          \"key_3\": \"string\"\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      ],\n      \"created_at\": \"1962-09-01T22:59:20.040Z\",\n      \"created_by\": {\n        \"email\": \"XcH@DsimPKTLBteNZjHeumtVXeUhHRjf.dn\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"data\": {\n        \"key_0\": {}\n      },\n      \"delivered_at\": \"1977-12-30T17:28:13.419Z\",\n      \"email_file_url\": \"string\",\n      \"external_message\": \"string\",\n      \"external_reference\": \"string\",\n      \"external_status\": \"string\",\n      \"id\": \"c29c0832-90f0-9a16-2c3e-6c9920013d87\",\n      \"imported_at\": \"1982-03-20T08:26:59.764Z\",\n      \"input_file_url\": \"string\",\n      \"status\": \"string\",\n      \"updated_at\": \"1983-06-27T14:07:29.789Z\",\n      \"workbench_url\": \"https://tHINWCnhsX.yacjx8FP,63wokPWnr2ryj.srEoyqmnjuHmGcvLMksFX,tLPWOkk4FG6EKl3VrSpKdDBGFCaYPr1xG269bLj.HI\",\n      \"sender\": \"string\",\n      \"subject\": \"string\",\n      \"assisted_at\": \"1947-07-30T20:35:41.200Z\",\n      \"finished_at\": \"1948-10-06T14:21:44.503Z\"\n    }\n  ],\n  \"total_count\": 123\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd8ded04-e29c-4568-a2b3-ad4a74d00c9d",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "720f823c-6a46-4d7c-b69a-5e6ac3e7fb8c",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "be55162a-ebd0-4934-b182-afa9cf187975",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cd56d4a7-af91-40c0-ac6d-504d3b41386c",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61e4213f-274a-47ec-bc72-4596dd5121b1",
+          "name": "Add a new processing record for this document type",
+          "request": {
+            "name": "Add a new processing record for this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "property-bills"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "channel",
+                  "value": "<uuid>",
+                  "description": "(Required) Id of a processing channel"
+                },
+                {
+                  "disabled": false,
+                  "key": "file",
+                  "value": "<binary>",
+                  "description": "(Required) File to be processed"
+                },
+                {
+                  "disabled": false,
+                  "key": "user",
+                  "value": "<string>",
+                  "description": "Email address or id of a user."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5043acf7-9768-4b52-b4e3-337a7b077a16",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"oMqwyUfeWcK@ebhGRcFgeUkvGlFgFasJbjYAwmhwftjch.rvg\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"n2dKc8C17Ky@YuvElHbQnSnlGhyvOzmveEiSjIfTke.sydp\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    {\n      \"key_0\": \"string\"\n    }\n  ],\n  \"created_at\": \"1998-05-07T07:40:30.153Z\",\n  \"created_by\": {\n    \"email\": \"owtV@QzzmQQRTjKIWPOyHhJnESwX.jiw\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": {}\n  },\n  \"delivered_at\": \"1993-10-26T07:04:27.921Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"ae3d41db-826c-cddb-b96e-8488ecbffc1b\",\n  \"imported_at\": \"1980-10-23T14:24:29.074Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"2005-08-11T17:59:25.877Z\",\n  \"workbench_url\": \"http://lVPxgovccKyBbUmqgTsAHVPh.thcdXWW,Hr7VNjhkjZNgfLhvRAMN.mzhOS9VxaurCoHBMkejvQ2hxHCXVR0NF3PUFmSel\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1988-08-05T04:50:42.273Z\",\n  \"finished_at\": \"1988-06-25T05:41:00.588Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b539ba18-fe56-4fc4-9f32-c2838afd6979",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "40b6fb44-af10-451a-82e8-ad1de168639c",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "754b0a62-36fa-466e-9c4d-350710c9e8f7",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fb0cc405-6597-431f-b2a9-5e1377e95400",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "caa555ba-049e-4cd5-8021-0ab75750aea9",
+          "name": "Get a specific processing record for this document type",
+          "request": {
+            "name": "Get a specific processing record for this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "property-bills",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this property bill processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "184d29ae-a2c4-44e7-9faf-fe8271cce7b8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"oMqwyUfeWcK@ebhGRcFgeUkvGlFgFasJbjYAwmhwftjch.rvg\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"n2dKc8C17Ky@YuvElHbQnSnlGhyvOzmveEiSjIfTke.sydp\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    {\n      \"key_0\": \"string\"\n    }\n  ],\n  \"created_at\": \"1998-05-07T07:40:30.153Z\",\n  \"created_by\": {\n    \"email\": \"owtV@QzzmQQRTjKIWPOyHhJnESwX.jiw\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": {}\n  },\n  \"delivered_at\": \"1993-10-26T07:04:27.921Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"ae3d41db-826c-cddb-b96e-8488ecbffc1b\",\n  \"imported_at\": \"1980-10-23T14:24:29.074Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"2005-08-11T17:59:25.877Z\",\n  \"workbench_url\": \"http://lVPxgovccKyBbUmqgTsAHVPh.thcdXWW,Hr7VNjhkjZNgfLhvRAMN.mzhOS9VxaurCoHBMkejvQ2hxHCXVR0NF3PUFmSel\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1988-08-05T04:50:42.273Z\",\n  \"finished_at\": \"1988-06-25T05:41:00.588Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b000e4cf-ff89-4cbe-98e8-22b58399296b",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e527d21f-e2f7-4e2e-8635-2e8918480588",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ded8c701-ec97-4353-9d46-9edf60d12864",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "50a7bbb1-68e8-4960-978e-f4b7a17a7a11",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5dcb3f8-93cd-44e6-af4e-2980e5d06c5e",
+          "name": "Delete a processing record of this document type",
+          "request": {
+            "name": "Delete a processing record of this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "property-bills",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this property bill processing record."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5001da43-4074-416f-aa43-48a17fa54924",
+              "name": "No response body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dd04f0c7-316b-4cf6-85f7-d543bfe14d52",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f4f383cd-8bd9-4525-b933-1556dd60ad39",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f03060e8-6cb8-46d2-875d-599300b62118",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "365c005a-6431-47a3-87be-f716a82cdee9",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54826edf-c379-480e-8f3b-6709e74783bb",
+          "name": "Assign a user to a specific processing record of this document type",
+          "request": {
+            "name": "Assign a user to a specific processing record of this document type",
+            "description": {
+              "content": "The user will be stored in the field `assigned_to`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "property-bills",
+                ":id",
+                "assign_user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this property bill processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "user",
+                  "value": "<string>",
+                  "description": "(Required) Email address or id of a user."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a4fa90bc-9b92-47fe-8242-52307b585a6b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"oMqwyUfeWcK@ebhGRcFgeUkvGlFgFasJbjYAwmhwftjch.rvg\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"n2dKc8C17Ky@YuvElHbQnSnlGhyvOzmveEiSjIfTke.sydp\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    {\n      \"key_0\": \"string\"\n    }\n  ],\n  \"created_at\": \"1998-05-07T07:40:30.153Z\",\n  \"created_by\": {\n    \"email\": \"owtV@QzzmQQRTjKIWPOyHhJnESwX.jiw\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": {}\n  },\n  \"delivered_at\": \"1993-10-26T07:04:27.921Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"ae3d41db-826c-cddb-b96e-8488ecbffc1b\",\n  \"imported_at\": \"1980-10-23T14:24:29.074Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"2005-08-11T17:59:25.877Z\",\n  \"workbench_url\": \"http://lVPxgovccKyBbUmqgTsAHVPh.thcdXWW,Hr7VNjhkjZNgfLhvRAMN.mzhOS9VxaurCoHBMkejvQ2hxHCXVR0NF3PUFmSel\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1988-08-05T04:50:42.273Z\",\n  \"finished_at\": \"1988-06-25T05:41:00.588Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85c71752-c8fe-4eb9-af01-e8e5a6f03838",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8165d074-c599-428b-91d6-50059c09a529",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "13a19503-8fa3-4450-9a28-462742628919",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c4b9971c-1295-4bfd-810a-74a421769d3f",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95302eaa-f98f-4f03-8b29-316a604063ff",
+          "name": "Mark a processing record as imported",
+          "request": {
+            "name": "Mark a processing record as imported",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "property-bills",
+                ":id",
+                "mark_imported"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this property bill processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "SUCCEEDED",
+                  "description": "Default is `SUCCEEDED`.\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_reference",
+                  "value": "",
+                  "description": "Id that represents this record in the target system"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_status",
+                  "value": "",
+                  "description": "Status of the record in the target system"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_message",
+                  "value": "",
+                  "description": "E.g. error message"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "453d6a6e-4819-465d-94d0-987dc80efeb8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`.\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"oMqwyUfeWcK@ebhGRcFgeUkvGlFgFasJbjYAwmhwftjch.rvg\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"n2dKc8C17Ky@YuvElHbQnSnlGhyvOzmveEiSjIfTke.sydp\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    {\n      \"key_0\": \"string\"\n    }\n  ],\n  \"created_at\": \"1998-05-07T07:40:30.153Z\",\n  \"created_by\": {\n    \"email\": \"owtV@QzzmQQRTjKIWPOyHhJnESwX.jiw\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": {}\n  },\n  \"delivered_at\": \"1993-10-26T07:04:27.921Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"ae3d41db-826c-cddb-b96e-8488ecbffc1b\",\n  \"imported_at\": \"1980-10-23T14:24:29.074Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"2005-08-11T17:59:25.877Z\",\n  \"workbench_url\": \"http://lVPxgovccKyBbUmqgTsAHVPh.thcdXWW,Hr7VNjhkjZNgfLhvRAMN.mzhOS9VxaurCoHBMkejvQ2hxHCXVR0NF3PUFmSel\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1988-08-05T04:50:42.273Z\",\n  \"finished_at\": \"1988-06-25T05:41:00.588Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81b90d7a-34ca-4171-9f1f-cccb4f2fa73e",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`.\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "65a4ec7c-efd1-4629-8d10-a708f00dc1b4",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`.\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c7aeaa68-d7bb-4229-bed3-e6b0a0f9d46c",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`.\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f7f429af-172c-4b90-a961-19a35070b715",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`.\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "841f7908-00d9-4e09-8a07-766d0a3dfe7c",
+          "name": "Update the meta information of a processing record of this document type",
+          "request": {
+            "name": "Update the meta information of a processing record of this document type",
+            "description": {},
+            "url": {
+              "path": [
+                "property-bills",
+                ":id",
+                "meta"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this property bill processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "sender",
+                  "value": "",
+                  "description": "Sender of the document (e.g. sender of the original email)"
+                },
+                {
+                  "disabled": false,
+                  "key": "subject",
+                  "value": "",
+                  "description": "Subject of the document (e.g. subject of the original email)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2027d1c6-3857-4e64-b513-2c5c739ff050",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"oMqwyUfeWcK@ebhGRcFgeUkvGlFgFasJbjYAwmhwftjch.rvg\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"n2dKc8C17Ky@YuvElHbQnSnlGhyvOzmveEiSjIfTke.sydp\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    {\n      \"key_0\": \"string\"\n    }\n  ],\n  \"created_at\": \"1998-05-07T07:40:30.153Z\",\n  \"created_by\": {\n    \"email\": \"owtV@QzzmQQRTjKIWPOyHhJnESwX.jiw\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"key_0\": {}\n  },\n  \"delivered_at\": \"1993-10-26T07:04:27.921Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"ae3d41db-826c-cddb-b96e-8488ecbffc1b\",\n  \"imported_at\": \"1980-10-23T14:24:29.074Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"2005-08-11T17:59:25.877Z\",\n  \"workbench_url\": \"http://lVPxgovccKyBbUmqgTsAHVPh.thcdXWW,Hr7VNjhkjZNgfLhvRAMN.mzhOS9VxaurCoHBMkejvQ2hxHCXVR0NF3PUFmSel\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1988-08-05T04:50:42.273Z\",\n  \"finished_at\": \"1988-06-25T05:41:00.588Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "534fd735-2768-49cf-841b-14f565cee44d",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7ede3abc-3891-473f-a23e-8560a04bfc91",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e88ed15b-4d62-4208-a907-dfff17056d5d",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "df45a684-94ab-43f6-bd6b-8c3ec97e67a5",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property-bills",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this property bill processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v1/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "77fe84bc-a22e-48d5-952c-2857847bea98",
+    "name": "Workist Integrations & Developer Delivery Notes Property Bills API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "With this API you can access different resources of the Workist platform (e.g. processed documents, masterdata imports)\n\nContact Support:\n Email: info@workist.com",
+      "type": "text/plain"
+    }
+  }
+}

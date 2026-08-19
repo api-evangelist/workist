@@ -1,0 +1,291 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Workist Integrations & Developer Delivery Notes Master Data API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Master Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a new master data import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v1/master-data/addresses/imports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept add"
+        },
+        {
+          "info": {
+            "name": "Create a new master data import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v1/master-data/articles/imports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept add"
+        },
+        {
+          "info": {
+            "name": "Create a new master data import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v1/master-data/clients/imports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept add"
+        },
+        {
+          "info": {
+            "name": "Create a new master data import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v1/master-data/contacts/imports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept add"
+        },
+        {
+          "info": {
+            "name": "Create a new master data import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v1/master-data/conversion-factors/imports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept add"
+        },
+        {
+          "info": {
+            "name": "Create a new master data import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v1/master-data/framework-contracts/imports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept add"
+        },
+        {
+          "info": {
+            "name": "Get all master data import runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v1/master-data/imports",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns all your master data import runs."
+        },
+        {
+          "info": {
+            "name": "Create a new master data import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v1/master-data/imports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept add"
+        },
+        {
+          "info": {
+            "name": "Get a specific master data import run",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v1/master-data/imports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A UUID string identifying this data import run."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the details of a specific master data import run."
+        },
+        {
+          "info": {
+            "name": "Append a batch of data to a batched import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v1/master-data/imports/:id/data",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A UUID string identifying this data import run."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Only for batched imports. Associates a batch of data (given as a `file`, `file_url` or JSON `data`) with the import. In case you are using the `file` or `file_url` parameters, each batch file needs to provide a similar header row containing the column names. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. You can call this endpoint as often as needed to transfer all your data in batches, each batch will be appended t"
+        },
+        {
+          "info": {
+            "name": "Start the batched import & ingest all associated data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v1/master-data/imports/:id/start",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A UUID string identifying this data import run."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Only for batched imports. Starts the import and ingest all associated data. Note that you cannot POST any more batches of data to an import run once it has been started. If you have a single `file`, `file_url` or a small amount  of `data` that can be imported in a single request, prefer using a non-batched import instead."
+        },
+        {
+          "info": {
+            "name": "Create a new master data import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v1/master-data/offer-matching/imports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept add"
+        },
+        {
+          "info": {
+            "name": "Create a new master data import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v1/master-data/order-matching/imports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new import for the given `lookup_definition_id`. To see the schema that the data should conform to, please refer to the import endpoint parameters for each type of master data. \n\nNote: by default, the given data will be imported immediately. If your data volume exceeds the limits for a single request (see `file`, `file_url` and `data` parameters below), you can create a batched import instead (by setting `batched: true`). Batched imports are created in pending status and will accept add"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

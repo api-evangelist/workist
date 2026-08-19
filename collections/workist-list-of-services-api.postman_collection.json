@@ -1,0 +1,3728 @@
+{
+  "item": [
+    {
+      "id": "d69b8355-356f-4016-b16e-18103ca52480",
+      "name": "List Of Services",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "afb1a013-698d-4135-a836-034834f949ac",
+          "name": "Get all processing records for this document type",
+          "request": {
+            "name": "Get all processing records for this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "list-of-services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "channel",
+                  "value": "<string>",
+                  "description": "Id of a processing channel"
+                },
+                {
+                  "disabled": false,
+                  "key": "assistance_needed",
+                  "value": "<boolean>",
+                  "description": "Filter by assistance needed records"
+                },
+                {
+                  "disabled": false,
+                  "key": "finished",
+                  "value": "<boolean>",
+                  "description": "Filter by finished records"
+                },
+                {
+                  "disabled": false,
+                  "key": "imported",
+                  "value": "<boolean>",
+                  "description": "Filter records marked as [SUCCEEDED]"
+                },
+                {
+                  "disabled": false,
+                  "key": "import_failed",
+                  "value": "<boolean>",
+                  "description": "Filter records marked as [FAILED]"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_by",
+                  "value": "<string>",
+                  "description": "Email address or id of a user."
+                },
+                {
+                  "disabled": false,
+                  "key": "assisted_by",
+                  "value": "<string>",
+                  "description": "Email address or id of a user."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<dateTime>",
+                  "description": "Beginning of a date range (based on created_at) in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<dateTime>",
+                  "description": "End of a date range (based on created_at) in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7b9cde79-8477-4862-a279-94276214a37b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next\": \"http://api.example.org/accounts/?page=4\",\n  \"previous\": \"http://api.example.org/accounts/?page=2\",\n  \"items\": [\n    {\n      \"additional_file_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"assigned_to\": {\n        \"email\": \"fcbifVeQ@EcXMTGAvOTRr.yfi\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"assisted_by\": {\n        \"email\": \"yyC6FJvh2E9b8w@ayVEBgMYaIPhwbYgDDCZRyjKHqyUqvRp.ly\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"channel\": \"string\",\n      \"classified_files\": [\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        {\n          \"key_0\": \"string\"\n        }\n      ],\n      \"created_at\": \"2005-05-30T16:23:59.081Z\",\n      \"created_by\": {\n        \"email\": \"0FCmavcu@rsBoDfKGccsiyPlJUdXyHAU.itbv\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"data\": {\n        \"customer\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customer_type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"iln\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"contact_person\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"customer_contact\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"delivery_address\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"misc\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name4\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country_subdivision\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"submission_date\": \"string\",\n        \"project_number\": \"string\",\n        \"contractor\": \"string\",\n        \"construction_site\": \"string\",\n        \"object_number\": \"string\",\n        \"project_name\": \"string\",\n        \"comment\": \"string\",\n        \"tender_source\": \"string\",\n        \"positions\": [\n          {\n            \"source_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sort_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position_source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_sets\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"source_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sort_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position_source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_sets\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"delivered_at\": \"1990-02-17T13:10:09.575Z\",\n      \"email_file_url\": \"string\",\n      \"external_message\": \"string\",\n      \"external_reference\": \"string\",\n      \"external_status\": \"string\",\n      \"id\": \"ea93c49d-3fbc-b141-1b3b-127c0a3e351a\",\n      \"imported_at\": \"1971-01-11T06:39:42.746Z\",\n      \"input_file_url\": \"string\",\n      \"status\": \"string\",\n      \"updated_at\": \"1981-09-16T09:43:13.131Z\",\n      \"workbench_url\": \"http://ijgogHzdcteJgSSNxTNDFCw.pewaqadf-wujvXWYG3m9\",\n      \"sender\": \"string\",\n      \"subject\": \"string\",\n      \"assisted_at\": \"1972-03-11T18:46:11.156Z\",\n      \"finished_at\": \"1963-11-08T12:24:42.009Z\"\n    },\n    {\n      \"additional_file_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"assigned_to\": {\n        \"email\": \"rEBZMjRyiqhafNS@LGrxFJndNPRGRSnhiYLHWnDJIkj.sld\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"assisted_by\": {\n        \"email\": \"NymP6mMGzWhK@kggQBezVMSijzVzBNz.hiaz\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"channel\": \"string\",\n      \"classified_files\": [\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      ],\n      \"created_at\": \"2005-04-22T05:44:01.203Z\",\n      \"created_by\": {\n        \"email\": \"zTrOpMm@zCBcTkVROhKSesRkBgCCv.hc\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"data\": {\n        \"customer\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customer_type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"iln\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"contact_person\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"customer_contact\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"delivery_address\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"misc\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name4\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country_subdivision\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"submission_date\": \"string\",\n        \"project_number\": \"string\",\n        \"contractor\": \"string\",\n        \"construction_site\": \"string\",\n        \"object_number\": \"string\",\n        \"project_name\": \"string\",\n        \"comment\": \"string\",\n        \"tender_source\": \"string\",\n        \"positions\": [\n          {\n            \"source_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sort_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position_source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_sets\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"source_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sort_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position_source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_sets\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"delivered_at\": \"1971-07-31T02:05:55.528Z\",\n      \"email_file_url\": \"string\",\n      \"external_message\": \"string\",\n      \"external_reference\": \"string\",\n      \"external_status\": \"string\",\n      \"id\": \"bb321c3c-5faa-76c0-fb4d-727055726191\",\n      \"imported_at\": \"1987-08-12T06:20:15.406Z\",\n      \"input_file_url\": \"string\",\n      \"status\": \"string\",\n      \"updated_at\": \"2000-05-16T16:12:41.419Z\",\n      \"workbench_url\": \"http://sOvkYXdMwxzIWCEm.xdzPme-S76ExCohK01b9I-NTUthhVbxya-RP+IITohgA8rW8SpWfI8dn\",\n      \"sender\": \"string\",\n      \"subject\": \"string\",\n      \"assisted_at\": \"1956-12-20T23:05:38.702Z\",\n      \"finished_at\": \"1983-08-23T19:05:43.337Z\"\n    }\n  ],\n  \"total_count\": 123\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa668811-d29f-4ee7-a0ad-978bc086f7c3",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "64d6f76b-5317-4692-a917-be18995c20dc",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d09abb17-fef8-417b-8019-1ecca6d64208",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b97d926a-c62b-4b88-b7a9-24175d72d600",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb717672-4fd4-4ed5-bd46-75cc0f81972a",
+          "name": "Add a new processing record for this document type",
+          "request": {
+            "name": "Add a new processing record for this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "list-of-services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "channel",
+                  "value": "<uuid>",
+                  "description": "(Required) Id of a processing channel"
+                },
+                {
+                  "disabled": false,
+                  "key": "file",
+                  "value": "<binary>",
+                  "description": "(Required) File to be processed"
+                },
+                {
+                  "disabled": false,
+                  "key": "user",
+                  "value": "<string>",
+                  "description": "Email address or id of a user."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "91af4442-68fd-4c20-9c1c-2305f5cdfb70",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"hdx@ggTVEMMbWtPCjMrKHzOvHooVXAaQSCke.esd\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"bGR@OcTkFyCqnbBbKjKueTjQRHtdxVkiKOtee.vcc\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": \"string\"\n    }\n  ],\n  \"created_at\": \"2022-10-03T21:31:04.845Z\",\n  \"created_by\": {\n    \"email\": \"fgyH@TIfTYUviXfRKACdVo.jsii\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"customer\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"customer_contact\": {\n      \"number\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    \"delivery_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"submission_date\": \"string\",\n    \"project_number\": \"string\",\n    \"contractor\": \"string\",\n    \"construction_site\": \"string\",\n    \"object_number\": \"string\",\n    \"project_name\": \"string\",\n    \"comment\": \"string\",\n    \"tender_source\": \"string\",\n    \"positions\": [\n      {\n        \"source_id\": \"string\",\n        \"sort_index\": \"string\",\n        \"position_number\": \"string\",\n        \"position_source\": \"string\",\n        \"article_sets\": [\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"source_id\": \"string\",\n        \"sort_index\": \"string\",\n        \"position_number\": \"string\",\n        \"position_source\": \"string\",\n        \"article_sets\": [\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ]\n  },\n  \"delivered_at\": \"1988-08-28T06:55:33.118Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"482d7d0c-1606-6388-a2ec-b55deebf823e\",\n  \"imported_at\": \"1991-12-26T13:25:13.962Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1997-04-25T23:58:35.788Z\",\n  \"workbench_url\": \"https://MaHSxmSqLC.ffuhQu,bWG0IEPVy\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1979-06-16T13:01:58.943Z\",\n  \"finished_at\": \"2015-01-17T16:29:46.337Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dfe317c0-46cd-4909-bf8b-fd30d8bab8da",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7b21c178-3a07-4d05-964f-57704585482b",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a514dea6-7b75-49fd-be8d-929550b9b0d3",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "708032c2-a0bc-4214-8c0f-c90f141032c9",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df3eac1c-2e6a-4b51-9c83-9c1cdf5d3ac9",
+          "name": "Get a specific processing record for this document type",
+          "request": {
+            "name": "Get a specific processing record for this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "list-of-services",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this list of services processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4ea5107b-1d2a-4827-8476-fd32fe764ac7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"Svtwtx@ZFTIlHuckoNOjRHsTcPjjeMyisKPCMT.va\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"6z1i86h4k6Upw@kNqfxdhZnXXnhObSYWoyhLdtAjD.syh\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\"\n    },\n    {\n      \"key_0\": \"string\"\n    }\n  ],\n  \"created_at\": \"1993-06-02T11:47:27.165Z\",\n  \"created_by\": {\n    \"email\": \"VtW4Oi1E@qKXq.nr\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"customer\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"customer_contact\": {\n      \"number\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    \"delivery_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"submission_date\": \"string\",\n    \"project_number\": \"string\",\n    \"contractor\": \"string\",\n    \"construction_site\": \"string\",\n    \"object_number\": \"string\",\n    \"project_name\": \"string\",\n    \"comment\": \"string\",\n    \"tender_source\": \"string\",\n    \"positions\": [\n      {\n        \"source_id\": \"string\",\n        \"sort_index\": \"string\",\n        \"position_number\": \"string\",\n        \"position_source\": \"string\",\n        \"article_sets\": [\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"source_id\": \"string\",\n        \"sort_index\": \"string\",\n        \"position_number\": \"string\",\n        \"position_source\": \"string\",\n        \"article_sets\": [\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ]\n  },\n  \"delivered_at\": \"1975-07-06T17:32:21.174Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"43175b44-a6e9-1bb9-d09d-8d7b665b0ef1\",\n  \"imported_at\": \"1989-05-21T03:41:35.897Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1972-08-06T03:53:44.871Z\",\n  \"workbench_url\": \"http://GtZnsZKuwIrM.gtbmI2ljlSHqZXORxNmocAIFwSsooZxt\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1999-10-11T14:24:51.019Z\",\n  \"finished_at\": \"2025-10-10T20:10:26.657Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c593004-ef89-4a04-89e0-afa72ef1f4d9",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c52ffcc7-0a0a-4d67-af47-77088f05db2d",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "722176c4-674d-498b-85ef-ab608b72f9c9",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "88189a6e-83aa-416f-9431-36a74f33935d",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b33713d3-56e4-495e-8ce0-91c0e1647db6",
+          "name": "Delete a processing record of this document type",
+          "request": {
+            "name": "Delete a processing record of this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "list-of-services",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this list of services processing record."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "74588e80-7a58-49ed-905d-0c0a2ce9b3e5",
+              "name": "No response body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "04f9840c-97f0-47d9-983d-713a014b3cc4",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b29b26b1-f873-4fd8-aa31-3ff580a991ed",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0a0dbbe4-dad1-42e0-b0e2-ba07f03f22b6",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a2498ce8-2ff2-41af-932d-017134135635",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee064df4-9ac9-497c-a167-3d4249f68e65",
+          "name": "Assign a user to a specific processing record of this document type",
+          "request": {
+            "name": "Assign a user to a specific processing record of this document type",
+            "description": {
+              "content": "The user will be stored in the field `assigned_to`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "list-of-services",
+                ":id",
+                "assign_user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this list of services processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "user",
+                  "value": "<string>",
+                  "description": "(Required) Email address or id of a user."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "64c30635-869f-4592-b4e4-c9248fbc4f19",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"Svtwtx@ZFTIlHuckoNOjRHsTcPjjeMyisKPCMT.va\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"6z1i86h4k6Upw@kNqfxdhZnXXnhObSYWoyhLdtAjD.syh\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\"\n    },\n    {\n      \"key_0\": \"string\"\n    }\n  ],\n  \"created_at\": \"1993-06-02T11:47:27.165Z\",\n  \"created_by\": {\n    \"email\": \"VtW4Oi1E@qKXq.nr\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"customer\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"customer_contact\": {\n      \"number\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    \"delivery_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"submission_date\": \"string\",\n    \"project_number\": \"string\",\n    \"contractor\": \"string\",\n    \"construction_site\": \"string\",\n    \"object_number\": \"string\",\n    \"project_name\": \"string\",\n    \"comment\": \"string\",\n    \"tender_source\": \"string\",\n    \"positions\": [\n      {\n        \"source_id\": \"string\",\n        \"sort_index\": \"string\",\n        \"position_number\": \"string\",\n        \"position_source\": \"string\",\n        \"article_sets\": [\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"source_id\": \"string\",\n        \"sort_index\": \"string\",\n        \"position_number\": \"string\",\n        \"position_source\": \"string\",\n        \"article_sets\": [\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ]\n  },\n  \"delivered_at\": \"1975-07-06T17:32:21.174Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"43175b44-a6e9-1bb9-d09d-8d7b665b0ef1\",\n  \"imported_at\": \"1989-05-21T03:41:35.897Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1972-08-06T03:53:44.871Z\",\n  \"workbench_url\": \"http://GtZnsZKuwIrM.gtbmI2ljlSHqZXORxNmocAIFwSsooZxt\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1999-10-11T14:24:51.019Z\",\n  \"finished_at\": \"2025-10-10T20:10:26.657Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d5921f76-ebdd-42ca-acf9-7e8bbe5765fb",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "44e1857f-c49d-4e3c-abdf-9a7cd0176c95",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0e83e0a3-1649-4c91-bb69-393f8acd566e",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "85661270-89b4-4924-b6d8-371920b0d6f2",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2f55176-36bc-420d-86b0-5640a56af6f8",
+          "name": "Generate a new list of services",
+          "request": {
+            "name": "Generate a new list of services",
+            "description": {
+              "content": "Generate a new list of services",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "list-of-services",
+                ":id",
+                "generate-x94"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this list of services processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "items",
+                  "value": "{\"source_id\":\"<string>\",\"article_number\":\"<string>\",\"article_characteristics\":\"normal\",\"quantity\":\"<integer>\",\"unit\":\"<string>\",\"vat\":\"<decimal>\",\"net_price\":\"<decimal>\",\"price_basis\":\"<decimal>\",\"offer_price\":\"<decimal>\",\"price_basis_unit\":\"<string>\",\"ean\":\"<string>\",\"article_description\":\"<string>\"}",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "items",
+                  "value": "{\"source_id\":\"<string>\",\"article_number\":\"<string>\",\"article_characteristics\":\"normal\",\"quantity\":\"<integer>\",\"unit\":\"<string>\",\"vat\":\"<decimal>\",\"net_price\":\"<decimal>\",\"price_basis\":\"<decimal>\",\"offer_price\":\"<decimal>\",\"price_basis_unit\":\"<string>\",\"ean\":\"<string>\",\"article_description\":\"<string>\"}",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "id_no",
+                  "value": "<string>",
+                  "description": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten"
+                },
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "{\"name1\":\"<string>\",\"street\":\"<string>\",\"p_code\":\"<string>\",\"city\":\"<string>\",\"country\":\"<string>\"}",
+                  "description": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten"
+                },
+                {
+                  "disabled": false,
+                  "key": "tax_no",
+                  "value": "<string>",
+                  "description": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten"
+                },
+                {
+                  "disabled": false,
+                  "key": "reg_no",
+                  "value": "<string>",
+                  "description": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "50e94f10-402f-4fd9-9852-413fbcb7fea1",
+              "name": "x94 GAEB XML file",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "generate-x94"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "items",
+                      "value": "{\"source_id\":\"<string>\",\"article_number\":\"<string>\",\"article_characteristics\":\"normal\",\"quantity\":\"<integer>\",\"unit\":\"<string>\",\"vat\":\"<decimal>\",\"net_price\":\"<decimal>\",\"price_basis\":\"<decimal>\",\"offer_price\":\"<decimal>\",\"price_basis_unit\":\"<string>\",\"ean\":\"<string>\",\"article_description\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "items",
+                      "value": "{\"source_id\":\"<string>\",\"article_number\":\"<string>\",\"article_characteristics\":\"normal\",\"quantity\":\"<integer>\",\"unit\":\"<string>\",\"vat\":\"<decimal>\",\"net_price\":\"<decimal>\",\"price_basis\":\"<decimal>\",\"offer_price\":\"<decimal>\",\"price_basis_unit\":\"<string>\",\"ean\":\"<string>\",\"article_description\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "id_no",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "address",
+                      "value": "{\"name1\":\"<string>\",\"street\":\"<string>\",\"p_code\":\"<string>\",\"city\":\"<string>\",\"country\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "tax_no",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "reg_no",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "56a55882-b114-487e-a9f6-6eb17d1ff37f",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "generate-x94"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "items",
+                      "value": "{\"source_id\":\"<string>\",\"article_number\":\"<string>\",\"article_characteristics\":\"normal\",\"quantity\":\"<integer>\",\"unit\":\"<string>\",\"vat\":\"<decimal>\",\"net_price\":\"<decimal>\",\"price_basis\":\"<decimal>\",\"offer_price\":\"<decimal>\",\"price_basis_unit\":\"<string>\",\"ean\":\"<string>\",\"article_description\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "items",
+                      "value": "{\"source_id\":\"<string>\",\"article_number\":\"<string>\",\"article_characteristics\":\"normal\",\"quantity\":\"<integer>\",\"unit\":\"<string>\",\"vat\":\"<decimal>\",\"net_price\":\"<decimal>\",\"price_basis\":\"<decimal>\",\"offer_price\":\"<decimal>\",\"price_basis_unit\":\"<string>\",\"ean\":\"<string>\",\"article_description\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "id_no",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "address",
+                      "value": "{\"name1\":\"<string>\",\"street\":\"<string>\",\"p_code\":\"<string>\",\"city\":\"<string>\",\"country\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "tax_no",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "reg_no",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8752a04a-4a5e-4b3c-8a44-75e1febcf841",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "generate-x94"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "items",
+                      "value": "{\"source_id\":\"<string>\",\"article_number\":\"<string>\",\"article_characteristics\":\"normal\",\"quantity\":\"<integer>\",\"unit\":\"<string>\",\"vat\":\"<decimal>\",\"net_price\":\"<decimal>\",\"price_basis\":\"<decimal>\",\"offer_price\":\"<decimal>\",\"price_basis_unit\":\"<string>\",\"ean\":\"<string>\",\"article_description\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "items",
+                      "value": "{\"source_id\":\"<string>\",\"article_number\":\"<string>\",\"article_characteristics\":\"normal\",\"quantity\":\"<integer>\",\"unit\":\"<string>\",\"vat\":\"<decimal>\",\"net_price\":\"<decimal>\",\"price_basis\":\"<decimal>\",\"offer_price\":\"<decimal>\",\"price_basis_unit\":\"<string>\",\"ean\":\"<string>\",\"article_description\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "id_no",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "address",
+                      "value": "{\"name1\":\"<string>\",\"street\":\"<string>\",\"p_code\":\"<string>\",\"city\":\"<string>\",\"country\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "tax_no",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "reg_no",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9fc9c60a-07ee-4d4b-8441-53d71fdb3c6d",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "generate-x94"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "items",
+                      "value": "{\"source_id\":\"<string>\",\"article_number\":\"<string>\",\"article_characteristics\":\"normal\",\"quantity\":\"<integer>\",\"unit\":\"<string>\",\"vat\":\"<decimal>\",\"net_price\":\"<decimal>\",\"price_basis\":\"<decimal>\",\"offer_price\":\"<decimal>\",\"price_basis_unit\":\"<string>\",\"ean\":\"<string>\",\"article_description\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "items",
+                      "value": "{\"source_id\":\"<string>\",\"article_number\":\"<string>\",\"article_characteristics\":\"normal\",\"quantity\":\"<integer>\",\"unit\":\"<string>\",\"vat\":\"<decimal>\",\"net_price\":\"<decimal>\",\"price_basis\":\"<decimal>\",\"offer_price\":\"<decimal>\",\"price_basis_unit\":\"<string>\",\"ean\":\"<string>\",\"article_description\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "id_no",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "address",
+                      "value": "{\"name1\":\"<string>\",\"street\":\"<string>\",\"p_code\":\"<string>\",\"city\":\"<string>\",\"country\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "tax_no",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "reg_no",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "991da22b-4e14-428a-9c0c-e8cb288619b9",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "generate-x94"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "items",
+                      "value": "{\"source_id\":\"<string>\",\"article_number\":\"<string>\",\"article_characteristics\":\"normal\",\"quantity\":\"<integer>\",\"unit\":\"<string>\",\"vat\":\"<decimal>\",\"net_price\":\"<decimal>\",\"price_basis\":\"<decimal>\",\"offer_price\":\"<decimal>\",\"price_basis_unit\":\"<string>\",\"ean\":\"<string>\",\"article_description\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "items",
+                      "value": "{\"source_id\":\"<string>\",\"article_number\":\"<string>\",\"article_characteristics\":\"normal\",\"quantity\":\"<integer>\",\"unit\":\"<string>\",\"vat\":\"<decimal>\",\"net_price\":\"<decimal>\",\"price_basis\":\"<decimal>\",\"offer_price\":\"<decimal>\",\"price_basis_unit\":\"<string>\",\"ean\":\"<string>\",\"article_description\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "id_no",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "address",
+                      "value": "{\"name1\":\"<string>\",\"street\":\"<string>\",\"p_code\":\"<string>\",\"city\":\"<string>\",\"country\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "tax_no",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten",
+                        "type": "text/plain"
+                      },
+                      "key": "reg_no",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d323b497-c21d-4a86-9c55-a4d207b251e7",
+          "name": "Mark a processing record of this document type as imported",
+          "request": {
+            "name": "Mark a processing record of this document type as imported",
+            "description": {
+              "content": "The external data will be stored in the fields `external_reference`, `external_status` and `external_message`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "list-of-services",
+                ":id",
+                "mark_imported"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this list of services processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "SUCCEEDED",
+                  "description": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_reference",
+                  "value": "",
+                  "description": "Id that represents this record in the target system"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_status",
+                  "value": "",
+                  "description": "Status of the record in the target system"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_message",
+                  "value": "",
+                  "description": "E.g. error message"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6009d1f1-2694-4d9f-8d80-0cbb7444cc3b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"Svtwtx@ZFTIlHuckoNOjRHsTcPjjeMyisKPCMT.va\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"6z1i86h4k6Upw@kNqfxdhZnXXnhObSYWoyhLdtAjD.syh\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\"\n    },\n    {\n      \"key_0\": \"string\"\n    }\n  ],\n  \"created_at\": \"1993-06-02T11:47:27.165Z\",\n  \"created_by\": {\n    \"email\": \"VtW4Oi1E@qKXq.nr\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"customer\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"customer_contact\": {\n      \"number\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    \"delivery_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"submission_date\": \"string\",\n    \"project_number\": \"string\",\n    \"contractor\": \"string\",\n    \"construction_site\": \"string\",\n    \"object_number\": \"string\",\n    \"project_name\": \"string\",\n    \"comment\": \"string\",\n    \"tender_source\": \"string\",\n    \"positions\": [\n      {\n        \"source_id\": \"string\",\n        \"sort_index\": \"string\",\n        \"position_number\": \"string\",\n        \"position_source\": \"string\",\n        \"article_sets\": [\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"source_id\": \"string\",\n        \"sort_index\": \"string\",\n        \"position_number\": \"string\",\n        \"position_source\": \"string\",\n        \"article_sets\": [\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ]\n  },\n  \"delivered_at\": \"1975-07-06T17:32:21.174Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"43175b44-a6e9-1bb9-d09d-8d7b665b0ef1\",\n  \"imported_at\": \"1989-05-21T03:41:35.897Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1972-08-06T03:53:44.871Z\",\n  \"workbench_url\": \"http://GtZnsZKuwIrM.gtbmI2ljlSHqZXORxNmocAIFwSsooZxt\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1999-10-11T14:24:51.019Z\",\n  \"finished_at\": \"2025-10-10T20:10:26.657Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45187002-175a-4995-b8c8-edf4a57a2059",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e1ad192d-007d-4c1d-8030-c00b7b80e5c6",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3156f1e9-8780-4058-845c-64194d6d6cce",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a62b03fd-d413-46f9-87c5-eeae1abfe143",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90bfcd32-ade0-43d1-a011-95ccdf973f57",
+          "name": "Update the meta information of a processing record of this document type",
+          "request": {
+            "name": "Update the meta information of a processing record of this document type",
+            "description": {},
+            "url": {
+              "path": [
+                "list-of-services",
+                ":id",
+                "meta"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this list of services processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "sender",
+                  "value": "",
+                  "description": "Sender of the document (e.g. sender of the original email)"
+                },
+                {
+                  "disabled": false,
+                  "key": "subject",
+                  "value": "",
+                  "description": "Subject of the document (e.g. subject of the original email)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "97c43eef-fba2-4844-a644-c01814faf927",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"Svtwtx@ZFTIlHuckoNOjRHsTcPjjeMyisKPCMT.va\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"6z1i86h4k6Upw@kNqfxdhZnXXnhObSYWoyhLdtAjD.syh\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\"\n    },\n    {\n      \"key_0\": \"string\"\n    }\n  ],\n  \"created_at\": \"1993-06-02T11:47:27.165Z\",\n  \"created_by\": {\n    \"email\": \"VtW4Oi1E@qKXq.nr\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"customer\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"customer_contact\": {\n      \"number\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    \"delivery_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"submission_date\": \"string\",\n    \"project_number\": \"string\",\n    \"contractor\": \"string\",\n    \"construction_site\": \"string\",\n    \"object_number\": \"string\",\n    \"project_name\": \"string\",\n    \"comment\": \"string\",\n    \"tender_source\": \"string\",\n    \"positions\": [\n      {\n        \"source_id\": \"string\",\n        \"sort_index\": \"string\",\n        \"position_number\": \"string\",\n        \"position_source\": \"string\",\n        \"article_sets\": [\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"source_id\": \"string\",\n        \"sort_index\": \"string\",\n        \"position_number\": \"string\",\n        \"position_source\": \"string\",\n        \"article_sets\": [\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"articles\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"is_default\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ]\n  },\n  \"delivered_at\": \"1975-07-06T17:32:21.174Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"43175b44-a6e9-1bb9-d09d-8d7b665b0ef1\",\n  \"imported_at\": \"1989-05-21T03:41:35.897Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1972-08-06T03:53:44.871Z\",\n  \"workbench_url\": \"http://GtZnsZKuwIrM.gtbmI2ljlSHqZXORxNmocAIFwSsooZxt\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1999-10-11T14:24:51.019Z\",\n  \"finished_at\": \"2025-10-10T20:10:26.657Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d9073a4-2e18-4aab-a583-4cdff26d57dd",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8afae2bb-0595-4e42-932f-24189e40e163",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9d939dbb-1877-4a8c-832d-de442cf8e02f",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7322bbb9-b520-4102-9ffe-da7b854a917a",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "list-of-services",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this list of services processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v1/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ab73a7cf-b120-435f-9d98-33bc610cacc0",
+    "name": "Workist Integrations & Developer Delivery Notes List Of Services API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "With this API you can access different resources of the Workist platform (e.g. processed documents, masterdata imports)\n\nContact Support:\n Email: info@workist.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,3099 @@
+{
+  "item": [
+    {
+      "id": "307d69cc-27d0-45d5-aa22-e72f4822a368",
+      "name": "Invoices",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b7d286ec-1aaf-431b-98ca-9a626c6a7de3",
+          "name": "Get all processing records for this document type",
+          "request": {
+            "name": "Get all processing records for this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "channel",
+                  "value": "<string>",
+                  "description": "Id of a processing channel"
+                },
+                {
+                  "disabled": false,
+                  "key": "assistance_needed",
+                  "value": "<boolean>",
+                  "description": "Filter by assistance needed records"
+                },
+                {
+                  "disabled": false,
+                  "key": "finished",
+                  "value": "<boolean>",
+                  "description": "Filter by finished records"
+                },
+                {
+                  "disabled": false,
+                  "key": "imported",
+                  "value": "<boolean>",
+                  "description": "Filter records marked as [SUCCEEDED]"
+                },
+                {
+                  "disabled": false,
+                  "key": "import_failed",
+                  "value": "<boolean>",
+                  "description": "Filter records marked as [FAILED]"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_by",
+                  "value": "<string>",
+                  "description": "Email address or id of a user."
+                },
+                {
+                  "disabled": false,
+                  "key": "assisted_by",
+                  "value": "<string>",
+                  "description": "Email address or id of a user."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<dateTime>",
+                  "description": "Beginning of a date range (based on created_at) in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<dateTime>",
+                  "description": "End of a date range (based on created_at) in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3ef34580-8702-4876-992c-56a4bcc4c525",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next\": \"http://api.example.org/accounts/?page=4\",\n  \"previous\": \"http://api.example.org/accounts/?page=2\",\n  \"items\": [\n    {\n      \"additional_file_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"assigned_to\": {\n        \"email\": \"SHw0-q@oeMCYxTf.cxv\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"assisted_by\": {\n        \"email\": \"daqGiKsu@PqFUojIqews.vjks\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"channel\": \"string\",\n      \"classified_files\": [\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      ],\n      \"created_at\": \"1966-10-14T11:21:22.835Z\",\n      \"created_by\": {\n        \"email\": \"jKuX@ynnKKuasiuvlXYShzU.hlbx\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"data\": {\n        \"invoice_number\": \"string\",\n        \"order_number\": \"string\",\n        \"contract_number\": \"string\",\n        \"delivery_note_number\": \"string\",\n        \"invoice_date\": \"string\",\n        \"invoice_due_date\": \"string\",\n        \"delivery_date\": \"string\",\n        \"recipient_customer_number\": \"string\",\n        \"recipient_address\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"misc\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name4\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country_subdivision\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"recipient_contact\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sender_supplier\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customer_type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"iln\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"contact_person\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sender_vat_id\": \"string\",\n        \"sender_tax_number\": \"string\",\n        \"sender_address\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"misc\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name4\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country_subdivision\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sender_contact\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"payment_bank\": \"string\",\n        \"payment_bic\": \"string\",\n        \"payment_iban\": \"string\",\n        \"payment_method\": \"string\",\n        \"payment_reference\": \"string\",\n        \"payment_swift\": \"string\",\n        \"payment_terms_discount\": \"string\",\n        \"payment_terms_due_days\": \"string\",\n        \"payment_terms_type\": \"string\",\n        \"payment_terms\": \"string\",\n        \"document_type\": \"string\",\n        \"currency\": \"string\",\n        \"net_amount\": \"string\",\n        \"tax_rate\": \"string\",\n        \"tax_amount\": \"string\",\n        \"total_amount\": \"string\",\n        \"total_due\": \"string\",\n        \"line_items\": [\n          {\n            \"pos\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_reference\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"price_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"order_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fulfillment_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"pos\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_reference\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"price_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"order_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fulfillment_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"delivered_at\": \"2020-08-06T01:13:44.918Z\",\n      \"email_file_url\": \"string\",\n      \"external_message\": \"string\",\n      \"external_reference\": \"string\",\n      \"external_status\": \"string\",\n      \"id\": \"43a86258-2d7a-e9c3-9d6f-52f8751f0282\",\n      \"imported_at\": \"1956-09-22T10:26:30.266Z\",\n      \"input_file_url\": \"string\",\n      \"status\": \"string\",\n      \"updated_at\": \"1952-02-29T19:45:38.215Z\",\n      \"workbench_url\": \"http://CVgZHqFS.ffsDD-gSOjXFHNnFSXfy,vOrPGhmzPA,kCAH1jF6ChE.dopbR\",\n      \"sender\": \"string\",\n      \"subject\": \"string\",\n      \"assisted_at\": \"1977-05-26T19:19:29.926Z\",\n      \"finished_at\": \"1985-08-25T13:59:30.360Z\"\n    },\n    {\n      \"additional_file_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"assigned_to\": {\n        \"email\": \"eOQt-l7XEDt@GanTHdieHfvDmgIxGTGW.aapa\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"assisted_by\": {\n        \"email\": \"GXwJrrNwcoyRkD@BorgBRnbYJdornnO.rgaw\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"channel\": \"string\",\n      \"classified_files\": [\n        {\n          \"key_0\": \"string\"\n        },\n        {\n          \"key_0\": \"string\"\n        }\n      ],\n      \"created_at\": \"2018-04-13T23:09:39.744Z\",\n      \"created_by\": {\n        \"email\": \"GBHFcIJb5@PZWKQIwZtQopecuKnm.mwne\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"data\": {\n        \"invoice_number\": \"string\",\n        \"order_number\": \"string\",\n        \"contract_number\": \"string\",\n        \"delivery_note_number\": \"string\",\n        \"invoice_date\": \"string\",\n        \"invoice_due_date\": \"string\",\n        \"delivery_date\": \"string\",\n        \"recipient_customer_number\": \"string\",\n        \"recipient_address\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"misc\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name4\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country_subdivision\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"recipient_contact\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sender_supplier\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customer_type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"iln\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"contact_person\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sender_vat_id\": \"string\",\n        \"sender_tax_number\": \"string\",\n        \"sender_address\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"misc\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name4\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country_subdivision\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"sender_contact\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"payment_bank\": \"string\",\n        \"payment_bic\": \"string\",\n        \"payment_iban\": \"string\",\n        \"payment_method\": \"string\",\n        \"payment_reference\": \"string\",\n        \"payment_swift\": \"string\",\n        \"payment_terms_discount\": \"string\",\n        \"payment_terms_due_days\": \"string\",\n        \"payment_terms_type\": \"string\",\n        \"payment_terms\": \"string\",\n        \"document_type\": \"string\",\n        \"currency\": \"string\",\n        \"net_amount\": \"string\",\n        \"tax_rate\": \"string\",\n        \"tax_amount\": \"string\",\n        \"total_amount\": \"string\",\n        \"total_due\": \"string\",\n        \"line_items\": [\n          {\n            \"pos\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_reference\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"price_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"order_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fulfillment_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"pos\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_reference\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"price_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"order_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fulfillment_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"delivered_at\": \"1977-10-30T10:02:54.447Z\",\n      \"email_file_url\": \"string\",\n      \"external_message\": \"string\",\n      \"external_reference\": \"string\",\n      \"external_status\": \"string\",\n      \"id\": \"74c4f6b9-3d23-45de-d53d-ae24bd3e9495\",\n      \"imported_at\": \"2008-11-30T22:28:14.038Z\",\n      \"input_file_url\": \"string\",\n      \"status\": \"string\",\n      \"updated_at\": \"1960-07-04T12:39:23.181Z\",\n      \"workbench_url\": \"https://dHEuWEyygPboxDEebwAfqKdNrWxTv.uaykU5QOm.VyCiOl4UJL7KNhusd7z4vMrXdR5TGXuxAeH2Sei9onxOS\",\n      \"sender\": \"string\",\n      \"subject\": \"string\",\n      \"assisted_at\": \"1969-05-02T07:48:11.141Z\",\n      \"finished_at\": \"1949-08-14T15:44:11.222Z\"\n    }\n  ],\n  \"total_count\": 123\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e08edeb-f81b-4101-89c4-c27c6d3299c7",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c324e3fb-dbc0-4470-8767-84a5eaa90eaf",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "98ea116d-1d7c-477a-9f1a-7fc4d3c3e331",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "99562069-7aac-4a6f-8afa-0d410ae88814",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a073ce86-49e1-499c-8ec7-ff677890076b",
+          "name": "Add a new processing record for this document type",
+          "request": {
+            "name": "Add a new processing record for this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "channel",
+                  "value": "<uuid>",
+                  "description": "(Required) Id of a processing channel"
+                },
+                {
+                  "disabled": false,
+                  "key": "file",
+                  "value": "<binary>",
+                  "description": "(Required) File to be processed"
+                },
+                {
+                  "disabled": false,
+                  "key": "user",
+                  "value": "<string>",
+                  "description": "Email address or id of a user."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "90e8bbbd-f4e1-43c6-a72f-d934e9d6f3e7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"t6D@Ug.zmem\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"rZYX55@FdpCpmzkRgfGSMegdtEEhTAOOfXWsyf.ba\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    }\n  ],\n  \"created_at\": \"2015-01-16T19:43:41.710Z\",\n  \"created_by\": {\n    \"email\": \"pBu3FP3ihxn@vVcBt.bk\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"invoice_number\": \"string\",\n    \"order_number\": \"string\",\n    \"contract_number\": \"string\",\n    \"delivery_note_number\": \"string\",\n    \"invoice_date\": \"string\",\n    \"invoice_due_date\": \"string\",\n    \"delivery_date\": \"string\",\n    \"recipient_customer_number\": \"string\",\n    \"recipient_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"recipient_contact\": {\n      \"number\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    \"sender_supplier\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"sender_vat_id\": \"string\",\n    \"sender_tax_number\": \"string\",\n    \"sender_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"sender_contact\": {\n      \"number\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    \"payment_bank\": \"string\",\n    \"payment_bic\": \"string\",\n    \"payment_iban\": \"string\",\n    \"payment_method\": \"string\",\n    \"payment_reference\": \"string\",\n    \"payment_swift\": \"string\",\n    \"payment_terms_discount\": \"string\",\n    \"payment_terms_due_days\": \"string\",\n    \"payment_terms_type\": \"string\",\n    \"payment_terms\": \"string\",\n    \"document_type\": \"string\",\n    \"currency\": \"string\",\n    \"net_amount\": \"string\",\n    \"tax_rate\": \"string\",\n    \"tax_amount\": \"string\",\n    \"total_amount\": \"string\",\n    \"total_due\": \"string\",\n    \"line_items\": [\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"article_description\": \"string\",\n        \"unit\": \"string\",\n        \"quantity\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"total_price\": \"string\",\n        \"order_number\": \"string\",\n        \"tax_rate\": \"string\",\n        \"tax_amount\": \"string\",\n        \"fulfillment_date\": \"string\"\n      },\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"article_description\": \"string\",\n        \"unit\": \"string\",\n        \"quantity\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"total_price\": \"string\",\n        \"order_number\": \"string\",\n        \"tax_rate\": \"string\",\n        \"tax_amount\": \"string\",\n        \"fulfillment_date\": \"string\"\n      }\n    ]\n  },\n  \"delivered_at\": \"2016-09-03T00:25:36.061Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"4f0ba938-5314-a79c-6b69-4d2da20fcade\",\n  \"imported_at\": \"1992-11-02T01:09:01.230Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1966-11-05T14:44:31.504Z\",\n  \"workbench_url\": \"http://RHFAEun.xrraYfbm0PL+RFMll4T8fqg7sQFJQlTHgmvG9lbNJGSO\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"2008-11-24T16:08:01.894Z\",\n  \"finished_at\": \"2011-02-04T06:54:02.753Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76ab49c0-361e-4038-bbbb-a393b4b32a27",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4e1b9364-afb2-41af-8e72-984aaaf643fd",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eeb6112b-f1f1-424f-9957-d0b8c20e549e",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2fe1b5dd-6543-4775-b50c-764c662e73ce",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe8486a4-5df6-462b-8fb3-3d4d241aa41c",
+          "name": "Get a specific processing record for this document type",
+          "request": {
+            "name": "Get a specific processing record for this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invoices",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this invoice processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b86405a9-295e-4876-a65d-8a1358f64343",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"t6D@Ug.zmem\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"rZYX55@FdpCpmzkRgfGSMegdtEEhTAOOfXWsyf.ba\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    }\n  ],\n  \"created_at\": \"2015-01-16T19:43:41.710Z\",\n  \"created_by\": {\n    \"email\": \"pBu3FP3ihxn@vVcBt.bk\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"invoice_number\": \"string\",\n    \"order_number\": \"string\",\n    \"contract_number\": \"string\",\n    \"delivery_note_number\": \"string\",\n    \"invoice_date\": \"string\",\n    \"invoice_due_date\": \"string\",\n    \"delivery_date\": \"string\",\n    \"recipient_customer_number\": \"string\",\n    \"recipient_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"recipient_contact\": {\n      \"number\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    \"sender_supplier\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"sender_vat_id\": \"string\",\n    \"sender_tax_number\": \"string\",\n    \"sender_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"sender_contact\": {\n      \"number\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    \"payment_bank\": \"string\",\n    \"payment_bic\": \"string\",\n    \"payment_iban\": \"string\",\n    \"payment_method\": \"string\",\n    \"payment_reference\": \"string\",\n    \"payment_swift\": \"string\",\n    \"payment_terms_discount\": \"string\",\n    \"payment_terms_due_days\": \"string\",\n    \"payment_terms_type\": \"string\",\n    \"payment_terms\": \"string\",\n    \"document_type\": \"string\",\n    \"currency\": \"string\",\n    \"net_amount\": \"string\",\n    \"tax_rate\": \"string\",\n    \"tax_amount\": \"string\",\n    \"total_amount\": \"string\",\n    \"total_due\": \"string\",\n    \"line_items\": [\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"article_description\": \"string\",\n        \"unit\": \"string\",\n        \"quantity\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"total_price\": \"string\",\n        \"order_number\": \"string\",\n        \"tax_rate\": \"string\",\n        \"tax_amount\": \"string\",\n        \"fulfillment_date\": \"string\"\n      },\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"article_description\": \"string\",\n        \"unit\": \"string\",\n        \"quantity\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"total_price\": \"string\",\n        \"order_number\": \"string\",\n        \"tax_rate\": \"string\",\n        \"tax_amount\": \"string\",\n        \"fulfillment_date\": \"string\"\n      }\n    ]\n  },\n  \"delivered_at\": \"2016-09-03T00:25:36.061Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"4f0ba938-5314-a79c-6b69-4d2da20fcade\",\n  \"imported_at\": \"1992-11-02T01:09:01.230Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1966-11-05T14:44:31.504Z\",\n  \"workbench_url\": \"http://RHFAEun.xrraYfbm0PL+RFMll4T8fqg7sQFJQlTHgmvG9lbNJGSO\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"2008-11-24T16:08:01.894Z\",\n  \"finished_at\": \"2011-02-04T06:54:02.753Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14cc26a2-2bee-4257-83e3-db3fd776f4d4",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "28c89507-abb0-4837-9fbe-534bf4ad32cf",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3fe36065-5dae-47d0-8b2f-07c2dd085a6b",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1d237a4f-f8e3-4f2b-9fa2-0481379639e0",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba05eb32-83b5-4ea9-b37b-8de889b668b5",
+          "name": "Delete a processing record of this document type",
+          "request": {
+            "name": "Delete a processing record of this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invoices",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this invoice processing record."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "74e33c33-6516-43df-bef9-177d57d92487",
+              "name": "No response body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4d73a004-b608-4832-a342-ab93c1db020d",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d8264e97-83be-4e28-8b68-f4b172938427",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "14c3157e-cd42-4217-bae6-a5cdf6271346",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "16ac276e-f3fb-4709-b053-c4f5af4a0d07",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2eecaaa-1ee9-4af8-a28b-b4b0c8498308",
+          "name": "Assign a user to a specific processing record of this document type",
+          "request": {
+            "name": "Assign a user to a specific processing record of this document type",
+            "description": {
+              "content": "The user will be stored in the field `assigned_to`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invoices",
+                ":id",
+                "assign_user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this invoice processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "user",
+                  "value": "<string>",
+                  "description": "(Required) Email address or id of a user."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3e1aca63-7c5a-4bf7-99d9-c58d59855d7e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"t6D@Ug.zmem\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"rZYX55@FdpCpmzkRgfGSMegdtEEhTAOOfXWsyf.ba\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    }\n  ],\n  \"created_at\": \"2015-01-16T19:43:41.710Z\",\n  \"created_by\": {\n    \"email\": \"pBu3FP3ihxn@vVcBt.bk\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"invoice_number\": \"string\",\n    \"order_number\": \"string\",\n    \"contract_number\": \"string\",\n    \"delivery_note_number\": \"string\",\n    \"invoice_date\": \"string\",\n    \"invoice_due_date\": \"string\",\n    \"delivery_date\": \"string\",\n    \"recipient_customer_number\": \"string\",\n    \"recipient_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"recipient_contact\": {\n      \"number\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    \"sender_supplier\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"sender_vat_id\": \"string\",\n    \"sender_tax_number\": \"string\",\n    \"sender_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"sender_contact\": {\n      \"number\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    \"payment_bank\": \"string\",\n    \"payment_bic\": \"string\",\n    \"payment_iban\": \"string\",\n    \"payment_method\": \"string\",\n    \"payment_reference\": \"string\",\n    \"payment_swift\": \"string\",\n    \"payment_terms_discount\": \"string\",\n    \"payment_terms_due_days\": \"string\",\n    \"payment_terms_type\": \"string\",\n    \"payment_terms\": \"string\",\n    \"document_type\": \"string\",\n    \"currency\": \"string\",\n    \"net_amount\": \"string\",\n    \"tax_rate\": \"string\",\n    \"tax_amount\": \"string\",\n    \"total_amount\": \"string\",\n    \"total_due\": \"string\",\n    \"line_items\": [\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"article_description\": \"string\",\n        \"unit\": \"string\",\n        \"quantity\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"total_price\": \"string\",\n        \"order_number\": \"string\",\n        \"tax_rate\": \"string\",\n        \"tax_amount\": \"string\",\n        \"fulfillment_date\": \"string\"\n      },\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"article_description\": \"string\",\n        \"unit\": \"string\",\n        \"quantity\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"total_price\": \"string\",\n        \"order_number\": \"string\",\n        \"tax_rate\": \"string\",\n        \"tax_amount\": \"string\",\n        \"fulfillment_date\": \"string\"\n      }\n    ]\n  },\n  \"delivered_at\": \"2016-09-03T00:25:36.061Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"4f0ba938-5314-a79c-6b69-4d2da20fcade\",\n  \"imported_at\": \"1992-11-02T01:09:01.230Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1966-11-05T14:44:31.504Z\",\n  \"workbench_url\": \"http://RHFAEun.xrraYfbm0PL+RFMll4T8fqg7sQFJQlTHgmvG9lbNJGSO\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"2008-11-24T16:08:01.894Z\",\n  \"finished_at\": \"2011-02-04T06:54:02.753Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46eb2cc3-83d0-4666-9206-f7781e0907ef",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7fbf683b-5b58-4d3f-8aaa-96cb323f4885",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "af1ae652-bc6d-4b1d-b17c-19b860f9fd60",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "806fed9f-804a-4c1e-b72b-2b4bd4d24658",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e562b056-a1e8-4603-b6b1-7ed4ad417584",
+          "name": "Mark a processing record of this document type as imported",
+          "request": {
+            "name": "Mark a processing record of this document type as imported",
+            "description": {
+              "content": "The external data will be stored in the fields `external_reference`, `external_status` and `external_message`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invoices",
+                ":id",
+                "mark_imported"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this invoice processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "SUCCEEDED",
+                  "description": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_reference",
+                  "value": "",
+                  "description": "Id that represents this record in the target system"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_status",
+                  "value": "",
+                  "description": "Status of the record in the target system"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_message",
+                  "value": "",
+                  "description": "E.g. error message"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7d58d407-7ba0-4b5a-be02-f5688e1576f8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"t6D@Ug.zmem\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"rZYX55@FdpCpmzkRgfGSMegdtEEhTAOOfXWsyf.ba\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    }\n  ],\n  \"created_at\": \"2015-01-16T19:43:41.710Z\",\n  \"created_by\": {\n    \"email\": \"pBu3FP3ihxn@vVcBt.bk\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"invoice_number\": \"string\",\n    \"order_number\": \"string\",\n    \"contract_number\": \"string\",\n    \"delivery_note_number\": \"string\",\n    \"invoice_date\": \"string\",\n    \"invoice_due_date\": \"string\",\n    \"delivery_date\": \"string\",\n    \"recipient_customer_number\": \"string\",\n    \"recipient_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"recipient_contact\": {\n      \"number\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    \"sender_supplier\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"sender_vat_id\": \"string\",\n    \"sender_tax_number\": \"string\",\n    \"sender_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"sender_contact\": {\n      \"number\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    \"payment_bank\": \"string\",\n    \"payment_bic\": \"string\",\n    \"payment_iban\": \"string\",\n    \"payment_method\": \"string\",\n    \"payment_reference\": \"string\",\n    \"payment_swift\": \"string\",\n    \"payment_terms_discount\": \"string\",\n    \"payment_terms_due_days\": \"string\",\n    \"payment_terms_type\": \"string\",\n    \"payment_terms\": \"string\",\n    \"document_type\": \"string\",\n    \"currency\": \"string\",\n    \"net_amount\": \"string\",\n    \"tax_rate\": \"string\",\n    \"tax_amount\": \"string\",\n    \"total_amount\": \"string\",\n    \"total_due\": \"string\",\n    \"line_items\": [\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"article_description\": \"string\",\n        \"unit\": \"string\",\n        \"quantity\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"total_price\": \"string\",\n        \"order_number\": \"string\",\n        \"tax_rate\": \"string\",\n        \"tax_amount\": \"string\",\n        \"fulfillment_date\": \"string\"\n      },\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"article_description\": \"string\",\n        \"unit\": \"string\",\n        \"quantity\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"total_price\": \"string\",\n        \"order_number\": \"string\",\n        \"tax_rate\": \"string\",\n        \"tax_amount\": \"string\",\n        \"fulfillment_date\": \"string\"\n      }\n    ]\n  },\n  \"delivered_at\": \"2016-09-03T00:25:36.061Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"4f0ba938-5314-a79c-6b69-4d2da20fcade\",\n  \"imported_at\": \"1992-11-02T01:09:01.230Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1966-11-05T14:44:31.504Z\",\n  \"workbench_url\": \"http://RHFAEun.xrraYfbm0PL+RFMll4T8fqg7sQFJQlTHgmvG9lbNJGSO\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"2008-11-24T16:08:01.894Z\",\n  \"finished_at\": \"2011-02-04T06:54:02.753Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "793327c7-5436-407a-9ae6-0c90e2e4fb32",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "43a35fca-b79e-4701-ae0d-c50d1fc88c70",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1e6b6dad-1162-4824-a795-154e53d8fa88",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "86c16b13-acf9-4a07-a843-a09cc5d6617f",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1135559-cc1e-4a4a-ab38-1c8b8daffe9d",
+          "name": "Update the meta information of a processing record of this document type",
+          "request": {
+            "name": "Update the meta information of a processing record of this document type",
+            "description": {},
+            "url": {
+              "path": [
+                "invoices",
+                ":id",
+                "meta"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this invoice processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "sender",
+                  "value": "",
+                  "description": "Sender of the document (e.g. sender of the original email)"
+                },
+                {
+                  "disabled": false,
+                  "key": "subject",
+                  "value": "",
+                  "description": "Subject of the document (e.g. subject of the original email)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ca5b5315-6629-42aa-a942-ad15a3f73954",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"t6D@Ug.zmem\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"rZYX55@FdpCpmzkRgfGSMegdtEEhTAOOfXWsyf.ba\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    }\n  ],\n  \"created_at\": \"2015-01-16T19:43:41.710Z\",\n  \"created_by\": {\n    \"email\": \"pBu3FP3ihxn@vVcBt.bk\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"invoice_number\": \"string\",\n    \"order_number\": \"string\",\n    \"contract_number\": \"string\",\n    \"delivery_note_number\": \"string\",\n    \"invoice_date\": \"string\",\n    \"invoice_due_date\": \"string\",\n    \"delivery_date\": \"string\",\n    \"recipient_customer_number\": \"string\",\n    \"recipient_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"recipient_contact\": {\n      \"number\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    \"sender_supplier\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"sender_vat_id\": \"string\",\n    \"sender_tax_number\": \"string\",\n    \"sender_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"sender_contact\": {\n      \"number\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    \"payment_bank\": \"string\",\n    \"payment_bic\": \"string\",\n    \"payment_iban\": \"string\",\n    \"payment_method\": \"string\",\n    \"payment_reference\": \"string\",\n    \"payment_swift\": \"string\",\n    \"payment_terms_discount\": \"string\",\n    \"payment_terms_due_days\": \"string\",\n    \"payment_terms_type\": \"string\",\n    \"payment_terms\": \"string\",\n    \"document_type\": \"string\",\n    \"currency\": \"string\",\n    \"net_amount\": \"string\",\n    \"tax_rate\": \"string\",\n    \"tax_amount\": \"string\",\n    \"total_amount\": \"string\",\n    \"total_due\": \"string\",\n    \"line_items\": [\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"article_description\": \"string\",\n        \"unit\": \"string\",\n        \"quantity\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"total_price\": \"string\",\n        \"order_number\": \"string\",\n        \"tax_rate\": \"string\",\n        \"tax_amount\": \"string\",\n        \"fulfillment_date\": \"string\"\n      },\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"article_description\": \"string\",\n        \"unit\": \"string\",\n        \"quantity\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"total_price\": \"string\",\n        \"order_number\": \"string\",\n        \"tax_rate\": \"string\",\n        \"tax_amount\": \"string\",\n        \"fulfillment_date\": \"string\"\n      }\n    ]\n  },\n  \"delivered_at\": \"2016-09-03T00:25:36.061Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"4f0ba938-5314-a79c-6b69-4d2da20fcade\",\n  \"imported_at\": \"1992-11-02T01:09:01.230Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1966-11-05T14:44:31.504Z\",\n  \"workbench_url\": \"http://RHFAEun.xrraYfbm0PL+RFMll4T8fqg7sQFJQlTHgmvG9lbNJGSO\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"2008-11-24T16:08:01.894Z\",\n  \"finished_at\": \"2011-02-04T06:54:02.753Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "83939aff-e181-4448-989c-ed1a6c372e16",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3dda80d1-d3f5-46f0-b1ab-5df289de1a0c",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3b881160-1419-42cf-938a-9e656ee1f6cb",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8c6863ce-5fcf-46b3-a21c-464479d042fb",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this invoice processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v1/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "105490f0-9bb8-4796-a7cc-051e46ff5a41",
+    "name": "Workist Integrations & Developer Delivery Notes Invoices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "With this API you can access different resources of the Workist platform (e.g. processed documents, masterdata imports)\n\nContact Support:\n Email: info@workist.com",
+      "type": "text/plain"
+    }
+  }
+}

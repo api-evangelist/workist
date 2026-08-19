@@ -2,11 +2,9 @@ generated: '2026-07-21'
 method: derived
 status: candidate
 source: openapi/workist-integrations-openapi-original.yml
-notes: >-
-  No official Workist MCP server was found (docs, npm, GitHub org, MCP
-  registries checked 2026-07-21). This is a candidate tool surface derived
-  from the OpenAPI operations - the document-processing poll/import loop and
-  the master data import flow that an MCP server for Workist would expose.
+notes: No official Workist MCP server was found (docs, npm, GitHub org, MCP registries checked 2026-07-21).
+  This is a candidate tool surface derived from the OpenAPI operations - the document-processing poll/import
+  loop and the master data import flow that an MCP server for Workist would expose.
 server:
   name: workist
   transport: http
@@ -57,3 +55,9 @@ tools:
 - name: get_master_data_import
   description: Get the status of a master data import run
   source_operation: openapi/workist-integrations-openapi-original.yml#imports_retrieve
+deployment:
+  mode: none
+  verified: derived
+  tools: 15
+  checked: '2026-08-12'
+  source: catalog MCP census

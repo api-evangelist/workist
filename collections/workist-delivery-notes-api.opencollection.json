@@ -1,0 +1,285 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Workist Integrations & Developer Delivery Notes API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Delivery Notes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all processing records for this document type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v1/delivery-notes",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "query",
+                "description": "Id of a processing channel"
+              },
+              {
+                "name": "assistance_needed",
+                "value": "",
+                "type": "query",
+                "description": "Filter by assistance needed records"
+              },
+              {
+                "name": "finished",
+                "value": "",
+                "type": "query",
+                "description": "Filter by finished records"
+              },
+              {
+                "name": "imported",
+                "value": "",
+                "type": "query",
+                "description": "Filter records marked as [SUCCEEDED]"
+              },
+              {
+                "name": "import_failed",
+                "value": "",
+                "type": "query",
+                "description": "Filter records marked as [FAILED]"
+              },
+              {
+                "name": "created_by",
+                "value": "",
+                "type": "query",
+                "description": "Email address or id of a user."
+              },
+              {
+                "name": "assisted_by",
+                "value": "",
+                "type": "query",
+                "description": "Email address or id of a user."
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Beginning of a date range (based on created_at) in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`"
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "End of a date range (based on created_at) in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "show_unfinished_data",
+                "value": "",
+                "type": "query",
+                "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. "
+        },
+        {
+          "info": {
+            "name": "Add a new processing record for this document type",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v1/delivery-notes",
+            "params": [
+              {
+                "name": "show_unfinished_data",
+                "value": "",
+                "type": "query",
+                "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. "
+        },
+        {
+          "info": {
+            "name": "Get a specific processing record for this document type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/v1/delivery-notes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A UUID string identifying this delivery note processing record."
+              },
+              {
+                "name": "show_unfinished_data",
+                "value": "",
+                "type": "query",
+                "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. "
+        },
+        {
+          "info": {
+            "name": "Delete a processing record of this document type",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/v1/delivery-notes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A UUID string identifying this delivery note processing record."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. "
+        },
+        {
+          "info": {
+            "name": "Assign a user to a specific processing record of this document type",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v1/delivery-notes/:id/assign_user",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A UUID string identifying this delivery note processing record."
+              },
+              {
+                "name": "show_unfinished_data",
+                "value": "",
+                "type": "query",
+                "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "The user will be stored in the field `assigned_to`."
+        },
+        {
+          "info": {
+            "name": "Mark a processing record of this document type as imported",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/v1/delivery-notes/:id/mark_imported",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A UUID string identifying this delivery note processing record."
+              },
+              {
+                "name": "show_unfinished_data",
+                "value": "",
+                "type": "query",
+                "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "The external data will be stored in the fields `external_reference`, `external_status` and `external_message`."
+        },
+        {
+          "info": {
+            "name": "Update the meta information of a processing record of this document type",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/v1/delivery-notes/:id/meta",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A UUID string identifying this delivery note processing record."
+              },
+              {
+                "name": "show_unfinished_data",
+                "value": "",
+                "type": "query",
+                "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update the meta information of a processing record of this document type"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

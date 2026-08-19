@@ -1,0 +1,3099 @@
+{
+  "item": [
+    {
+      "id": "9daccc13-4b84-4dbc-aa9d-0c6870d4bf20",
+      "name": "Delivery Notes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b4feaf2c-0276-4a49-8348-8cd4dbb5ce73",
+          "name": "Get all processing records for this document type",
+          "request": {
+            "name": "Get all processing records for this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "delivery-notes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "channel",
+                  "value": "<string>",
+                  "description": "Id of a processing channel"
+                },
+                {
+                  "disabled": false,
+                  "key": "assistance_needed",
+                  "value": "<boolean>",
+                  "description": "Filter by assistance needed records"
+                },
+                {
+                  "disabled": false,
+                  "key": "finished",
+                  "value": "<boolean>",
+                  "description": "Filter by finished records"
+                },
+                {
+                  "disabled": false,
+                  "key": "imported",
+                  "value": "<boolean>",
+                  "description": "Filter records marked as [SUCCEEDED]"
+                },
+                {
+                  "disabled": false,
+                  "key": "import_failed",
+                  "value": "<boolean>",
+                  "description": "Filter records marked as [FAILED]"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_by",
+                  "value": "<string>",
+                  "description": "Email address or id of a user."
+                },
+                {
+                  "disabled": false,
+                  "key": "assisted_by",
+                  "value": "<string>",
+                  "description": "Email address or id of a user."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<dateTime>",
+                  "description": "Beginning of a date range (based on created_at) in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<dateTime>",
+                  "description": "End of a date range (based on created_at) in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3ddc64d8-d68b-4576-9fdc-64d4b32b5f62",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next\": \"http://api.example.org/accounts/?page=4\",\n  \"previous\": \"http://api.example.org/accounts/?page=2\",\n  \"items\": [\n    {\n      \"additional_file_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"assigned_to\": {\n        \"email\": \"phdXa@iPQK.at\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"assisted_by\": {\n        \"email\": \"dk-jEOzsl@vNYuTpxToYSeuMLPQkAMSYbaDtDD.kgxx\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"channel\": \"string\",\n      \"classified_files\": [\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        }\n      ],\n      \"created_at\": \"2018-09-01T13:36:44.483Z\",\n      \"created_by\": {\n        \"email\": \"NH4uZmKD@NdSgDOiHCjRandDOUVFDXMQxQ.pw\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"data\": {\n        \"supplier\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customer_type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"iln\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"contact_person\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"buyer\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customer_type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"iln\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"contact_person\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"delivery_address\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"misc\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name4\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country_subdivision\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"delivery_date\": \"string\",\n        \"delivery_note_date\": \"string\",\n        \"order_date\": \"string\",\n        \"delivery_note_number\": \"string\",\n        \"order_number\": \"string\",\n        \"info_text\": \"string\",\n        \"commission_number\": \"string\",\n        \"line_items\": [\n          {\n            \"pos\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_reference\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discount_percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discount_amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_comments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"commission_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"goods_issue_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"customer_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"customer_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"order_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"price_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"delivery_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"markings\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"converted_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"converted_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"pos\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_reference\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discount_percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discount_amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_comments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"commission_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"goods_issue_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"customer_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"customer_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"order_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"price_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"delivery_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"markings\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"converted_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"converted_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"delivered_at\": \"1970-03-24T13:24:39.902Z\",\n      \"email_file_url\": \"string\",\n      \"external_message\": \"string\",\n      \"external_reference\": \"string\",\n      \"external_status\": \"string\",\n      \"id\": \"25a3149a-cb94-b7d2-e83b-4ae9f592486c\",\n      \"imported_at\": \"2001-09-18T12:47:55.181Z\",\n      \"input_file_url\": \"string\",\n      \"status\": \"string\",\n      \"updated_at\": \"2026-04-22T00:02:37.282Z\",\n      \"workbench_url\": \"http://gGKQgdNYLxEErdyZoJf.tttTh79Ky\",\n      \"sender\": \"string\",\n      \"subject\": \"string\",\n      \"assisted_at\": \"1950-07-18T17:32:13.231Z\",\n      \"finished_at\": \"1965-05-01T22:24:22.890Z\"\n    },\n    {\n      \"additional_file_urls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"assigned_to\": {\n        \"email\": \"W9qnECGtj@kRKWnGlsRewlIjQNn.pd\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"assisted_by\": {\n        \"email\": \"8UgMtkeu9@LiIDEWjPaUvcOUFEYqwMNQdqMEFQTM.xerz\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"channel\": \"string\",\n      \"classified_files\": [\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      ],\n      \"created_at\": \"1972-01-03T13:29:18.214Z\",\n      \"created_by\": {\n        \"email\": \"MB5juzsOlqGpa@rGkCdQyPQTnCVMjiGppHo.olp\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"data\": {\n        \"supplier\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customer_type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"iln\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"contact_person\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"buyer\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customer_type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"iln\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"contact_person\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"delivery_address\": {\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"misc\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_name4\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_and_nr\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"street_number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postal_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country_subdivision\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"delivery_date\": \"string\",\n        \"delivery_note_date\": \"string\",\n        \"order_date\": \"string\",\n        \"delivery_note_number\": \"string\",\n        \"order_number\": \"string\",\n        \"info_text\": \"string\",\n        \"commission_number\": \"string\",\n        \"line_items\": [\n          {\n            \"pos\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_reference\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discount_percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discount_amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_comments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"commission_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"goods_issue_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"customer_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"customer_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"order_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"price_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"delivery_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"markings\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"converted_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"converted_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"pos\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_number_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_article_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"external_reference\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discount_percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discount_amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"article_comments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"commission_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"goods_issue_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"customer_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"customer_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"order_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit_price\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"price_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"delivery_date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"markings\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"converted_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"converted_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"delivered_at\": \"1994-06-15T20:11:13.861Z\",\n      \"email_file_url\": \"string\",\n      \"external_message\": \"string\",\n      \"external_reference\": \"string\",\n      \"external_status\": \"string\",\n      \"id\": \"99f8a875-df3f-2695-6fe6-5dab78b00902\",\n      \"imported_at\": \"1964-11-04T02:13:36.370Z\",\n      \"input_file_url\": \"string\",\n      \"status\": \"string\",\n      \"updated_at\": \"1972-08-27T13:47:16.962Z\",\n      \"workbench_url\": \"http://bXLEoHwUNIhiHZHcCOnuaW.gneLwkIQAy6JPJphLAHBfeHcjjBF6lbBjt6LZ4JmxXdKtugK1KFSPmMUAW-ITvrhZoTWXxN3xI\",\n      \"sender\": \"string\",\n      \"subject\": \"string\",\n      \"assisted_at\": \"2014-08-15T12:10:45.670Z\",\n      \"finished_at\": \"2019-01-13T23:35:11.959Z\"\n    }\n  ],\n  \"total_count\": 123\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f088cb7-666d-4054-bc4f-417eb340d19f",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e583d076-90e1-4027-8922-f3c6d12d6612",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c39076b3-b41a-4d47-b661-103b0a214224",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8a410507-f86e-4c7f-8a9c-5cba81b0fee1",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assistance_needed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "finished",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "imported",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "import_failed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "created_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assisted_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd6ca4ac-26b6-413c-b862-3d7f37722735",
+          "name": "Add a new processing record for this document type",
+          "request": {
+            "name": "Add a new processing record for this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "delivery-notes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "channel",
+                  "value": "<uuid>",
+                  "description": "(Required) Id of a processing channel"
+                },
+                {
+                  "disabled": false,
+                  "key": "file",
+                  "value": "<binary>",
+                  "description": "(Required) File to be processed"
+                },
+                {
+                  "disabled": false,
+                  "key": "user",
+                  "value": "<string>",
+                  "description": "Email address or id of a user."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4ac11f84-631c-40e1-a75a-b56ae5089e34",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"lP3mE3@mhLNWxNDbtwjGkaGqLKfXLgaq.nnlj\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"okJoq@OLERzDViOEaWQTDTNilvbxDWCogJDhyC.meg\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\",\n      \"key_3\": \"string\"\n    }\n  ],\n  \"created_at\": \"1948-07-01T03:13:34.262Z\",\n  \"created_by\": {\n    \"email\": \"Sqvw45@AukSdfnC.bec\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"supplier\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"buyer\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"delivery_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"delivery_date\": \"string\",\n    \"delivery_note_date\": \"string\",\n    \"order_date\": \"string\",\n    \"delivery_note_number\": \"string\",\n    \"order_number\": \"string\",\n    \"info_text\": \"string\",\n    \"commission_number\": \"string\",\n    \"line_items\": [\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      },\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      }\n    ]\n  },\n  \"delivered_at\": \"2019-01-30T03:26:53.949Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"845d7771-c465-584f-d9c7-5577c7631c22\",\n  \"imported_at\": \"1980-12-26T06:25:57.925Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1973-11-23T12:26:21.521Z\",\n  \"workbench_url\": \"https://nlLXr.cppnYlYpUzqT1sl5EaXpxwt+fGLIDw,nng3Njqq5Uh3DUMsXj41Q-.Mrk6\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1990-08-21T09:26:46.766Z\",\n  \"finished_at\": \"1991-01-08T08:59:12.023Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "941912e6-90af-4b03-b69a-93bfa4fe3298",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dd490dd6-1002-4377-92ba-3cf52db59d88",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e914672b-7150-48b7-b5c3-d53991ea3f4a",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4d03f0b4-bf1f-488b-8717-c12f6b9243d7",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Id of a processing channel",
+                        "type": "text/plain"
+                      },
+                      "key": "channel",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) File to be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "570f7a42-eaee-4e06-a5eb-3cd4708cea16",
+          "name": "Get a specific processing record for this document type",
+          "request": {
+            "name": "Get a specific processing record for this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "delivery-notes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this delivery note processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "588d96ee-c161-4f79-8bb4-5276cc59dedd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"lP3mE3@mhLNWxNDbtwjGkaGqLKfXLgaq.nnlj\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"okJoq@OLERzDViOEaWQTDTNilvbxDWCogJDhyC.meg\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\",\n      \"key_3\": \"string\"\n    }\n  ],\n  \"created_at\": \"1948-07-01T03:13:34.262Z\",\n  \"created_by\": {\n    \"email\": \"Sqvw45@AukSdfnC.bec\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"supplier\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"buyer\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"delivery_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"delivery_date\": \"string\",\n    \"delivery_note_date\": \"string\",\n    \"order_date\": \"string\",\n    \"delivery_note_number\": \"string\",\n    \"order_number\": \"string\",\n    \"info_text\": \"string\",\n    \"commission_number\": \"string\",\n    \"line_items\": [\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      },\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      }\n    ]\n  },\n  \"delivered_at\": \"2019-01-30T03:26:53.949Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"845d7771-c465-584f-d9c7-5577c7631c22\",\n  \"imported_at\": \"1980-12-26T06:25:57.925Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1973-11-23T12:26:21.521Z\",\n  \"workbench_url\": \"https://nlLXr.cppnYlYpUzqT1sl5EaXpxwt+fGLIDw,nng3Njqq5Uh3DUMsXj41Q-.Mrk6\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1990-08-21T09:26:46.766Z\",\n  \"finished_at\": \"1991-01-08T08:59:12.023Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f21784c-a65a-4c9e-adc9-7f054df72b5e",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4860a76d-e2bd-4bf0-bf90-6368962c6cfd",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2ef7fec3-360c-45d5-9c05-82f813de5318",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "30ce28ec-8b65-400b-b576-4e46e9ab4e19",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "903fe3d0-4ff7-46ac-9c59-e7cbb151339d",
+          "name": "Delete a processing record of this document type",
+          "request": {
+            "name": "Delete a processing record of this document type",
+            "description": {
+              "content": "To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "delivery-notes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this delivery note processing record."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "62822988-85db-4cb7-9186-c566729e68c7",
+              "name": "No response body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "83a6be47-cd8f-465f-b793-7f96940fb290",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "12cf7e72-7636-4481-9ddf-81b6086d66c4",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a570bff5-0e43-4a84-afc6-567a72ee6c28",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "81e9a4b2-1c1a-4fe7-80b0-d5231f027897",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72454e92-d28a-4234-ad41-0834aadd1fd5",
+          "name": "Assign a user to a specific processing record of this document type",
+          "request": {
+            "name": "Assign a user to a specific processing record of this document type",
+            "description": {
+              "content": "The user will be stored in the field `assigned_to`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "delivery-notes",
+                ":id",
+                "assign_user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this delivery note processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "user",
+                  "value": "<string>",
+                  "description": "(Required) Email address or id of a user."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0b20a75f-12f5-4b8a-ad08-7ffb05d5c6f9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"lP3mE3@mhLNWxNDbtwjGkaGqLKfXLgaq.nnlj\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"okJoq@OLERzDViOEaWQTDTNilvbxDWCogJDhyC.meg\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\",\n      \"key_3\": \"string\"\n    }\n  ],\n  \"created_at\": \"1948-07-01T03:13:34.262Z\",\n  \"created_by\": {\n    \"email\": \"Sqvw45@AukSdfnC.bec\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"supplier\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"buyer\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"delivery_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"delivery_date\": \"string\",\n    \"delivery_note_date\": \"string\",\n    \"order_date\": \"string\",\n    \"delivery_note_number\": \"string\",\n    \"order_number\": \"string\",\n    \"info_text\": \"string\",\n    \"commission_number\": \"string\",\n    \"line_items\": [\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      },\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      }\n    ]\n  },\n  \"delivered_at\": \"2019-01-30T03:26:53.949Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"845d7771-c465-584f-d9c7-5577c7631c22\",\n  \"imported_at\": \"1980-12-26T06:25:57.925Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1973-11-23T12:26:21.521Z\",\n  \"workbench_url\": \"https://nlLXr.cppnYlYpUzqT1sl5EaXpxwt+fGLIDw,nng3Njqq5Uh3DUMsXj41Q-.Mrk6\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1990-08-21T09:26:46.766Z\",\n  \"finished_at\": \"1991-01-08T08:59:12.023Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "509e458f-01fb-4b32-ad0a-4a703741cdf4",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5588cec3-ba84-4a37-afe2-e6c81be9fbbe",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d37d257a-1afe-4e14-b7b3-81a73e11c2ae",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "95c0c572-97bb-4ba1-942a-b77cc7f60292",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id",
+                    "assign_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Email address or id of a user.",
+                        "type": "text/plain"
+                      },
+                      "key": "user",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec656be5-e79f-41e8-9116-65761d167768",
+          "name": "Mark a processing record of this document type as imported",
+          "request": {
+            "name": "Mark a processing record of this document type as imported",
+            "description": {
+              "content": "The external data will be stored in the fields `external_reference`, `external_status` and `external_message`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "delivery-notes",
+                ":id",
+                "mark_imported"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this delivery note processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "SUCCEEDED",
+                  "description": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_reference",
+                  "value": "",
+                  "description": "Id that represents this record in the target system"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_status",
+                  "value": "",
+                  "description": "Status of the record in the target system"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_message",
+                  "value": "",
+                  "description": "E.g. error message"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b37152ce-875c-4a16-a948-3e5c3d754b85",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"lP3mE3@mhLNWxNDbtwjGkaGqLKfXLgaq.nnlj\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"okJoq@OLERzDViOEaWQTDTNilvbxDWCogJDhyC.meg\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\",\n      \"key_3\": \"string\"\n    }\n  ],\n  \"created_at\": \"1948-07-01T03:13:34.262Z\",\n  \"created_by\": {\n    \"email\": \"Sqvw45@AukSdfnC.bec\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"supplier\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"buyer\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"delivery_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"delivery_date\": \"string\",\n    \"delivery_note_date\": \"string\",\n    \"order_date\": \"string\",\n    \"delivery_note_number\": \"string\",\n    \"order_number\": \"string\",\n    \"info_text\": \"string\",\n    \"commission_number\": \"string\",\n    \"line_items\": [\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      },\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      }\n    ]\n  },\n  \"delivered_at\": \"2019-01-30T03:26:53.949Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"845d7771-c465-584f-d9c7-5577c7631c22\",\n  \"imported_at\": \"1980-12-26T06:25:57.925Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1973-11-23T12:26:21.521Z\",\n  \"workbench_url\": \"https://nlLXr.cppnYlYpUzqT1sl5EaXpxwt+fGLIDw,nng3Njqq5Uh3DUMsXj41Q-.Mrk6\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1990-08-21T09:26:46.766Z\",\n  \"finished_at\": \"1991-01-08T08:59:12.023Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ac6c6e1-f900-467e-b5d9-6120b462e7ef",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dc08f225-e7ae-4b9c-b5b4-7c60c7680ace",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "92f9ffd6-a072-44d0-8e0e-c866678950db",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7f5f374b-2e94-4fb7-9553-3f2aea95c657",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id",
+                    "mark_imported"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).\n\n* `PENDING` - Pending\n* `SUCCEEDED` - Succeeded\n* `FAILED` - Failed",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "SUCCEEDED"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id that represents this record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_reference",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Status of the record in the target system",
+                        "type": "text/plain"
+                      },
+                      "key": "external_status",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "E.g. error message",
+                        "type": "text/plain"
+                      },
+                      "key": "external_message",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5af96508-4cf5-466e-8ed8-73a8869f6e65",
+          "name": "Update the meta information of a processing record of this document type",
+          "request": {
+            "name": "Update the meta information of a processing record of this document type",
+            "description": {},
+            "url": {
+              "path": [
+                "delivery-notes",
+                ":id",
+                "meta"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_unfinished_data",
+                  "value": "<boolean>",
+                  "description": "By default, only completed data is displayed to avoid inaccuracies. However, you can use this parameter to access data still under processing.\n\nDefault: `False`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) A UUID string identifying this delivery note processing record."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "sender",
+                  "value": "",
+                  "description": "Sender of the document (e.g. sender of the original email)"
+                },
+                {
+                  "disabled": false,
+                  "key": "subject",
+                  "value": "",
+                  "description": "Subject of the document (e.g. subject of the original email)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "df00b853-57ba-4e82-aca8-0241e40de447",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additional_file_urls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"assigned_to\": {\n    \"email\": \"lP3mE3@mhLNWxNDbtwjGkaGqLKfXLgaq.nnlj\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"assisted_by\": {\n    \"email\": \"okJoq@OLERzDViOEaWQTDTNilvbxDWCogJDhyC.meg\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"classified_files\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\",\n      \"key_3\": \"string\"\n    }\n  ],\n  \"created_at\": \"1948-07-01T03:13:34.262Z\",\n  \"created_by\": {\n    \"email\": \"Sqvw45@AukSdfnC.bec\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"data\": {\n    \"supplier\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"buyer\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"name\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"customer_type\": \"string\",\n      \"iln\": \"string\",\n      \"contact_person\": \"string\"\n    },\n    \"delivery_address\": {\n      \"number\": \"string\",\n      \"number2\": \"string\",\n      \"number3\": \"string\",\n      \"name\": \"string\",\n      \"misc\": \"string\",\n      \"company_name\": \"string\",\n      \"company_name2\": \"string\",\n      \"company_name3\": \"string\",\n      \"company_name4\": \"string\",\n      \"street_and_nr\": \"string\",\n      \"street_name\": \"string\",\n      \"street_number\": \"string\",\n      \"postal_code\": \"string\",\n      \"city\": \"string\",\n      \"country_subdivision\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"delivery_date\": \"string\",\n    \"delivery_note_date\": \"string\",\n    \"order_date\": \"string\",\n    \"delivery_note_number\": \"string\",\n    \"order_number\": \"string\",\n    \"info_text\": \"string\",\n    \"commission_number\": \"string\",\n    \"line_items\": [\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      },\n      {\n        \"pos\": \"string\",\n        \"article_number\": \"string\",\n        \"article_number_2\": \"string\",\n        \"article_number_3\": \"string\",\n        \"external_article_number\": \"string\",\n        \"external_reference\": \"string\",\n        \"discount_percentage\": \"string\",\n        \"discount_amount\": \"string\",\n        \"article_comments\": \"string\",\n        \"commission_number\": \"string\",\n        \"goods_issue_date\": \"string\",\n        \"customer_id\": \"string\",\n        \"customer_name\": \"string\",\n        \"order_number\": \"string\",\n        \"quantity\": \"string\",\n        \"total_price\": \"string\",\n        \"description\": \"string\",\n        \"unit\": \"string\",\n        \"unit_price\": \"string\",\n        \"price_unit\": \"string\",\n        \"delivery_date\": \"string\",\n        \"markings\": \"string\",\n        \"converted_quantity\": \"string\",\n        \"converted_unit\": \"string\"\n      }\n    ]\n  },\n  \"delivered_at\": \"2019-01-30T03:26:53.949Z\",\n  \"email_file_url\": \"string\",\n  \"external_message\": \"string\",\n  \"external_reference\": \"string\",\n  \"external_status\": \"string\",\n  \"id\": \"845d7771-c465-584f-d9c7-5577c7631c22\",\n  \"imported_at\": \"1980-12-26T06:25:57.925Z\",\n  \"input_file_url\": \"string\",\n  \"status\": \"string\",\n  \"updated_at\": \"1973-11-23T12:26:21.521Z\",\n  \"workbench_url\": \"https://nlLXr.cppnYlYpUzqT1sl5EaXpxwt+fGLIDw,nng3Njqq5Uh3DUMsXj41Q-.Mrk6\",\n  \"sender\": \"string\",\n  \"subject\": \"string\",\n  \"assisted_at\": \"1990-08-21T09:26:46.766Z\",\n  \"finished_at\": \"1991-01-08T08:59:12.023Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a9fd578e-aab2-470f-a58d-eb44a22d362e",
+              "name": "The request was unacceptable, often due to missing a required parameter or an invalid value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "daf8b728-77a7-4b68-a1bc-675fe6a1f736",
+              "name": "Unauthorized, no valid token provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4e91fcab-1a0e-4f6c-9cd0-2f86f721f254",
+              "name": "The requested resource doesn't exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a424673e-7ff8-417d-be24-c973c3afb16c",
+              "name": "Something went wrong on Workist's end.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delivery-notes",
+                    ":id",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_unfinished_data",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) A UUID string identifying this delivery note processing record."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Sender of the document (e.g. sender of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "sender",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subject of the document (e.g. subject of the original email)",
+                        "type": "text/plain"
+                      },
+                      "key": "subject",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v1/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5f322211-8f26-4e6b-91d5-18e6ada9e21b",
+    "name": "Workist Integrations & Developer Delivery Notes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "With this API you can access different resources of the Workist platform (e.g. processed documents, masterdata imports)\n\nContact Support:\n Email: info@workist.com",
+      "type": "text/plain"
+    }
+  }
+}
