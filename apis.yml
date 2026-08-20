@@ -36,6 +36,16 @@ tags:
 - Document Processing
 - Artificial Intelligence
 - Automation
+- Order
+- Invoices
+- ERP
+- B2B
+- Master Data
+tags_raw:
+- Documents
+- Document Processing
+- Artificial Intelligence
+- Automation
 - Orders
 - Invoices
 - ERP
@@ -128,6 +138,8 @@ apis:
   humanURL: https://docs.workist.com/en/docs/api-documentation/
   baseURL: https://api.workist.com/api/v1
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -160,6 +172,8 @@ apis:
   humanURL: https://docs.workist.com/en/docs/api-documentation/
   baseURL: https://api.workist.com/api/v1
   tags:
+  - RFQ
+  tags_raw:
   - Rfq
   properties:
   - type: OpenAPI
