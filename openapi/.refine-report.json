@@ -1,14 +1,7 @@
 {
   "provider": "workist",
   "sources": [
-    "workist-delivery-notes-api-openapi.yml",
-    "workist-invoices-api-openapi.yml",
-    "workist-list-of-services-api-openapi.yml",
-    "workist-master-data-api-openapi.yml",
-    "workist-order-confirmations-api-openapi.yml",
-    "workist-orders-api-openapi.yml",
-    "workist-property-bills-api-openapi.yml",
-    "workist-rfq-api-openapi.yml"
+    "_original/workist-integrations-openapi-original.yml"
   ],
   "outputs": [
     "workist-delivery-notes-api-openapi.yml",
@@ -23,6 +16,27 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "workist-integrations-openapi-original.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "workist-integrations-openapi-original.yml: declared missing tag: Delivery Notes",
+    "workist-integrations-openapi-original.yml: declared missing tag: Invoices",
+    "workist-integrations-openapi-original.yml: declared missing tag: List Of Services",
+    "workist-integrations-openapi-original.yml: declared missing tag: Master Data",
+    "workist-integrations-openapi-original.yml: declared missing tag: Order Confirmations",
+    "workist-integrations-openapi-original.yml: declared missing tag: Orders",
+    "workist-integrations-openapi-original.yml: declared missing tag: Property Bills",
+    "workist-integrations-openapi-original.yml: declared missing tag: Rfq",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "workist-delivery-notes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workist-invoices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workist-list-of-services-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workist-master-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workist-order-confirmations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workist-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workist-property-bills-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workist-rfq-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

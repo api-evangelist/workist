@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Workist Integrations & Developer Delivery Notes Order Confirmations API
+  title: Workist Integrations & Developer Order Confirmations API
   version: v1
   description: With this API you can access different resources of the Workist platform (e.g. processed documents, masterdata imports)
   termsOfService: https://www.workist.com/terms-of-use
@@ -15,7 +15,7 @@ paths:
   /order-confirmations:
     get:
       operationId: order_confirmations_list
-      description: 'To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. '
+      description: To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more.
       summary: Get all processing records for this document type
       parameters:
       - in: query
@@ -106,7 +106,7 @@ paths:
           description: Something went wrong on Workist's end.
     post:
       operationId: order_confirmations_create
-      description: 'To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. '
+      description: To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more.
       summary: Add a new processing record for this document type
       parameters:
       - in: query
@@ -151,7 +151,7 @@ paths:
   /order-confirmations/{id}:
     get:
       operationId: order_confirmations_retrieve
-      description: 'To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. '
+      description: To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more.
       summary: Get a specific processing record for this document type
       parameters:
       - in: path
@@ -190,7 +190,7 @@ paths:
           description: Something went wrong on Workist's end.
     delete:
       operationId: order_confirmations_destroy
-      description: 'To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more. '
+      description: To extract data from a file a `Processing Record` is created. Each `Processing Record` is part of a `Channel`. A `Channel` defines which fields should be extracted, confidence thresholds and more.
       summary: Delete a processing record of this document type
       parameters:
       - in: path
@@ -370,22 +370,67 @@ paths:
           description: Something went wrong on Workist's end.
 components:
   schemas:
-    User:
+    Customer:
       type: object
       properties:
-        first_name:
+        number:
+          type:
+          - string
+          - 'null'
+        number2:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        street_and_nr:
+          type:
+          - string
+          - 'null'
+        postal_code:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        customer_type:
+          type:
+          - string
+          - 'null'
+        iln:
+          type:
+          - string
+          - 'null'
+        contact_person:
+          type:
+          - string
+          - 'null'
+    CreateDocumentRequest:
+      type: object
+      properties:
+        channel:
           type: string
-          maxLength: 150
-        last_name:
+          format: uuid
+          description: Id of a processing channel
+        file:
           type: string
-          maxLength: 150
-        email:
+          format: binary
+          description: File to be processed
+        user:
           type: string
-          format: email
-          title: Email address
-          maxLength: 254
+          minLength: 1
+          description: Email address or id of a user.
       required:
-      - email
+      - channel
+      - file
     MarkImportedRequest:
       type: object
       properties:
@@ -419,52 +464,86 @@ components:
           minLength: 1
           default: ''
           description: E.g. error message
+    PaginatedOrderConfirmationProcessingRecordList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderConfirmationProcessingRecord'
+        total_count:
+          type: integer
+          example: 123
     OrderConfirmation:
       type: object
       properties:
         supplier:
           allOf:
           - $ref: '#/components/schemas/Customer'
-          nullable: true
         delivery_address:
           allOf:
           - $ref: '#/components/schemas/Address'
-          nullable: true
         delivery_date:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         order_confirmation_date:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         order_date:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         order_confirmation_number:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         document_type:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         order_number:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         total_amount:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         total_amount_net:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         info_text:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         commission_number:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         line_items:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/OrderConfirmationLineItem'
-          nullable: true
     PatchedMetaRequest:
       type: object
       properties:
@@ -478,6 +557,205 @@ components:
           minLength: 1
           default: ''
           description: Subject of the document (e.g. subject of the original email)
+    Address:
+      type: object
+      properties:
+        number:
+          type:
+          - string
+          - 'null'
+        number2:
+          type:
+          - string
+          - 'null'
+        number3:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        misc:
+          type:
+          - string
+          - 'null'
+        company_name:
+          type:
+          - string
+          - 'null'
+        company_name2:
+          type:
+          - string
+          - 'null'
+        company_name3:
+          type:
+          - string
+          - 'null'
+        company_name4:
+          type:
+          - string
+          - 'null'
+        street_and_nr:
+          type:
+          - string
+          - 'null'
+        street_name:
+          type:
+          - string
+          - 'null'
+        street_number:
+          type:
+          - string
+          - 'null'
+        postal_code:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        country_subdivision:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        phone:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+    User:
+      type: object
+      properties:
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+      required:
+      - email
+    OrderConfirmationLineItem:
+      type: object
+      properties:
+        pos:
+          type:
+          - string
+          - 'null'
+        article_number:
+          type:
+          - string
+          - 'null'
+        article_number_2:
+          type:
+          - string
+          - 'null'
+        article_number_3:
+          type:
+          - string
+          - 'null'
+        external_article_number:
+          type:
+          - string
+          - 'null'
+        external_reference:
+          type:
+          - string
+          - 'null'
+        discount_percentage:
+          type:
+          - string
+          - 'null'
+        discount_amount:
+          type:
+          - string
+          - 'null'
+        article_comments:
+          type:
+          - string
+          - 'null'
+        commission_number:
+          type:
+          - string
+          - 'null'
+        goods_issue_date:
+          type:
+          - string
+          - 'null'
+        customer_id:
+          type:
+          - string
+          - 'null'
+        customer_name:
+          type:
+          - string
+          - 'null'
+        order_number:
+          type:
+          - string
+          - 'null'
+        quantity:
+          type:
+          - string
+          - 'null'
+        total_price:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        unit:
+          type:
+          - string
+          - 'null'
+        unit_price:
+          type:
+          - string
+          - 'null'
+        price_unit:
+          type:
+          - string
+          - 'null'
+        delivery_date:
+          type:
+          - string
+          - 'null'
+        markings:
+          type:
+          - string
+          - 'null'
+        converted_quantity:
+          type:
+          - string
+          - 'null'
+        converted_unit:
+          type:
+          - string
+          - 'null'
+    AssignUserRequest:
+      type: object
+      properties:
+        user:
+          type: string
+          minLength: 1
+          description: Email address or id of a user.
+      required:
+      - user
     OrderConfirmationProcessingRecord:
       type: object
       properties:
@@ -486,17 +764,20 @@ components:
           format: uuid
           readOnly: true
         channel:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           readOnly: true
         status:
           type: string
         sender:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         subject:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         created_at:
           type: string
           format: date-time
@@ -518,28 +799,32 @@ components:
           - $ref: '#/components/schemas/User'
           readOnly: true
         assisted_at:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         delivered_at:
           type: string
           format: date-time
           readOnly: true
         finished_at:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         imported_at:
           type: string
           format: date-time
           readOnly: true
         email_file_url:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           readOnly: true
         input_file_url:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           readOnly: true
         classified_files:
           type: array
@@ -549,10 +834,11 @@ components:
               type: string
           readOnly: true
         additional_file_urls:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
-          nullable: true
           description: Rarely used in customisations
           readOnly: true
         workbench_url:
@@ -560,16 +846,19 @@ components:
           format: uri
           readOnly: true
         external_reference:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           readOnly: true
         external_status:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           readOnly: true
         external_message:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           readOnly: true
         data:
           allOf:
@@ -595,221 +884,6 @@ components:
       - status
       - updated_at
       - workbench_url
-    CreateDocumentRequest:
-      type: object
-      properties:
-        channel:
-          type: string
-          format: uuid
-          description: Id of a processing channel
-        file:
-          type: string
-          format: binary
-          description: File to be processed
-        user:
-          type: string
-          minLength: 1
-          description: Email address or id of a user.
-      required:
-      - channel
-      - file
-    OrderConfirmationLineItem:
-      type: object
-      properties:
-        pos:
-          type: string
-          nullable: true
-        article_number:
-          type: string
-          nullable: true
-        article_number_2:
-          type: string
-          nullable: true
-        article_number_3:
-          type: string
-          nullable: true
-        external_article_number:
-          type: string
-          nullable: true
-        external_reference:
-          type: string
-          nullable: true
-        discount_percentage:
-          type: string
-          nullable: true
-        discount_amount:
-          type: string
-          nullable: true
-        article_comments:
-          type: string
-          nullable: true
-        commission_number:
-          type: string
-          nullable: true
-        goods_issue_date:
-          type: string
-          nullable: true
-        customer_id:
-          type: string
-          nullable: true
-        customer_name:
-          type: string
-          nullable: true
-        order_number:
-          type: string
-          nullable: true
-        quantity:
-          type: string
-          nullable: true
-        total_price:
-          type: string
-          nullable: true
-        description:
-          type: string
-          nullable: true
-        unit:
-          type: string
-          nullable: true
-        unit_price:
-          type: string
-          nullable: true
-        price_unit:
-          type: string
-          nullable: true
-        delivery_date:
-          type: string
-          nullable: true
-        markings:
-          type: string
-          nullable: true
-        converted_quantity:
-          type: string
-          nullable: true
-        converted_unit:
-          type: string
-          nullable: true
-    AssignUserRequest:
-      type: object
-      properties:
-        user:
-          type: string
-          minLength: 1
-          description: Email address or id of a user.
-      required:
-      - user
-    Address:
-      type: object
-      properties:
-        number:
-          type: string
-          nullable: true
-        number2:
-          type: string
-          nullable: true
-        number3:
-          type: string
-          nullable: true
-        name:
-          type: string
-          nullable: true
-        misc:
-          type: string
-          nullable: true
-        company_name:
-          type: string
-          nullable: true
-        company_name2:
-          type: string
-          nullable: true
-        company_name3:
-          type: string
-          nullable: true
-        company_name4:
-          type: string
-          nullable: true
-        street_and_nr:
-          type: string
-          nullable: true
-        street_name:
-          type: string
-          nullable: true
-        street_number:
-          type: string
-          nullable: true
-        postal_code:
-          type: string
-          nullable: true
-        city:
-          type: string
-          nullable: true
-        country_subdivision:
-          type: string
-          nullable: true
-        country:
-          type: string
-          nullable: true
-        phone:
-          type: string
-          nullable: true
-        email:
-          type: string
-          nullable: true
-    PaginatedOrderConfirmationProcessingRecordList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?page=4
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?page=2
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrderConfirmationProcessingRecord'
-        total_count:
-          type: integer
-          example: 123
-    Customer:
-      type: object
-      properties:
-        number:
-          type: string
-          nullable: true
-        number2:
-          type: string
-          nullable: true
-        name:
-          type: string
-          nullable: true
-        street_and_nr:
-          type: string
-          nullable: true
-        postal_code:
-          type: string
-          nullable: true
-        city:
-          type: string
-          nullable: true
-        country:
-          type: string
-          nullable: true
-        customer_type:
-          type: string
-          nullable: true
-        iln:
-          type: string
-          nullable: true
-        contact_person:
-          type: string
-          nullable: true
   securitySchemes:
     BearerAuthentication:
       type: http
