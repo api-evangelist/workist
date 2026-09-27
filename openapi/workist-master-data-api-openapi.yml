@@ -574,7 +574,118 @@ paths:
       - BearerAuthentication: []
 components:
   schemas:
-    ClientMasterDataImportRequest:
+    DataImportRun:
+      type: object
+      properties:
+        import_id:
+          type: string
+          format: uuid
+        customer_id:
+          type: string
+          format: uuid
+        lookup_type:
+          enum:
+          - ARTICLE_LOOKUP
+          - CLIENT_LOOKUP
+          - CONTACT_LOOKUP
+          - ADDRESS_LOOKUP
+          - CONVERSION_FACTOR_LOOKUP
+          - FRAMEWORK_CONTRACT_LOOKUP
+          - ORDER_MATCHING_LOOKUP
+          - OFFER_MATCHING_LOOKUP
+          - CLIENT_MAPPING_LOOKUP
+          - CONTACT_MAPPING_LOOKUP
+          - ARTICLE_MAPPING_LOOKUP
+          - VAT_ID_CHECK_MAPPING_LOOKUP
+          - ADDRESS_MAPPING_LOOKUP
+          - null
+          type:
+          - string
+          - 'null'
+          description: '* `ARTICLE_LOOKUP` - ARTICLE_LOOKUP
+
+            * `CLIENT_LOOKUP` - CLIENT_LOOKUP
+
+            * `CONTACT_LOOKUP` - CONTACT_LOOKUP
+
+            * `ADDRESS_LOOKUP` - ADDRESS_LOOKUP
+
+            * `CONVERSION_FACTOR_LOOKUP` - CONVERSION_FACTOR_LOOKUP
+
+            * `FRAMEWORK_CONTRACT_LOOKUP` - FRAMEWORK_CONTRACT_LOOKUP
+
+            * `ORDER_MATCHING_LOOKUP` - ORDER_MATCHING_LOOKUP
+
+            * `OFFER_MATCHING_LOOKUP` - OFFER_MATCHING_LOOKUP
+
+            * `CLIENT_MAPPING_LOOKUP` - CLIENT_MAPPING_LOOKUP
+
+            * `CONTACT_MAPPING_LOOKUP` - CONTACT_MAPPING_LOOKUP
+
+            * `ARTICLE_MAPPING_LOOKUP` - ARTICLE_MAPPING_LOOKUP
+
+            * `VAT_ID_CHECK_MAPPING_LOOKUP` - VAT_ID_CHECK_MAPPING_LOOKUP
+
+            * `ADDRESS_MAPPING_LOOKUP` - ADDRESS_MAPPING_LOOKUP'
+        lookup_definition:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        ingestion_file_url:
+          type:
+          - string
+          - 'null'
+        ingestion_file_num_rows:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        error_type:
+          type:
+          - string
+          - 'null'
+        error_message:
+          type:
+          - string
+          - 'null'
+        trigger:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        started_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          title: Import started at
+        finished_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          title: Import finished at
+        status:
+          type: string
+          readOnly: true
+      required:
+      - created_at
+      - customer_id
+      - import_id
+      - status
+      - trigger
+      - updated_at
+    ImportRequest:
       type: object
       properties:
         lookup_definition_id:
@@ -597,10 +708,90 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/ClientMasterData'
+            type: object
+            additionalProperties: {}
+            description: List of `Master Data` entities of the lookup's type (see `Schemas` for details)
+          description: If given, the data will be converted into a CSV file, temporarily stored and imported when the import run is started. The maximum allowed number of rows for a single request is 10000.
       required:
       - lookup_definition_id
-    ContactMasterData:
+    PaginatedDataImportRunList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataImportRun'
+        total_count:
+          type: integer
+          example: 123
+    OrderMatchingMasterDataImportRequest:
+      type: object
+      properties:
+        lookup_definition_id:
+          type: string
+          format: uuid
+          description: ID of a lookup definition (obtainable via Workbench)
+        batched:
+          type: boolean
+          default: false
+          description: If `true`, the import will be created in a pending status so that additional batches of data can be appended to the import. If `false` (default), the import will be started immediately.
+        file_url:
+          type: string
+          format: uri
+          minLength: 1
+          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
+        file:
+          type: string
+          format: binary
+          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderMatchingMasterData'
+      required:
+      - lookup_definition_id
+    ConversionFactorMasterDataImportRequest:
+      type: object
+      properties:
+        lookup_definition_id:
+          type: string
+          format: uuid
+          description: ID of a lookup definition (obtainable via Workbench)
+        batched:
+          type: boolean
+          default: false
+          description: If `true`, the import will be created in a pending status so that additional batches of data can be appended to the import. If `false` (default), the import will be started immediately.
+        file_url:
+          type: string
+          format: uri
+          minLength: 1
+          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
+        file:
+          type: string
+          format: binary
+          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversionFactorMasterData'
+      required:
+      - lookup_definition_id
+    OrderMatchingMasterData:
       type: object
       properties:
         partition_id:
@@ -609,31 +800,101 @@ components:
         extra_data:
           type: object
           additionalProperties: {}
-        contact_id:
+        order_number:
           type: string
           minLength: 1
-        first_name:
+        order_date:
           type:
           - string
           - 'null'
-          minLength: 1
-        last_name:
+          format: date-time
+        order_total_price:
           type:
           - string
           - 'null'
-          minLength: 1
-        phone:
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        delivery_address:
           type:
           - string
           - 'null'
-          minLength: 1
-        email:
+        receiver_number:
           type:
           - string
           - 'null'
+        position_number:
+          type:
+          - string
+          - 'null'
+        article_id1:
+          type: string
           minLength: 1
+        article_id2:
+          type:
+          - string
+          - 'null'
+        article_id3:
+          type:
+          - string
+          - 'null'
+        article_description:
+          type:
+          - string
+          - 'null'
+        article_price:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        quantity:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        total_price:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        delivery_date:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        unit:
+          type:
+          - string
+          - 'null'
+        iban:
+          type:
+          - string
+          - 'null'
+        swift:
+          type:
+          - string
+          - 'null'
+        account:
+          type:
+          - string
+          - 'null'
+        payment_terms_type:
+          type:
+          - string
+          - 'null'
+        payment_terms_discount:
+          type:
+          - string
+          - 'null'
+        payment_terms_due_days:
+          type:
+          - string
+          - 'null'
       required:
-      - contact_id
+      - article_id1
+      - order_number
     ContactMasterDataImportRequest:
       type: object
       properties:
@@ -660,36 +921,6 @@ components:
             $ref: '#/components/schemas/ContactMasterData'
       required:
       - lookup_definition_id
-    FrameworkContractMasterData:
-      type: object
-      properties:
-        partition_id:
-          type: string
-          minLength: 1
-        extra_data:
-          type: object
-          additionalProperties: {}
-        client_id:
-          type:
-          - string
-          - 'null'
-        client_name:
-          type:
-          - string
-          - 'null'
-        contract_id1:
-          type: string
-          minLength: 1
-        contract_id2:
-          type:
-          - string
-          - 'null'
-        contract_name:
-          type:
-          - string
-          - 'null'
-      required:
-      - contract_id1
     ArticleMasterDataImportRequest:
       type: object
       properties:
@@ -742,7 +973,32 @@ components:
             $ref: '#/components/schemas/FrameworkContractMasterData'
       required:
       - lookup_definition_id
-    ConversionFactorMasterDataImportRequest:
+    ConversionFactorMasterData:
+      type: object
+      properties:
+        partition_id:
+          type: string
+          minLength: 1
+        extra_data:
+          type: object
+          additionalProperties: {}
+        source_unit:
+          type: string
+          minLength: 1
+        target_unit:
+          type: string
+          minLength: 1
+        article_id:
+          type: string
+        conversion_quotient:
+          type:
+          - number
+          - 'null'
+          format: double
+      required:
+      - source_unit
+      - target_unit
+    OfferMatchingMasterDataImportRequest:
       type: object
       properties:
         lookup_definition_id:
@@ -765,9 +1021,151 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/ConversionFactorMasterData'
+            $ref: '#/components/schemas/OfferMatchingMasterData'
       required:
       - lookup_definition_id
+    ClientMasterDataImportRequest:
+      type: object
+      properties:
+        lookup_definition_id:
+          type: string
+          format: uuid
+          description: ID of a lookup definition (obtainable via Workbench)
+        batched:
+          type: boolean
+          default: false
+          description: If `true`, the import will be created in a pending status so that additional batches of data can be appended to the import. If `false` (default), the import will be started immediately.
+        file_url:
+          type: string
+          format: uri
+          minLength: 1
+          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
+        file:
+          type: string
+          format: binary
+          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientMasterData'
+      required:
+      - lookup_definition_id
+    AddressMasterDataImportRequest:
+      type: object
+      properties:
+        lookup_definition_id:
+          type: string
+          format: uuid
+          description: ID of a lookup definition (obtainable via Workbench)
+        batched:
+          type: boolean
+          default: false
+          description: If `true`, the import will be created in a pending status so that additional batches of data can be appended to the import. If `false` (default), the import will be started immediately.
+        file_url:
+          type: string
+          format: uri
+          minLength: 1
+          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
+        file:
+          type: string
+          format: binary
+          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressMasterData'
+      required:
+      - lookup_definition_id
+    ArticleMasterData:
+      type: object
+      properties:
+        partition_id:
+          type: string
+          minLength: 1
+        extra_data:
+          type: object
+          additionalProperties: {}
+        article_id1:
+          type: string
+          minLength: 1
+        article_id2:
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        article_id3:
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        description:
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        article_status:
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        gross_price:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,6})?$
+        order_units:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+            minLength: 1
+        sales_units:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+            minLength: 1
+        variants:
+          type: object
+          additionalProperties: {}
+        sales_organisation:
+          type:
+          - string
+          - 'null'
+          minLength: 1
+      required:
+      - article_id1
+    DataRequest:
+      type: object
+      properties:
+        file_url:
+          type: string
+          format: uri
+          minLength: 1
+          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
+        file:
+          type: string
+          format: binary
+          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
+        data:
+          type: array
+          items:
+            type: object
+            additionalProperties: {}
+            description: List of `Master Data` entities of the lookup's type (see `Schemas` for details)
+          description: If given, the data will be converted into a CSV file, temporarily stored and imported when the import run is started. The maximum allowed number of rows for a single request is 10000.
+    AcceptedResponse:
+      type: object
+      properties:
+        import_id:
+          type: string
+          format: uuid
+          description: Id of a master data import run
+      required:
+      - import_id
     ClientMasterData:
       type: object
       properties:
@@ -911,144 +1309,6 @@ components:
           maxLength: 10
       required:
       - client_id1
-    PaginatedDataImportRunList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?page=4
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?page=2
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataImportRun'
-        total_count:
-          type: integer
-          example: 123
-    OrderMatchingMasterDataImportRequest:
-      type: object
-      properties:
-        lookup_definition_id:
-          type: string
-          format: uuid
-          description: ID of a lookup definition (obtainable via Workbench)
-        batched:
-          type: boolean
-          default: false
-          description: If `true`, the import will be created in a pending status so that additional batches of data can be appended to the import. If `false` (default), the import will be started immediately.
-        file_url:
-          type: string
-          format: uri
-          minLength: 1
-          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
-        file:
-          type: string
-          format: binary
-          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrderMatchingMasterData'
-      required:
-      - lookup_definition_id
-    ConversionFactorMasterData:
-      type: object
-      properties:
-        partition_id:
-          type: string
-          minLength: 1
-        extra_data:
-          type: object
-          additionalProperties: {}
-        source_unit:
-          type: string
-          minLength: 1
-        target_unit:
-          type: string
-          minLength: 1
-        article_id:
-          type: string
-        conversion_quotient:
-          type:
-          - number
-          - 'null'
-          format: double
-      required:
-      - source_unit
-      - target_unit
-    ArticleMasterData:
-      type: object
-      properties:
-        partition_id:
-          type: string
-          minLength: 1
-        extra_data:
-          type: object
-          additionalProperties: {}
-        article_id1:
-          type: string
-          minLength: 1
-        article_id2:
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        article_id3:
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        description:
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        article_status:
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        gross_price:
-          type:
-          - string
-          - 'null'
-          format: decimal
-          pattern: ^-?\d{0,8}(?:\.\d{0,6})?$
-        order_units:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-            minLength: 1
-        sales_units:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-            minLength: 1
-        variants:
-          type: object
-          additionalProperties: {}
-        sales_organisation:
-          type:
-          - string
-          - 'null'
-          minLength: 1
-      required:
-      - article_id1
     AddressMasterData:
       type: object
       properties:
@@ -1138,117 +1398,6 @@ components:
           minLength: 1
       required:
       - address_id1
-    DataImportRun:
-      type: object
-      properties:
-        import_id:
-          type: string
-          format: uuid
-        customer_id:
-          type: string
-          format: uuid
-        lookup_type:
-          enum:
-          - ARTICLE_LOOKUP
-          - CLIENT_LOOKUP
-          - CONTACT_LOOKUP
-          - ADDRESS_LOOKUP
-          - CONVERSION_FACTOR_LOOKUP
-          - FRAMEWORK_CONTRACT_LOOKUP
-          - ORDER_MATCHING_LOOKUP
-          - OFFER_MATCHING_LOOKUP
-          - CLIENT_MAPPING_LOOKUP
-          - CONTACT_MAPPING_LOOKUP
-          - ARTICLE_MAPPING_LOOKUP
-          - VAT_ID_CHECK_MAPPING_LOOKUP
-          - ADDRESS_MAPPING_LOOKUP
-          - null
-          type:
-          - string
-          - 'null'
-          description: '* `ARTICLE_LOOKUP` - ARTICLE_LOOKUP
-
-            * `CLIENT_LOOKUP` - CLIENT_LOOKUP
-
-            * `CONTACT_LOOKUP` - CONTACT_LOOKUP
-
-            * `ADDRESS_LOOKUP` - ADDRESS_LOOKUP
-
-            * `CONVERSION_FACTOR_LOOKUP` - CONVERSION_FACTOR_LOOKUP
-
-            * `FRAMEWORK_CONTRACT_LOOKUP` - FRAMEWORK_CONTRACT_LOOKUP
-
-            * `ORDER_MATCHING_LOOKUP` - ORDER_MATCHING_LOOKUP
-
-            * `OFFER_MATCHING_LOOKUP` - OFFER_MATCHING_LOOKUP
-
-            * `CLIENT_MAPPING_LOOKUP` - CLIENT_MAPPING_LOOKUP
-
-            * `CONTACT_MAPPING_LOOKUP` - CONTACT_MAPPING_LOOKUP
-
-            * `ARTICLE_MAPPING_LOOKUP` - ARTICLE_MAPPING_LOOKUP
-
-            * `VAT_ID_CHECK_MAPPING_LOOKUP` - VAT_ID_CHECK_MAPPING_LOOKUP
-
-            * `ADDRESS_MAPPING_LOOKUP` - ADDRESS_MAPPING_LOOKUP'
-        lookup_definition:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        ingestion_file_url:
-          type:
-          - string
-          - 'null'
-        ingestion_file_num_rows:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        error_type:
-          type:
-          - string
-          - 'null'
-        error_message:
-          type:
-          - string
-          - 'null'
-        trigger:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        created_at:
-          type: string
-          format: date-time
-          readOnly: true
-        updated_at:
-          type: string
-          format: date-time
-          readOnly: true
-        started_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          title: Import started at
-        finished_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          title: Import finished at
-        status:
-          type: string
-          readOnly: true
-      required:
-      - created_at
-      - customer_id
-      - import_id
-      - status
-      - trigger
-      - updated_at
     OfferMatchingMasterData:
       type: object
       properties:
@@ -1303,90 +1452,7 @@ components:
       required:
       - article_id1
       - offer_number
-    OfferMatchingMasterDataImportRequest:
-      type: object
-      properties:
-        lookup_definition_id:
-          type: string
-          format: uuid
-          description: ID of a lookup definition (obtainable via Workbench)
-        batched:
-          type: boolean
-          default: false
-          description: If `true`, the import will be created in a pending status so that additional batches of data can be appended to the import. If `false` (default), the import will be started immediately.
-        file_url:
-          type: string
-          format: uri
-          minLength: 1
-          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
-        file:
-          type: string
-          format: binary
-          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/OfferMatchingMasterData'
-      required:
-      - lookup_definition_id
-    AcceptedResponse:
-      type: object
-      properties:
-        import_id:
-          type: string
-          format: uuid
-          description: Id of a master data import run
-      required:
-      - import_id
-    ImportRequest:
-      type: object
-      properties:
-        lookup_definition_id:
-          type: string
-          format: uuid
-          description: ID of a lookup definition (obtainable via Workbench)
-        batched:
-          type: boolean
-          default: false
-          description: If `true`, the import will be created in a pending status so that additional batches of data can be appended to the import. If `false` (default), the import will be started immediately.
-        file_url:
-          type: string
-          format: uri
-          minLength: 1
-          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
-        file:
-          type: string
-          format: binary
-          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
-        data:
-          type: array
-          items:
-            type: object
-            additionalProperties: {}
-            description: List of `Master Data` entities of the lookup's type (see `Schemas` for details)
-          description: If given, the data will be converted into a CSV file, temporarily stored and imported when the import run is started. The maximum allowed number of rows for a single request is 10000.
-      required:
-      - lookup_definition_id
-    DataRequest:
-      type: object
-      properties:
-        file_url:
-          type: string
-          format: uri
-          minLength: 1
-          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
-        file:
-          type: string
-          format: binary
-          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
-        data:
-          type: array
-          items:
-            type: object
-            additionalProperties: {}
-            description: List of `Master Data` entities of the lookup's type (see `Schemas` for details)
-          description: If given, the data will be converted into a CSV file, temporarily stored and imported when the import run is started. The maximum allowed number of rows for a single request is 10000.
-    OrderMatchingMasterData:
+    ContactMasterData:
       type: object
       properties:
         partition_id:
@@ -1395,127 +1461,61 @@ components:
         extra_data:
           type: object
           additionalProperties: {}
-        order_number:
+        contact_id:
           type: string
           minLength: 1
-        order_date:
+        first_name:
           type:
           - string
           - 'null'
-          format: date-time
-        order_total_price:
-          type:
-          - string
-          - 'null'
-          format: decimal
-          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
-        delivery_address:
-          type:
-          - string
-          - 'null'
-        receiver_number:
-          type:
-          - string
-          - 'null'
-        position_number:
-          type:
-          - string
-          - 'null'
-        article_id1:
-          type: string
           minLength: 1
-        article_id2:
+        last_name:
           type:
           - string
           - 'null'
-        article_id3:
+          minLength: 1
+        phone:
           type:
           - string
           - 'null'
-        article_description:
+          minLength: 1
+        email:
           type:
           - string
           - 'null'
-        article_price:
-          type:
-          - string
-          - 'null'
-          format: decimal
-          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
-        quantity:
-          type:
-          - string
-          - 'null'
-          format: decimal
-          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
-        total_price:
-          type:
-          - string
-          - 'null'
-          format: decimal
-          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
-        delivery_date:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        unit:
-          type:
-          - string
-          - 'null'
-        iban:
-          type:
-          - string
-          - 'null'
-        swift:
-          type:
-          - string
-          - 'null'
-        account:
-          type:
-          - string
-          - 'null'
-        payment_terms_type:
-          type:
-          - string
-          - 'null'
-        payment_terms_discount:
-          type:
-          - string
-          - 'null'
-        payment_terms_due_days:
-          type:
-          - string
-          - 'null'
+          minLength: 1
       required:
-      - article_id1
-      - order_number
-    AddressMasterDataImportRequest:
+      - contact_id
+    FrameworkContractMasterData:
       type: object
       properties:
-        lookup_definition_id:
+        partition_id:
           type: string
-          format: uuid
-          description: ID of a lookup definition (obtainable via Workbench)
-        batched:
-          type: boolean
-          default: false
-          description: If `true`, the import will be created in a pending status so that additional batches of data can be appended to the import. If `false` (default), the import will be started immediately.
-        file_url:
-          type: string
-          format: uri
           minLength: 1
-          description: If given, the file at the target URL will be downloaded, stored temporarily and imported when the import run is started. Make sure the `file_url` is publicly accessible. The maximum allowed download file size is 300.0 MB.
-        file:
+        extra_data:
+          type: object
+          additionalProperties: {}
+        client_id:
+          type:
+          - string
+          - 'null'
+        client_name:
+          type:
+          - string
+          - 'null'
+        contract_id1:
           type: string
-          format: binary
-          description: If given, the file will be temporarily stored and imported when the import run is started. The maximum allowed file size for a single request is 10.0 MB.
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/AddressMasterData'
+          minLength: 1
+        contract_id2:
+          type:
+          - string
+          - 'null'
+        contract_name:
+          type:
+          - string
+          - 'null'
       required:
-      - lookup_definition_id
+      - contract_id1
   securitySchemes:
     BearerAuthentication:
       type: http
