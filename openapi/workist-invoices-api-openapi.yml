@@ -370,136 +370,24 @@ paths:
           description: Something went wrong on Workist's end.
 components:
   schemas:
-    PaginatedInvoiceProcessingRecordList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?page=4
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?page=2
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/InvoiceProcessingRecord'
-        total_count:
-          type: integer
-          example: 123
-    AssignUserRequest:
+    CreateDocumentRequest:
       type: object
       properties:
+        channel:
+          type: string
+          format: uuid
+          description: Id of a processing channel
+        file:
+          type: string
+          format: binary
+          description: File to be processed
         user:
           type: string
           minLength: 1
           description: Email address or id of a user.
       required:
-      - user
-    PatchedMetaRequest:
-      type: object
-      properties:
-        sender:
-          type: string
-          minLength: 1
-          default: ''
-          description: Sender of the document (e.g. sender of the original email)
-        subject:
-          type: string
-          minLength: 1
-          default: ''
-          description: Subject of the document (e.g. subject of the original email)
-    User:
-      type: object
-      properties:
-        first_name:
-          type: string
-          maxLength: 150
-        last_name:
-          type: string
-          maxLength: 150
-        email:
-          type: string
-          format: email
-          title: Email address
-          maxLength: 254
-      required:
-      - email
-    InvoiceLineItem:
-      type: object
-      properties:
-        pos:
-          type:
-          - string
-          - 'null'
-        article_number:
-          type:
-          - string
-          - 'null'
-        article_number_2:
-          type:
-          - string
-          - 'null'
-        article_number_3:
-          type:
-          - string
-          - 'null'
-        external_article_number:
-          type:
-          - string
-          - 'null'
-        external_reference:
-          type:
-          - string
-          - 'null'
-        article_description:
-          type:
-          - string
-          - 'null'
-        unit:
-          type:
-          - string
-          - 'null'
-        quantity:
-          type:
-          - string
-          - 'null'
-        unit_price:
-          type:
-          - string
-          - 'null'
-        price_unit:
-          type:
-          - string
-          - 'null'
-        total_price:
-          type:
-          - string
-          - 'null'
-        order_number:
-          type:
-          - string
-          - 'null'
-        tax_rate:
-          type:
-          - string
-          - 'null'
-        tax_amount:
-          type:
-          - string
-          - 'null'
-        fulfillment_date:
-          type:
-          - string
-          - 'null'
+      - channel
+      - file
     InvoiceProcessingRecord:
       type: object
       properties:
@@ -628,142 +516,22 @@ components:
       - status
       - updated_at
       - workbench_url
-    Customer:
+    User:
       type: object
       properties:
-        number:
-          type:
-          - string
-          - 'null'
-        number2:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        street_and_nr:
-          type:
-          - string
-          - 'null'
-        postal_code:
-          type:
-          - string
-          - 'null'
-        city:
-          type:
-          - string
-          - 'null'
-        country:
-          type:
-          - string
-          - 'null'
-        customer_type:
-          type:
-          - string
-          - 'null'
-        iln:
-          type:
-          - string
-          - 'null'
-        contact_person:
-          type:
-          - string
-          - 'null'
-    Address:
-      type: object
-      properties:
-        number:
-          type:
-          - string
-          - 'null'
-        number2:
-          type:
-          - string
-          - 'null'
-        number3:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        misc:
-          type:
-          - string
-          - 'null'
-        company_name:
-          type:
-          - string
-          - 'null'
-        company_name2:
-          type:
-          - string
-          - 'null'
-        company_name3:
-          type:
-          - string
-          - 'null'
-        company_name4:
-          type:
-          - string
-          - 'null'
-        street_and_nr:
-          type:
-          - string
-          - 'null'
-        street_name:
-          type:
-          - string
-          - 'null'
-        street_number:
-          type:
-          - string
-          - 'null'
-        postal_code:
-          type:
-          - string
-          - 'null'
-        city:
-          type:
-          - string
-          - 'null'
-        country_subdivision:
-          type:
-          - string
-          - 'null'
-        country:
-          type:
-          - string
-          - 'null'
-        phone:
-          type:
-          - string
-          - 'null'
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
         email:
-          type:
-          - string
-          - 'null'
-    CreateDocumentRequest:
-      type: object
-      properties:
-        channel:
           type: string
-          format: uuid
-          description: Id of a processing channel
-        file:
-          type: string
-          format: binary
-          description: File to be processed
-        user:
-          type: string
-          minLength: 1
-          description: Email address or id of a user.
+          format: email
+          title: Email address
+          maxLength: 254
       required:
-      - channel
-      - file
+      - email
     Invoice:
       type: object
       properties:
@@ -896,6 +664,31 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/InvoiceLineItem'
+    PaginatedInvoiceProcessingRecordList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/InvoiceProcessingRecord'
+        total_count:
+          type: integer
+          example: 123
     MarkImportedRequest:
       type: object
       properties:
@@ -929,6 +722,170 @@ components:
           minLength: 1
           default: ''
           description: E.g. error message
+    Address:
+      type: object
+      properties:
+        number:
+          type:
+          - string
+          - 'null'
+        number2:
+          type:
+          - string
+          - 'null'
+        number3:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        misc:
+          type:
+          - string
+          - 'null'
+        company_name:
+          type:
+          - string
+          - 'null'
+        company_name2:
+          type:
+          - string
+          - 'null'
+        company_name3:
+          type:
+          - string
+          - 'null'
+        company_name4:
+          type:
+          - string
+          - 'null'
+        street_and_nr:
+          type:
+          - string
+          - 'null'
+        street_name:
+          type:
+          - string
+          - 'null'
+        street_number:
+          type:
+          - string
+          - 'null'
+        postal_code:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        country_subdivision:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        phone:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+    AssignUserRequest:
+      type: object
+      properties:
+        user:
+          type: string
+          minLength: 1
+          description: Email address or id of a user.
+      required:
+      - user
+    PatchedMetaRequest:
+      type: object
+      properties:
+        sender:
+          type: string
+          minLength: 1
+          default: ''
+          description: Sender of the document (e.g. sender of the original email)
+        subject:
+          type: string
+          minLength: 1
+          default: ''
+          description: Subject of the document (e.g. subject of the original email)
+    InvoiceLineItem:
+      type: object
+      properties:
+        pos:
+          type:
+          - string
+          - 'null'
+        article_number:
+          type:
+          - string
+          - 'null'
+        article_number_2:
+          type:
+          - string
+          - 'null'
+        article_number_3:
+          type:
+          - string
+          - 'null'
+        external_article_number:
+          type:
+          - string
+          - 'null'
+        external_reference:
+          type:
+          - string
+          - 'null'
+        article_description:
+          type:
+          - string
+          - 'null'
+        unit:
+          type:
+          - string
+          - 'null'
+        quantity:
+          type:
+          - string
+          - 'null'
+        unit_price:
+          type:
+          - string
+          - 'null'
+        price_unit:
+          type:
+          - string
+          - 'null'
+        total_price:
+          type:
+          - string
+          - 'null'
+        order_number:
+          type:
+          - string
+          - 'null'
+        tax_rate:
+          type:
+          - string
+          - 'null'
+        tax_amount:
+          type:
+          - string
+          - 'null'
+        fulfillment_date:
+          type:
+          - string
+          - 'null'
     ContactPerson:
       type: object
       properties:
@@ -945,6 +902,49 @@ components:
           - string
           - 'null'
         phone:
+          type:
+          - string
+          - 'null'
+    Customer:
+      type: object
+      properties:
+        number:
+          type:
+          - string
+          - 'null'
+        number2:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        street_and_nr:
+          type:
+          - string
+          - 'null'
+        postal_code:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        customer_type:
+          type:
+          - string
+          - 'null'
+        iln:
+          type:
+          - string
+          - 'null'
+        contact_person:
           type:
           - string
           - 'null'

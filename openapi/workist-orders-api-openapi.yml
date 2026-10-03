@@ -370,436 +370,6 @@ paths:
           description: Something went wrong on Workist's end.
 components:
   schemas:
-    AssignUserRequest:
-      type: object
-      properties:
-        user:
-          type: string
-          minLength: 1
-          description: Email address or id of a user.
-      required:
-      - user
-    PatchedMetaRequest:
-      type: object
-      properties:
-        sender:
-          type: string
-          minLength: 1
-          default: ''
-          description: Sender of the document (e.g. sender of the original email)
-        subject:
-          type: string
-          minLength: 1
-          default: ''
-          description: Subject of the document (e.g. subject of the original email)
-    User:
-      type: object
-      properties:
-        first_name:
-          type: string
-          maxLength: 150
-        last_name:
-          type: string
-          maxLength: 150
-        email:
-          type: string
-          format: email
-          title: Email address
-          maxLength: 254
-      required:
-      - email
-    OrderLineItem:
-      type: object
-      properties:
-        pos:
-          type:
-          - string
-          - 'null'
-        article_number:
-          type:
-          - string
-          - 'null'
-        article_number_2:
-          type:
-          - string
-          - 'null'
-        article_number_3:
-          type:
-          - string
-          - 'null'
-        external_article_number:
-          type:
-          - string
-          - 'null'
-        external_reference:
-          type:
-          - string
-          - 'null'
-        discount_percentage:
-          type:
-          - string
-          - 'null'
-        discount_amount:
-          type:
-          - string
-          - 'null'
-        article_comments:
-          type:
-          - string
-          - 'null'
-        commission_number:
-          type:
-          - string
-          - 'null'
-        goods_issue_date:
-          type:
-          - string
-          - 'null'
-        customer_id:
-          type:
-          - string
-          - 'null'
-        customer_name:
-          type:
-          - string
-          - 'null'
-        order_number:
-          type:
-          - string
-          - 'null'
-        quantity:
-          type:
-          - string
-          - 'null'
-        total_price:
-          type:
-          - string
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        unit:
-          type:
-          - string
-          - 'null'
-        unit_price:
-          type:
-          - string
-          - 'null'
-        price_unit:
-          type:
-          - string
-          - 'null'
-        delivery_date:
-          type:
-          - string
-          - 'null'
-        delivery_time_from:
-          type:
-          - string
-          - 'null'
-        delivery_time_until:
-          type:
-          - string
-          - 'null'
-        tagging_text:
-          type: array
-          items:
-            type:
-            - string
-            - 'null'
-        converted_quantity:
-          type:
-          - string
-          - 'null'
-        converted_unit:
-          type:
-          - string
-          - 'null'
-        color_text1:
-          type:
-          - string
-          - 'null'
-        quote_number:
-          type:
-          - string
-          - 'null'
-        batch_number:
-          type:
-          - string
-          - 'null'
-        framework_contract_number:
-          type:
-          - string
-          - 'null'
-      required:
-      - tagging_text
-    Order:
-      type: object
-      properties:
-        customer:
-          allOf:
-          - $ref: '#/components/schemas/Customer'
-        customer_contact:
-          allOf:
-          - $ref: '#/components/schemas/ContactPerson'
-        delivery_address:
-          allOf:
-          - $ref: '#/components/schemas/Address'
-        invoice_address:
-          allOf:
-          - $ref: '#/components/schemas/Address'
-        dispatch_contact:
-          allOf:
-          - $ref: '#/components/schemas/ContactPerson'
-        delivery_date:
-          type:
-          - string
-          - 'null'
-        delivery_end_date:
-          type:
-          - string
-          - 'null'
-        delivery_time_from:
-          type:
-          - string
-          - 'null'
-        delivery_time_until:
-          type:
-          - string
-          - 'null'
-        order_date:
-          type:
-          - string
-          - 'null'
-        order_number:
-          type:
-          - string
-          - 'null'
-        project_number:
-          type:
-          - string
-          - 'null'
-        total_amount:
-          type:
-          - string
-          - 'null'
-        quote_number:
-          type:
-          - string
-          - 'null'
-        vat_id:
-          type:
-          - string
-          - 'null'
-        payment_terms:
-          type:
-          - string
-          - 'null'
-        framework_contract_number:
-          type:
-          - string
-          - 'null'
-        goods_receiving_time:
-          type:
-          - string
-          - 'null'
-        order_type:
-          type:
-          - string
-          - 'null'
-        info_text:
-          type:
-          - string
-          - 'null'
-        commission_number:
-          type:
-          - string
-          - 'null'
-        shipping_terms:
-          type:
-          - string
-          - 'null'
-        delivery_terms:
-          type:
-          - string
-          - 'null'
-        incoterm:
-          type:
-          - string
-          - 'null'
-        is_erp_locked:
-          type:
-          - boolean
-          - 'null'
-        line_items:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/OrderLineItem'
-    Customer:
-      type: object
-      properties:
-        number:
-          type:
-          - string
-          - 'null'
-        number2:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        street_and_nr:
-          type:
-          - string
-          - 'null'
-        postal_code:
-          type:
-          - string
-          - 'null'
-        city:
-          type:
-          - string
-          - 'null'
-        country:
-          type:
-          - string
-          - 'null'
-        customer_type:
-          type:
-          - string
-          - 'null'
-        iln:
-          type:
-          - string
-          - 'null'
-        contact_person:
-          type:
-          - string
-          - 'null'
-    PaginatedOrderProcessingRecordList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?page=4
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?page=2
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrderProcessingRecord'
-        total_count:
-          type: integer
-          example: 123
-    Address:
-      type: object
-      properties:
-        number:
-          type:
-          - string
-          - 'null'
-        number2:
-          type:
-          - string
-          - 'null'
-        number3:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        misc:
-          type:
-          - string
-          - 'null'
-        company_name:
-          type:
-          - string
-          - 'null'
-        company_name2:
-          type:
-          - string
-          - 'null'
-        company_name3:
-          type:
-          - string
-          - 'null'
-        company_name4:
-          type:
-          - string
-          - 'null'
-        street_and_nr:
-          type:
-          - string
-          - 'null'
-        street_name:
-          type:
-          - string
-          - 'null'
-        street_number:
-          type:
-          - string
-          - 'null'
-        postal_code:
-          type:
-          - string
-          - 'null'
-        city:
-          type:
-          - string
-          - 'null'
-        country_subdivision:
-          type:
-          - string
-          - 'null'
-        country:
-          type:
-          - string
-          - 'null'
-        phone:
-          type:
-          - string
-          - 'null'
-        email:
-          type:
-          - string
-          - 'null'
-    CreateDocumentRequest:
-      type: object
-      properties:
-        channel:
-          type: string
-          format: uuid
-          description: Id of a processing channel
-        file:
-          type: string
-          format: binary
-          description: File to be processed
-        user:
-          type: string
-          minLength: 1
-          description: Email address or id of a user.
-      required:
-      - channel
-      - file
     OrderProcessingRecord:
       type: object
       properties:
@@ -928,6 +498,115 @@ components:
       - status
       - updated_at
       - workbench_url
+    CreateDocumentRequest:
+      type: object
+      properties:
+        channel:
+          type: string
+          format: uuid
+          description: Id of a processing channel
+        file:
+          type: string
+          format: binary
+          description: File to be processed
+        user:
+          type: string
+          minLength: 1
+          description: Email address or id of a user.
+      required:
+      - channel
+      - file
+    User:
+      type: object
+      properties:
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+      required:
+      - email
+    Address:
+      type: object
+      properties:
+        number:
+          type:
+          - string
+          - 'null'
+        number2:
+          type:
+          - string
+          - 'null'
+        number3:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        misc:
+          type:
+          - string
+          - 'null'
+        company_name:
+          type:
+          - string
+          - 'null'
+        company_name2:
+          type:
+          - string
+          - 'null'
+        company_name3:
+          type:
+          - string
+          - 'null'
+        company_name4:
+          type:
+          - string
+          - 'null'
+        street_and_nr:
+          type:
+          - string
+          - 'null'
+        street_name:
+          type:
+          - string
+          - 'null'
+        street_number:
+          type:
+          - string
+          - 'null'
+        postal_code:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        country_subdivision:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        phone:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
     MarkImportedRequest:
       type: object
       properties:
@@ -961,6 +640,284 @@ components:
           minLength: 1
           default: ''
           description: E.g. error message
+    PaginatedOrderProcessingRecordList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderProcessingRecord'
+        total_count:
+          type: integer
+          example: 123
+    OrderLineItem:
+      type: object
+      properties:
+        pos:
+          type:
+          - string
+          - 'null'
+        article_number:
+          type:
+          - string
+          - 'null'
+        article_number_2:
+          type:
+          - string
+          - 'null'
+        article_number_3:
+          type:
+          - string
+          - 'null'
+        external_article_number:
+          type:
+          - string
+          - 'null'
+        external_reference:
+          type:
+          - string
+          - 'null'
+        discount_percentage:
+          type:
+          - string
+          - 'null'
+        discount_amount:
+          type:
+          - string
+          - 'null'
+        article_comments:
+          type:
+          - string
+          - 'null'
+        commission_number:
+          type:
+          - string
+          - 'null'
+        goods_issue_date:
+          type:
+          - string
+          - 'null'
+        customer_id:
+          type:
+          - string
+          - 'null'
+        customer_name:
+          type:
+          - string
+          - 'null'
+        order_number:
+          type:
+          - string
+          - 'null'
+        quantity:
+          type:
+          - string
+          - 'null'
+        total_price:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        unit:
+          type:
+          - string
+          - 'null'
+        unit_price:
+          type:
+          - string
+          - 'null'
+        price_unit:
+          type:
+          - string
+          - 'null'
+        delivery_date:
+          type:
+          - string
+          - 'null'
+        delivery_time_from:
+          type:
+          - string
+          - 'null'
+        delivery_time_until:
+          type:
+          - string
+          - 'null'
+        tagging_text:
+          type: array
+          items:
+            type:
+            - string
+            - 'null'
+        converted_quantity:
+          type:
+          - string
+          - 'null'
+        converted_unit:
+          type:
+          - string
+          - 'null'
+        color_text1:
+          type:
+          - string
+          - 'null'
+        quote_number:
+          type:
+          - string
+          - 'null'
+        batch_number:
+          type:
+          - string
+          - 'null'
+        framework_contract_number:
+          type:
+          - string
+          - 'null'
+      required:
+      - tagging_text
+    AssignUserRequest:
+      type: object
+      properties:
+        user:
+          type: string
+          minLength: 1
+          description: Email address or id of a user.
+      required:
+      - user
+    PatchedMetaRequest:
+      type: object
+      properties:
+        sender:
+          type: string
+          minLength: 1
+          default: ''
+          description: Sender of the document (e.g. sender of the original email)
+        subject:
+          type: string
+          minLength: 1
+          default: ''
+          description: Subject of the document (e.g. subject of the original email)
+    Order:
+      type: object
+      properties:
+        customer:
+          allOf:
+          - $ref: '#/components/schemas/Customer'
+        customer_contact:
+          allOf:
+          - $ref: '#/components/schemas/ContactPerson'
+        delivery_address:
+          allOf:
+          - $ref: '#/components/schemas/Address'
+        invoice_address:
+          allOf:
+          - $ref: '#/components/schemas/Address'
+        dispatch_contact:
+          allOf:
+          - $ref: '#/components/schemas/ContactPerson'
+        delivery_date:
+          type:
+          - string
+          - 'null'
+        delivery_end_date:
+          type:
+          - string
+          - 'null'
+        delivery_time_from:
+          type:
+          - string
+          - 'null'
+        delivery_time_until:
+          type:
+          - string
+          - 'null'
+        order_date:
+          type:
+          - string
+          - 'null'
+        order_number:
+          type:
+          - string
+          - 'null'
+        project_number:
+          type:
+          - string
+          - 'null'
+        total_amount:
+          type:
+          - string
+          - 'null'
+        quote_number:
+          type:
+          - string
+          - 'null'
+        vat_id:
+          type:
+          - string
+          - 'null'
+        payment_terms:
+          type:
+          - string
+          - 'null'
+        framework_contract_number:
+          type:
+          - string
+          - 'null'
+        goods_receiving_time:
+          type:
+          - string
+          - 'null'
+        order_type:
+          type:
+          - string
+          - 'null'
+        info_text:
+          type:
+          - string
+          - 'null'
+        commission_number:
+          type:
+          - string
+          - 'null'
+        shipping_terms:
+          type:
+          - string
+          - 'null'
+        delivery_terms:
+          type:
+          - string
+          - 'null'
+        incoterm:
+          type:
+          - string
+          - 'null'
+        is_erp_locked:
+          type:
+          - boolean
+          - 'null'
+        line_items:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/OrderLineItem'
     ContactPerson:
       type: object
       properties:
@@ -977,6 +934,49 @@ components:
           - string
           - 'null'
         phone:
+          type:
+          - string
+          - 'null'
+    Customer:
+      type: object
+      properties:
+        number:
+          type:
+          - string
+          - 'null'
+        number2:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        street_and_nr:
+          type:
+          - string
+          - 'null'
+        postal_code:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        customer_type:
+          type:
+          - string
+          - 'null'
+        iln:
+          type:
+          - string
+          - 'null'
+        contact_person:
           type:
           - string
           - 'null'

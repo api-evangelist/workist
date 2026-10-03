@@ -362,6 +362,24 @@ paths:
           description: Something went wrong on Workist's end.
 components:
   schemas:
+    CreateDocumentRequest:
+      type: object
+      properties:
+        channel:
+          type: string
+          format: uuid
+          description: Id of a processing channel
+        file:
+          type: string
+          format: binary
+          description: File to be processed
+        user:
+          type: string
+          minLength: 1
+          description: Email address or id of a user.
+      required:
+      - channel
+      - file
     PropertyBillProcessingRecord:
       type: object
       properties:
@@ -490,6 +508,22 @@ components:
       - status
       - updated_at
       - workbench_url
+    User:
+      type: object
+      properties:
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+      required:
+      - email
     AssignUserRequest:
       type: object
       properties:
@@ -512,65 +546,6 @@ components:
           minLength: 1
           default: ''
           description: Subject of the document (e.g. subject of the original email)
-    User:
-      type: object
-      properties:
-        first_name:
-          type: string
-          maxLength: 150
-        last_name:
-          type: string
-          maxLength: 150
-        email:
-          type: string
-          format: email
-          title: Email address
-          maxLength: 254
-      required:
-      - email
-    CreateDocumentRequest:
-      type: object
-      properties:
-        channel:
-          type: string
-          format: uuid
-          description: Id of a processing channel
-        file:
-          type: string
-          format: binary
-          description: File to be processed
-        user:
-          type: string
-          minLength: 1
-          description: Email address or id of a user.
-      required:
-      - channel
-      - file
-    PaginatedPropertyBillProcessingRecordList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?page=4
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?page=2
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/PropertyBillProcessingRecord'
-        total_count:
-          type: integer
-          example: 123
     ChangeableMarkImportedRequest:
       type: object
       properties:
@@ -604,6 +579,31 @@ components:
           minLength: 1
           default: ''
           description: E.g. error message
+    PaginatedPropertyBillProcessingRecordList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertyBillProcessingRecord'
+        total_count:
+          type: integer
+          example: 123
   securitySchemes:
     BearerAuthentication:
       type: http
