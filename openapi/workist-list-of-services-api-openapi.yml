@@ -409,295 +409,6 @@ paths:
           description: Something went wrong on Workist's end.
 components:
   schemas:
-    GenerateX94ListOfServicesRequest:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/X94ListOfServicesArticleItemRequest'
-        supplier_info:
-          allOf:
-          - $ref: '#/components/schemas/X94ListOfServicesSupplierInfoRequest'
-          description: 'DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten'
-      required:
-      - items
-      - supplier_info
-    CreateDocumentRequest:
-      type: object
-      properties:
-        channel:
-          type: string
-          format: uuid
-          description: Id of a processing channel
-        file:
-          type: string
-          format: binary
-          description: File to be processed
-        user:
-          type: string
-          minLength: 1
-          description: Email address or id of a user.
-      required:
-      - channel
-      - file
-    X94ListOfServicesArticleItemRequest:
-      type: object
-      properties:
-        source_id:
-          type: string
-          minLength: 1
-          description: The gaeb ID of the article
-        article_number:
-          type: string
-          minLength: 1
-          description: Artikelnummer des Lieferanten
-        article_characteristics:
-          type: string
-          minLength: 1
-          default: normal
-          description: 'DE: PosKennZ, normal = Normalposition, alternate = Alternativposition, provis = Bedarfsposition; EN: PosType, normal = Normalposition, alternate = Alternativposition, provis = Bedarfsposition'
-        quantity:
-          type: integer
-          description: 'DE: ArtMenge, Anfrage-, Angebots- oder Bestellmenge (je nach Datenaustauschphase); EN: ArtMenge, Ordering quantity (depending on data exchange phase)'
-        unit:
-          type: string
-          minLength: 1
-          description: 'DE: Mengeneinheit; EN: Unit of measure'
-          maxLength: 4
-        vat:
-          type: string
-          format: decimal
-          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
-          description: 'DE: VAT, Umsatzsteuer (in %); EN: VAT, Value-added tax (in %)'
-        net_price:
-          type: string
-          format: decimal
-          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
-          description: 'DE: PrNetto, Nettopreis (Einkaufspreis des Kunden); EN: PrNetto, Net price (customer purchase price)'
-        price_basis:
-          type: string
-          format: decimal
-          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
-          description: 'DE: PrBasis, Preis bezieht sich auf ''n'' Einheiten (BME); EN: PrBasis, Price is based on ''n'' units (BME)'
-        offer_price:
-          type: string
-          format: decimal
-          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
-          description: 'DE: PrBrutto, Angebotspreis (Brutto-, Listenpreis); EN: PrBrutto, Offer price (gross-, list price)'
-        price_basis_unit:
-          type: string
-          minLength: 1
-          description: 'DE: AME, Abrechnungs-Mengeneinheit in Bezug auf PrBasis; EN: AME, Billing unit in relation to PrBasis'
-        ean:
-          type: string
-          minLength: 1
-          description: 'DE: EAN/GTIN-Nummer der Position; EN: EAN/GTIN number of the position'
-        article_description:
-          type: string
-          minLength: 1
-          description: 'DE: Langtext; EN: Long text'
-      required:
-      - source_id
-    ListOfServicesPosition:
-      type: object
-      properties:
-        source_id:
-          type:
-          - string
-          - 'null'
-        sort_index:
-          type:
-          - string
-          - 'null'
-        position_number:
-          type:
-          - string
-          - 'null'
-        position_source:
-          type:
-          - string
-          - 'null'
-        article_sets:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/ListOfServicesArticleSet'
-    User:
-      type: object
-      properties:
-        first_name:
-          type: string
-          maxLength: 150
-        last_name:
-          type: string
-          maxLength: 150
-        email:
-          type: string
-          format: email
-          title: Email address
-          maxLength: 254
-      required:
-      - email
-    ListOfServicesArticle:
-      type: object
-      properties:
-        article_number:
-          type:
-          - string
-          - 'null'
-        article_number_2:
-          type:
-          - string
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        unit:
-          type:
-          - string
-          - 'null'
-        quantity:
-          type:
-          - string
-          - 'null'
-        comments:
-          type:
-          - string
-          - 'null'
-    Address:
-      type: object
-      properties:
-        number:
-          type:
-          - string
-          - 'null'
-        number2:
-          type:
-          - string
-          - 'null'
-        number3:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        misc:
-          type:
-          - string
-          - 'null'
-        company_name:
-          type:
-          - string
-          - 'null'
-        company_name2:
-          type:
-          - string
-          - 'null'
-        company_name3:
-          type:
-          - string
-          - 'null'
-        company_name4:
-          type:
-          - string
-          - 'null'
-        street_and_nr:
-          type:
-          - string
-          - 'null'
-        street_name:
-          type:
-          - string
-          - 'null'
-        street_number:
-          type:
-          - string
-          - 'null'
-        postal_code:
-          type:
-          - string
-          - 'null'
-        city:
-          type:
-          - string
-          - 'null'
-        country_subdivision:
-          type:
-          - string
-          - 'null'
-        country:
-          type:
-          - string
-          - 'null'
-        phone:
-          type:
-          - string
-          - 'null'
-        email:
-          type:
-          - string
-          - 'null'
-    MarkImportedRequest:
-      type: object
-      properties:
-        status:
-          enum:
-          - PENDING
-          - SUCCEEDED
-          - FAILED
-          type: string
-          default: SUCCEEDED
-          description: 'Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).
-
-
-            * `PENDING` - Pending
-
-            * `SUCCEEDED` - Succeeded
-
-            * `FAILED` - Failed'
-        external_reference:
-          type: string
-          minLength: 1
-          default: ''
-          description: Id that represents this record in the target system
-        external_status:
-          type: string
-          minLength: 1
-          default: ''
-          description: Status of the record in the target system
-        external_message:
-          type: string
-          minLength: 1
-          default: ''
-          description: E.g. error message
-    X94ListOfServicesAddressRequest:
-      type: object
-      properties:
-        name1:
-          type: string
-          minLength: 1
-          description: 'DE: Name1; EN: Name1'
-        street:
-          type: string
-          minLength: 1
-          description: 'DE: Straße; EN: Street'
-        p_code:
-          type: string
-          minLength: 1
-          description: 'DE: PLZ; EN: Postal code'
-        city:
-          type: string
-          minLength: 1
-          description: 'DE: Ort; EN: City'
-        country:
-          type: string
-          minLength: 1
-          description: 'DE: Land; EN: Country'
     ListOfServicesProcessingRecord:
       type: object
       properties:
@@ -826,6 +537,134 @@ components:
       - status
       - updated_at
       - workbench_url
+    PatchedMetaRequest:
+      type: object
+      properties:
+        sender:
+          type: string
+          minLength: 1
+          default: ''
+          description: Sender of the document (e.g. sender of the original email)
+        subject:
+          type: string
+          minLength: 1
+          default: ''
+          description: Subject of the document (e.g. subject of the original email)
+    X94ListOfServicesAddressRequest:
+      type: object
+      properties:
+        name1:
+          type: string
+          minLength: 1
+          description: 'DE: Name1; EN: Name1'
+        street:
+          type: string
+          minLength: 1
+          description: 'DE: Straße; EN: Street'
+        p_code:
+          type: string
+          minLength: 1
+          description: 'DE: PLZ; EN: Postal code'
+        city:
+          type: string
+          minLength: 1
+          description: 'DE: Ort; EN: City'
+        country:
+          type: string
+          minLength: 1
+          description: 'DE: Land; EN: Country'
+    ListOfServicesPosition:
+      type: object
+      properties:
+        source_id:
+          type:
+          - string
+          - 'null'
+        sort_index:
+          type:
+          - string
+          - 'null'
+        position_number:
+          type:
+          - string
+          - 'null'
+        position_source:
+          type:
+          - string
+          - 'null'
+        article_sets:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ListOfServicesArticleSet'
+    AssignUserRequest:
+      type: object
+      properties:
+        user:
+          type: string
+          minLength: 1
+          description: Email address or id of a user.
+      required:
+      - user
+    X94ListOfServicesArticleItemRequest:
+      type: object
+      properties:
+        source_id:
+          type: string
+          minLength: 1
+          description: The gaeb ID of the article
+        article_number:
+          type: string
+          minLength: 1
+          description: Artikelnummer des Lieferanten
+        article_characteristics:
+          type: string
+          minLength: 1
+          default: normal
+          description: 'DE: PosKennZ, normal = Normalposition, alternate = Alternativposition, provis = Bedarfsposition; EN: PosType, normal = Normalposition, alternate = Alternativposition, provis = Bedarfsposition'
+        quantity:
+          type: integer
+          description: 'DE: ArtMenge, Anfrage-, Angebots- oder Bestellmenge (je nach Datenaustauschphase); EN: ArtMenge, Ordering quantity (depending on data exchange phase)'
+        unit:
+          type: string
+          minLength: 1
+          description: 'DE: Mengeneinheit; EN: Unit of measure'
+          maxLength: 4
+        vat:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          description: 'DE: VAT, Umsatzsteuer (in %); EN: VAT, Value-added tax (in %)'
+        net_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          description: 'DE: PrNetto, Nettopreis (Einkaufspreis des Kunden); EN: PrNetto, Net price (customer purchase price)'
+        price_basis:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          description: 'DE: PrBasis, Preis bezieht sich auf ''n'' Einheiten (BME); EN: PrBasis, Price is based on ''n'' units (BME)'
+        offer_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          description: 'DE: PrBrutto, Angebotspreis (Brutto-, Listenpreis); EN: PrBrutto, Offer price (gross-, list price)'
+        price_basis_unit:
+          type: string
+          minLength: 1
+          description: 'DE: AME, Abrechnungs-Mengeneinheit in Bezug auf PrBasis; EN: AME, Billing unit in relation to PrBasis'
+        ean:
+          type: string
+          minLength: 1
+          description: 'DE: EAN/GTIN-Nummer der Position; EN: EAN/GTIN number of the position'
+        article_description:
+          type: string
+          minLength: 1
+          description: 'DE: Langtext; EN: Long text'
+      required:
+      - source_id
     PaginatedListOfServicesProcessingRecordList:
       type: object
       required:
@@ -851,6 +690,66 @@ components:
         total_count:
           type: integer
           example: 123
+    ContactPerson:
+      type: object
+      properties:
+        number:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+        phone:
+          type:
+          - string
+          - 'null'
+    GenerateX94ListOfServicesRequest:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/X94ListOfServicesArticleItemRequest'
+        supplier_info:
+          allOf:
+          - $ref: '#/components/schemas/X94ListOfServicesSupplierInfoRequest'
+          description: 'DE: Informationen zum Lieferanten; EN: Informationen zum Lieferanten'
+      required:
+      - items
+      - supplier_info
+    ListOfServicesArticle:
+      type: object
+      properties:
+        article_number:
+          type:
+          - string
+          - 'null'
+        article_number_2:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        unit:
+          type:
+          - string
+          - 'null'
+        quantity:
+          type:
+          - string
+          - 'null'
+        comments:
+          type:
+          - string
+          - 'null'
     ListOfServices:
       type: object
       properties:
@@ -901,78 +800,6 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/ListOfServicesPosition'
-    AssignUserRequest:
-      type: object
-      properties:
-        user:
-          type: string
-          minLength: 1
-          description: Email address or id of a user.
-      required:
-      - user
-    PatchedMetaRequest:
-      type: object
-      properties:
-        sender:
-          type: string
-          minLength: 1
-          default: ''
-          description: Sender of the document (e.g. sender of the original email)
-        subject:
-          type: string
-          minLength: 1
-          default: ''
-          description: Subject of the document (e.g. subject of the original email)
-    ListOfServicesArticleSet:
-      type: object
-      properties:
-        articles:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/ListOfServicesArticle'
-        is_default:
-          type: boolean
-          default: true
-    X94ListOfServicesSupplierInfoRequest:
-      type: object
-      properties:
-        id_no:
-          type: string
-          minLength: 1
-          description: 'DE: Lieferanten-Nummer; EN: Supplier number'
-        address:
-          allOf:
-          - $ref: '#/components/schemas/X94ListOfServicesAddressRequest'
-          description: 'DE: Informationen zur Adresse des Lieferanten; EN: Informationen zur Adresse des Lieferanten'
-        tax_no:
-          type: string
-          minLength: 1
-          description: 'DE: Steuernummer; EN: Tax number'
-        reg_no:
-          type: string
-          minLength: 1
-          description: 'DE: Unternehmens / Ortsregistrierungsnummer WEEE Registrierungsnummer; EN: Company / local registration number WEEE registration number'
-    ContactPerson:
-      type: object
-      properties:
-        number:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        email:
-          type:
-          - string
-          - 'null'
-        phone:
-          type:
-          - string
-          - 'null'
     Customer:
       type: object
       properties:
@@ -1016,6 +843,179 @@ components:
           type:
           - string
           - 'null'
+    Address:
+      type: object
+      properties:
+        number:
+          type:
+          - string
+          - 'null'
+        number2:
+          type:
+          - string
+          - 'null'
+        number3:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        misc:
+          type:
+          - string
+          - 'null'
+        company_name:
+          type:
+          - string
+          - 'null'
+        company_name2:
+          type:
+          - string
+          - 'null'
+        company_name3:
+          type:
+          - string
+          - 'null'
+        company_name4:
+          type:
+          - string
+          - 'null'
+        street_and_nr:
+          type:
+          - string
+          - 'null'
+        street_name:
+          type:
+          - string
+          - 'null'
+        street_number:
+          type:
+          - string
+          - 'null'
+        postal_code:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        country_subdivision:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        phone:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+    ListOfServicesArticleSet:
+      type: object
+      properties:
+        articles:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ListOfServicesArticle'
+        is_default:
+          type: boolean
+          default: true
+    CreateDocumentRequest:
+      type: object
+      properties:
+        channel:
+          type: string
+          format: uuid
+          description: Id of a processing channel
+        file:
+          type: string
+          format: binary
+          description: File to be processed
+        user:
+          type: string
+          minLength: 1
+          description: Email address or id of a user.
+      required:
+      - channel
+      - file
+    User:
+      type: object
+      properties:
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+      required:
+      - email
+    X94ListOfServicesSupplierInfoRequest:
+      type: object
+      properties:
+        id_no:
+          type: string
+          minLength: 1
+          description: 'DE: Lieferanten-Nummer; EN: Supplier number'
+        address:
+          allOf:
+          - $ref: '#/components/schemas/X94ListOfServicesAddressRequest'
+          description: 'DE: Informationen zur Adresse des Lieferanten; EN: Informationen zur Adresse des Lieferanten'
+        tax_no:
+          type: string
+          minLength: 1
+          description: 'DE: Steuernummer; EN: Tax number'
+        reg_no:
+          type: string
+          minLength: 1
+          description: 'DE: Unternehmens / Ortsregistrierungsnummer WEEE Registrierungsnummer; EN: Company / local registration number WEEE registration number'
+    MarkImportedRequest:
+      type: object
+      properties:
+        status:
+          enum:
+          - PENDING
+          - SUCCEEDED
+          - FAILED
+          type: string
+          default: SUCCEEDED
+          description: 'Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).
+
+
+            * `PENDING` - Pending
+
+            * `SUCCEEDED` - Succeeded
+
+            * `FAILED` - Failed'
+        external_reference:
+          type: string
+          minLength: 1
+          default: ''
+          description: Id that represents this record in the target system
+        external_status:
+          type: string
+          minLength: 1
+          default: ''
+          description: Status of the record in the target system
+        external_message:
+          type: string
+          minLength: 1
+          default: ''
+          description: E.g. error message
   securitySchemes:
     BearerAuthentication:
       type: http

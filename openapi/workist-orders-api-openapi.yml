@@ -370,6 +370,199 @@ paths:
           description: Something went wrong on Workist's end.
 components:
   schemas:
+    OrderLineItem:
+      type: object
+      properties:
+        pos:
+          type:
+          - string
+          - 'null'
+        article_number:
+          type:
+          - string
+          - 'null'
+        article_number_2:
+          type:
+          - string
+          - 'null'
+        article_number_3:
+          type:
+          - string
+          - 'null'
+        external_article_number:
+          type:
+          - string
+          - 'null'
+        external_reference:
+          type:
+          - string
+          - 'null'
+        discount_percentage:
+          type:
+          - string
+          - 'null'
+        discount_amount:
+          type:
+          - string
+          - 'null'
+        article_comments:
+          type:
+          - string
+          - 'null'
+        commission_number:
+          type:
+          - string
+          - 'null'
+        goods_issue_date:
+          type:
+          - string
+          - 'null'
+        customer_id:
+          type:
+          - string
+          - 'null'
+        customer_name:
+          type:
+          - string
+          - 'null'
+        order_number:
+          type:
+          - string
+          - 'null'
+        quantity:
+          type:
+          - string
+          - 'null'
+        total_price:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        unit:
+          type:
+          - string
+          - 'null'
+        unit_price:
+          type:
+          - string
+          - 'null'
+        price_unit:
+          type:
+          - string
+          - 'null'
+        delivery_date:
+          type:
+          - string
+          - 'null'
+        delivery_time_from:
+          type:
+          - string
+          - 'null'
+        delivery_time_until:
+          type:
+          - string
+          - 'null'
+        tagging_text:
+          type: array
+          items:
+            type:
+            - string
+            - 'null'
+        converted_quantity:
+          type:
+          - string
+          - 'null'
+        converted_unit:
+          type:
+          - string
+          - 'null'
+        color_text1:
+          type:
+          - string
+          - 'null'
+        quote_number:
+          type:
+          - string
+          - 'null'
+        batch_number:
+          type:
+          - string
+          - 'null'
+        framework_contract_number:
+          type:
+          - string
+          - 'null'
+      required:
+      - tagging_text
+    PatchedMetaRequest:
+      type: object
+      properties:
+        sender:
+          type: string
+          minLength: 1
+          default: ''
+          description: Sender of the document (e.g. sender of the original email)
+        subject:
+          type: string
+          minLength: 1
+          default: ''
+          description: Subject of the document (e.g. subject of the original email)
+    PaginatedOrderProcessingRecordList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderProcessingRecord'
+        total_count:
+          type: integer
+          example: 123
+    AssignUserRequest:
+      type: object
+      properties:
+        user:
+          type: string
+          minLength: 1
+          description: Email address or id of a user.
+      required:
+      - user
+    ContactPerson:
+      type: object
+      properties:
+        number:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+        phone:
+          type:
+          - string
+          - 'null'
     OrderProcessingRecord:
       type: object
       properties:
@@ -498,40 +691,49 @@ components:
       - status
       - updated_at
       - workbench_url
-    CreateDocumentRequest:
+    Customer:
       type: object
       properties:
-        channel:
-          type: string
-          format: uuid
-          description: Id of a processing channel
-        file:
-          type: string
-          format: binary
-          description: File to be processed
-        user:
-          type: string
-          minLength: 1
-          description: Email address or id of a user.
-      required:
-      - channel
-      - file
-    User:
-      type: object
-      properties:
-        first_name:
-          type: string
-          maxLength: 150
-        last_name:
-          type: string
-          maxLength: 150
-        email:
-          type: string
-          format: email
-          title: Email address
-          maxLength: 254
-      required:
-      - email
+        number:
+          type:
+          - string
+          - 'null'
+        number2:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        street_and_nr:
+          type:
+          - string
+          - 'null'
+        postal_code:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        customer_type:
+          type:
+          - string
+          - 'null'
+        iln:
+          type:
+          - string
+          - 'null'
+        contact_person:
+          type:
+          - string
+          - 'null'
     Address:
       type: object
       properties:
@@ -607,213 +809,40 @@ components:
           type:
           - string
           - 'null'
-    MarkImportedRequest:
+    CreateDocumentRequest:
       type: object
       properties:
-        status:
-          enum:
-          - PENDING
-          - SUCCEEDED
-          - FAILED
+        channel:
           type: string
-          default: SUCCEEDED
-          description: 'Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).
-
-
-            * `PENDING` - Pending
-
-            * `SUCCEEDED` - Succeeded
-
-            * `FAILED` - Failed'
-        external_reference:
+          format: uuid
+          description: Id of a processing channel
+        file:
           type: string
-          minLength: 1
-          default: ''
-          description: Id that represents this record in the target system
-        external_status:
-          type: string
-          minLength: 1
-          default: ''
-          description: Status of the record in the target system
-        external_message:
-          type: string
-          minLength: 1
-          default: ''
-          description: E.g. error message
-    PaginatedOrderProcessingRecordList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?page=4
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?page=2
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrderProcessingRecord'
-        total_count:
-          type: integer
-          example: 123
-    OrderLineItem:
-      type: object
-      properties:
-        pos:
-          type:
-          - string
-          - 'null'
-        article_number:
-          type:
-          - string
-          - 'null'
-        article_number_2:
-          type:
-          - string
-          - 'null'
-        article_number_3:
-          type:
-          - string
-          - 'null'
-        external_article_number:
-          type:
-          - string
-          - 'null'
-        external_reference:
-          type:
-          - string
-          - 'null'
-        discount_percentage:
-          type:
-          - string
-          - 'null'
-        discount_amount:
-          type:
-          - string
-          - 'null'
-        article_comments:
-          type:
-          - string
-          - 'null'
-        commission_number:
-          type:
-          - string
-          - 'null'
-        goods_issue_date:
-          type:
-          - string
-          - 'null'
-        customer_id:
-          type:
-          - string
-          - 'null'
-        customer_name:
-          type:
-          - string
-          - 'null'
-        order_number:
-          type:
-          - string
-          - 'null'
-        quantity:
-          type:
-          - string
-          - 'null'
-        total_price:
-          type:
-          - string
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        unit:
-          type:
-          - string
-          - 'null'
-        unit_price:
-          type:
-          - string
-          - 'null'
-        price_unit:
-          type:
-          - string
-          - 'null'
-        delivery_date:
-          type:
-          - string
-          - 'null'
-        delivery_time_from:
-          type:
-          - string
-          - 'null'
-        delivery_time_until:
-          type:
-          - string
-          - 'null'
-        tagging_text:
-          type: array
-          items:
-            type:
-            - string
-            - 'null'
-        converted_quantity:
-          type:
-          - string
-          - 'null'
-        converted_unit:
-          type:
-          - string
-          - 'null'
-        color_text1:
-          type:
-          - string
-          - 'null'
-        quote_number:
-          type:
-          - string
-          - 'null'
-        batch_number:
-          type:
-          - string
-          - 'null'
-        framework_contract_number:
-          type:
-          - string
-          - 'null'
-      required:
-      - tagging_text
-    AssignUserRequest:
-      type: object
-      properties:
+          format: binary
+          description: File to be processed
         user:
           type: string
           minLength: 1
           description: Email address or id of a user.
       required:
-      - user
-    PatchedMetaRequest:
+      - channel
+      - file
+    User:
       type: object
       properties:
-        sender:
+        first_name:
           type: string
-          minLength: 1
-          default: ''
-          description: Sender of the document (e.g. sender of the original email)
-        subject:
+          maxLength: 150
+        last_name:
           type: string
-          minLength: 1
-          default: ''
-          description: Subject of the document (e.g. subject of the original email)
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+      required:
+      - email
     Order:
       type: object
       properties:
@@ -918,68 +947,39 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/OrderLineItem'
-    ContactPerson:
+    MarkImportedRequest:
       type: object
       properties:
-        number:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        email:
-          type:
-          - string
-          - 'null'
-        phone:
-          type:
-          - string
-          - 'null'
-    Customer:
-      type: object
-      properties:
-        number:
-          type:
-          - string
-          - 'null'
-        number2:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        street_and_nr:
-          type:
-          - string
-          - 'null'
-        postal_code:
-          type:
-          - string
-          - 'null'
-        city:
-          type:
-          - string
-          - 'null'
-        country:
-          type:
-          - string
-          - 'null'
-        customer_type:
-          type:
-          - string
-          - 'null'
-        iln:
-          type:
-          - string
-          - 'null'
-        contact_person:
-          type:
-          - string
-          - 'null'
+        status:
+          enum:
+          - PENDING
+          - SUCCEEDED
+          - FAILED
+          type: string
+          default: SUCCEEDED
+          description: 'Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).
+
+
+            * `PENDING` - Pending
+
+            * `SUCCEEDED` - Succeeded
+
+            * `FAILED` - Failed'
+        external_reference:
+          type: string
+          minLength: 1
+          default: ''
+          description: Id that represents this record in the target system
+        external_status:
+          type: string
+          minLength: 1
+          default: ''
+          description: Status of the record in the target system
+        external_message:
+          type: string
+          minLength: 1
+          default: ''
+          description: E.g. error message
   securitySchemes:
     BearerAuthentication:
       type: http

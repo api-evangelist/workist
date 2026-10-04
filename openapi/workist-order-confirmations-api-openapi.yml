@@ -370,6 +370,19 @@ paths:
           description: Something went wrong on Workist's end.
 components:
   schemas:
+    PatchedMetaRequest:
+      type: object
+      properties:
+        sender:
+          type: string
+          minLength: 1
+          default: ''
+          description: Sender of the document (e.g. sender of the original email)
+        subject:
+          type: string
+          minLength: 1
+          default: ''
+          description: Subject of the document (e.g. subject of the original email)
     OrderConfirmationLineItem:
       type: object
       properties:
@@ -469,250 +482,6 @@ components:
           type:
           - string
           - 'null'
-    PaginatedOrderConfirmationProcessingRecordList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?page=4
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?page=2
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrderConfirmationProcessingRecord'
-        total_count:
-          type: integer
-          example: 123
-    CreateDocumentRequest:
-      type: object
-      properties:
-        channel:
-          type: string
-          format: uuid
-          description: Id of a processing channel
-        file:
-          type: string
-          format: binary
-          description: File to be processed
-        user:
-          type: string
-          minLength: 1
-          description: Email address or id of a user.
-      required:
-      - channel
-      - file
-    User:
-      type: object
-      properties:
-        first_name:
-          type: string
-          maxLength: 150
-        last_name:
-          type: string
-          maxLength: 150
-        email:
-          type: string
-          format: email
-          title: Email address
-          maxLength: 254
-      required:
-      - email
-    Address:
-      type: object
-      properties:
-        number:
-          type:
-          - string
-          - 'null'
-        number2:
-          type:
-          - string
-          - 'null'
-        number3:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        misc:
-          type:
-          - string
-          - 'null'
-        company_name:
-          type:
-          - string
-          - 'null'
-        company_name2:
-          type:
-          - string
-          - 'null'
-        company_name3:
-          type:
-          - string
-          - 'null'
-        company_name4:
-          type:
-          - string
-          - 'null'
-        street_and_nr:
-          type:
-          - string
-          - 'null'
-        street_name:
-          type:
-          - string
-          - 'null'
-        street_number:
-          type:
-          - string
-          - 'null'
-        postal_code:
-          type:
-          - string
-          - 'null'
-        city:
-          type:
-          - string
-          - 'null'
-        country_subdivision:
-          type:
-          - string
-          - 'null'
-        country:
-          type:
-          - string
-          - 'null'
-        phone:
-          type:
-          - string
-          - 'null'
-        email:
-          type:
-          - string
-          - 'null'
-    MarkImportedRequest:
-      type: object
-      properties:
-        status:
-          enum:
-          - PENDING
-          - SUCCEEDED
-          - FAILED
-          type: string
-          default: SUCCEEDED
-          description: 'Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).
-
-
-            * `PENDING` - Pending
-
-            * `SUCCEEDED` - Succeeded
-
-            * `FAILED` - Failed'
-        external_reference:
-          type: string
-          minLength: 1
-          default: ''
-          description: Id that represents this record in the target system
-        external_status:
-          type: string
-          minLength: 1
-          default: ''
-          description: Status of the record in the target system
-        external_message:
-          type: string
-          minLength: 1
-          default: ''
-          description: E.g. error message
-    AssignUserRequest:
-      type: object
-      properties:
-        user:
-          type: string
-          minLength: 1
-          description: Email address or id of a user.
-      required:
-      - user
-    PatchedMetaRequest:
-      type: object
-      properties:
-        sender:
-          type: string
-          minLength: 1
-          default: ''
-          description: Sender of the document (e.g. sender of the original email)
-        subject:
-          type: string
-          minLength: 1
-          default: ''
-          description: Subject of the document (e.g. subject of the original email)
-    OrderConfirmation:
-      type: object
-      properties:
-        supplier:
-          allOf:
-          - $ref: '#/components/schemas/Customer'
-        delivery_address:
-          allOf:
-          - $ref: '#/components/schemas/Address'
-        delivery_date:
-          type:
-          - string
-          - 'null'
-        order_confirmation_date:
-          type:
-          - string
-          - 'null'
-        order_date:
-          type:
-          - string
-          - 'null'
-        order_confirmation_number:
-          type:
-          - string
-          - 'null'
-        document_type:
-          type:
-          - string
-          - 'null'
-        order_number:
-          type:
-          - string
-          - 'null'
-        total_amount:
-          type:
-          - string
-          - 'null'
-        total_amount_net:
-          type:
-          - string
-          - 'null'
-        info_text:
-          type:
-          - string
-          - 'null'
-        commission_number:
-          type:
-          - string
-          - 'null'
-        line_items:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/OrderConfirmationLineItem'
     OrderConfirmationProcessingRecord:
       type: object
       properties:
@@ -841,6 +610,204 @@ components:
       - status
       - updated_at
       - workbench_url
+    AssignUserRequest:
+      type: object
+      properties:
+        user:
+          type: string
+          minLength: 1
+          description: Email address or id of a user.
+      required:
+      - user
+    OrderConfirmation:
+      type: object
+      properties:
+        supplier:
+          allOf:
+          - $ref: '#/components/schemas/Customer'
+        delivery_address:
+          allOf:
+          - $ref: '#/components/schemas/Address'
+        delivery_date:
+          type:
+          - string
+          - 'null'
+        order_confirmation_date:
+          type:
+          - string
+          - 'null'
+        order_date:
+          type:
+          - string
+          - 'null'
+        order_confirmation_number:
+          type:
+          - string
+          - 'null'
+        document_type:
+          type:
+          - string
+          - 'null'
+        order_number:
+          type:
+          - string
+          - 'null'
+        total_amount:
+          type:
+          - string
+          - 'null'
+        total_amount_net:
+          type:
+          - string
+          - 'null'
+        info_text:
+          type:
+          - string
+          - 'null'
+        commission_number:
+          type:
+          - string
+          - 'null'
+        line_items:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/OrderConfirmationLineItem'
+    Address:
+      type: object
+      properties:
+        number:
+          type:
+          - string
+          - 'null'
+        number2:
+          type:
+          - string
+          - 'null'
+        number3:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        misc:
+          type:
+          - string
+          - 'null'
+        company_name:
+          type:
+          - string
+          - 'null'
+        company_name2:
+          type:
+          - string
+          - 'null'
+        company_name3:
+          type:
+          - string
+          - 'null'
+        company_name4:
+          type:
+          - string
+          - 'null'
+        street_and_nr:
+          type:
+          - string
+          - 'null'
+        street_name:
+          type:
+          - string
+          - 'null'
+        street_number:
+          type:
+          - string
+          - 'null'
+        postal_code:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        country_subdivision:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        phone:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+    CreateDocumentRequest:
+      type: object
+      properties:
+        channel:
+          type: string
+          format: uuid
+          description: Id of a processing channel
+        file:
+          type: string
+          format: binary
+          description: File to be processed
+        user:
+          type: string
+          minLength: 1
+          description: Email address or id of a user.
+      required:
+      - channel
+      - file
+    PaginatedOrderConfirmationProcessingRecordList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderConfirmationProcessingRecord'
+        total_count:
+          type: integer
+          example: 123
+    User:
+      type: object
+      properties:
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+      required:
+      - email
     Customer:
       type: object
       properties:
@@ -884,6 +851,39 @@ components:
           type:
           - string
           - 'null'
+    MarkImportedRequest:
+      type: object
+      properties:
+        status:
+          enum:
+          - PENDING
+          - SUCCEEDED
+          - FAILED
+          type: string
+          default: SUCCEEDED
+          description: 'Default is `SUCCEEDED`. If once marked as `SUCCEEDED` it cannot be changed anymore. If marked as `FAILED` the record will be displayed in the `open` tab and a user needs to take action again (either reopen for assistance to resolve the issue or deleting/discarding the record).
+
+
+            * `PENDING` - Pending
+
+            * `SUCCEEDED` - Succeeded
+
+            * `FAILED` - Failed'
+        external_reference:
+          type: string
+          minLength: 1
+          default: ''
+          description: Id that represents this record in the target system
+        external_status:
+          type: string
+          minLength: 1
+          default: ''
+          description: Status of the record in the target system
+        external_message:
+          type: string
+          minLength: 1
+          default: ''
+          description: E.g. error message
   securitySchemes:
     BearerAuthentication:
       type: http
