@@ -198,6 +198,9 @@ apis:
   - type: GettingStarted
     url: https://docs.workist.com/en/docs/api-documentation/quickstart/
 common:
+- type: CapabilityMap
+  url: capabilities/workist-capability-edges.yml
+  name: Workist Business Capability Map
 - type: AgenticAccess
   url: agentic-access/workist-agentic-access.yml
 - type: DomainSecurity

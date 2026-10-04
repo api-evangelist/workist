@@ -1,0 +1,36 @@
+slug: workist
+provider: Workist
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Master Data
+  spec_file: workist-master-data-api-openapi.yml
+  capability_id: BC-610.20
+  capability_id_l1: BC-610
+  capability_name: Master Data Management
+  confidence: 0.85
+  evidence: POST /master-data/articles/imports  "Create a new master data import"; schemas AddressMasterData,
+    ArticleMasterData, ContactMasterData, ClientMasterDataImportRequest
+  reason: Operations ingest and run import batches of customer, contact, address, article and contract
+    master data used for validation — master data management for core business entities.
+- tag: Invoices
+  spec_file: workist-invoices-api-openapi.yml
+  capability_id: BC-200.20
+  capability_id_l1: BC-200
+  capability_name: Accounts Payable Management
+  confidence: 0.7
+  evidence: GET /invoices ... schemas Invoice, InvoiceLineItem, InvoiceProcessingRecord; "Mark a processing
+    record of this document type as imported"
+  reason: Automated extraction and ERP import of inbound invoice documents is invoice processing, the
+    core of accounts payable operations. Moderate confidence as the spec does not explicitly state payable
+    vs receivable direction.
