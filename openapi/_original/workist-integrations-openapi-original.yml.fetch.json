@@ -1,0 +1,12 @@
+{
+ "url": "https://api.workist.com/v1/swagger.json",
+ "requested_url": "https://api.workist.com/v1/swagger.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 365479,
+ "sha256": "b1e5a159df203db600c6fd887b43ebdd51adb237d77a8b77ea5703b1b2221f5f",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
