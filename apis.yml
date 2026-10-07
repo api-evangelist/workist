@@ -198,6 +198,8 @@ apis:
   - type: GettingStarted
     url: https://docs.workist.com/en/docs/api-documentation/quickstart/
 common:
+- type: Plans
+  url: plans/workist-plans-pricing.yml
 - type: CapabilityMap
   url: capabilities/workist-capability-edges.yml
   name: Workist Business Capability Map
