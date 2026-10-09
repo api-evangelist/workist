@@ -1,0 +1,102 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-07'
+method: searched
+source: https://www.workist.com/en/pricing
+sources:
+- https://www.workist.com/en/pricing
+provenance:
+  tool: all/0-working/economics/harvest_pricing.py
+  run: 20261007T104522
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: negotiated
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-07'
+  managed_tier: Core
+published: false
+note: No numeric price is published on the pricing page; Package tiers listed with document/user/team
+  allowances but no numeric prices; page states annual SaaS subscription with 12-month minimum term. Document
+  counts are quotas, not prices.
+plan_count: 6
+plans:
+- name: Core
+  price_text: Book a meeting
+  period: none
+  included_quota: Incl. 10,000 documents/year, 3 Users, 1 Team, Orders
+  overage: Up to 50,000 documents
+- name: Professional
+  price_text: Book a meeting
+  period: none
+  included_quota: Incl. 20,000 documents/year, 5 Users, 3 Teams, Inquiries + Orders
+  overage: Up to 200,000 documents
+- name: Enterprise
+  price_text: Book a meeting
+  period: none
+  included_quota: Individual
+  overage: Individual
+- name: Core (order confirmations + invoices + delivery notes)
+  price_text: Contact sales
+  period: none
+  included_quota: Incl. 5,000 documents/year, 3 Users, 1 Team
+  overage: Up to 50,000 documents
+- name: Professional (order confirmations + invoices + delivery notes)
+  price_text: Contact sales
+  period: none
+  included_quota: Incl. 15,000 documents/year, 5 Users, 3 Teams
+  overage: Up to 200,000 documents
+- name: Enterprise (order confirmations + invoices + delivery notes)
+  price_text: Contact sales
+  period: none
+  included_quota: Individual
+  overage: Individual
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  units: []
+  plans:
+  - name: Core
+    access: other
+    model: metered
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Professional
+    access: other
+    model: metered
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Enterprise
+    access: other
+    model: metered
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Core (order confirmations + invoices + delivery notes)
+    access: other
+    model: metered
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Professional (order confirmations + invoices + delivery notes)
+    access: other
+    model: metered
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Enterprise (order confirmations + invoices + delivery notes)
+    access: other
+    model: metered
+    model_how: derived
+    units: []
+    periods:
+    - none
