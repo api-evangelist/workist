@@ -362,52 +362,6 @@ paths:
           description: Something went wrong on Workist's end.
 components:
   schemas:
-    PatchedMetaRequest:
-      type: object
-      properties:
-        sender:
-          type: string
-          minLength: 1
-          default: ''
-          description: Sender of the document (e.g. sender of the original email)
-        subject:
-          type: string
-          minLength: 1
-          default: ''
-          description: Subject of the document (e.g. subject of the original email)
-    ChangeableMarkImportedRequest:
-      type: object
-      properties:
-        status:
-          enum:
-          - PENDING
-          - SUCCEEDED
-          - FAILED
-          type: string
-          default: SUCCEEDED
-          description: 'Default is `SUCCEEDED`.
-
-
-            * `PENDING` - Pending
-
-            * `SUCCEEDED` - Succeeded
-
-            * `FAILED` - Failed'
-        external_reference:
-          type: string
-          minLength: 1
-          default: ''
-          description: Id that represents this record in the target system
-        external_status:
-          type: string
-          minLength: 1
-          default: ''
-          description: Status of the record in the target system
-        external_message:
-          type: string
-          minLength: 1
-          default: ''
-          description: E.g. error message
     AssignUserRequest:
       type: object
       properties:
@@ -570,6 +524,22 @@ components:
         total_count:
           type: integer
           example: 123
+    User:
+      type: object
+      properties:
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+      required:
+      - email
     CreateDocumentRequest:
       type: object
       properties:
@@ -588,22 +558,52 @@ components:
       required:
       - channel
       - file
-    User:
+    ChangeableMarkImportedRequest:
       type: object
       properties:
-        first_name:
+        status:
+          enum:
+          - PENDING
+          - SUCCEEDED
+          - FAILED
           type: string
-          maxLength: 150
-        last_name:
+          default: SUCCEEDED
+          description: 'Default is `SUCCEEDED`.
+
+
+            * `PENDING` - Pending
+
+            * `SUCCEEDED` - Succeeded
+
+            * `FAILED` - Failed'
+        external_reference:
           type: string
-          maxLength: 150
-        email:
+          minLength: 1
+          default: ''
+          description: Id that represents this record in the target system
+        external_status:
           type: string
-          format: email
-          title: Email address
-          maxLength: 254
-      required:
-      - email
+          minLength: 1
+          default: ''
+          description: Status of the record in the target system
+        external_message:
+          type: string
+          minLength: 1
+          default: ''
+          description: E.g. error message
+    PatchedMetaRequest:
+      type: object
+      properties:
+        sender:
+          type: string
+          minLength: 1
+          default: ''
+          description: Sender of the document (e.g. sender of the original email)
+        subject:
+          type: string
+          minLength: 1
+          default: ''
+          description: Subject of the document (e.g. subject of the original email)
   securitySchemes:
     BearerAuthentication:
       type: http
